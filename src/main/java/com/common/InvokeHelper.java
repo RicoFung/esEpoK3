@@ -15,19 +15,20 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.api.entity.singlesave.FBillTypeID;
-import com.api.entity.singlesave.FCustomerID;
-import com.api.entity.singlesave.FEntity;
-import com.api.entity.singlesave.FOutStockTrace;
-import com.api.entity.singlesave.FOwnerID;
-import com.api.entity.singlesave.FSaleOrgId;
-import com.api.entity.singlesave.FSettleCurrID;
-import com.api.entity.singlesave.FSettleOrgID;
-import com.api.entity.singlesave.FStockOrgId;
-import com.api.entity.singlesave.FUnitID;
-import com.api.entity.singlesave.K3ApiSave;
-import com.api.entity.singlesave.Model;
-import com.api.entity.singlesave.SubHeadEntity;
+import com.api.entity.k3.FBillTypeID;
+import com.api.entity.k3.FCustomerID;
+import com.api.entity.k3.FEntity;
+import com.api.entity.k3.FOutStockTrace;
+import com.api.entity.k3.FOwnerID;
+import com.api.entity.k3.FSaleOrgId;
+import com.api.entity.k3.FSettleCurrID;
+import com.api.entity.k3.FSettleOrgID;
+import com.api.entity.k3.FStockOrgId;
+import com.api.entity.k3.FUnitID;
+import com.api.entity.k3.ApiBatchSave;
+import com.api.entity.k3.ApiSave;
+import com.api.entity.k3.Model;
+import com.api.entity.k3.SubHeadEntity;
 
 public class InvokeHelper
 {
@@ -41,6 +42,8 @@ public class InvokeHelper
 	static
 	{
 		map.put("Save", "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.Save.common.kdsvc");
+		
+		map.put("BatchSave", "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.BatchSave.common.kdsvc");
 
 		map.put("View", "Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.View.common.kdsvc");
 
@@ -278,62 +281,10 @@ public class InvokeHelper
 			
 			String sFormId = "SAL_OUTSTOCK";// 保存
 			String sContent = "";
-			K3ApiSave root = new K3ApiSave();
-			root.setCreator("test");
-			for(int i=0; i<1; i++)
-			{
-				// 表頭
-				Model model = new Model();
-				FOutStockTrace fOutStockTrace = new FOutStockTrace();
-				fOutStockTrace.setFCarryBillNo("FCarryBillNo_"+i);
-				List<FOutStockTrace> fOutStockTraces = new ArrayList<FOutStockTrace>();
-				fOutStockTraces.add(fOutStockTrace);
-				
-				FBillTypeID fBillTypeID = new FBillTypeID();
-				fBillTypeID.setFNumber("fBillTypeID_"+i);
-				FSaleOrgId fSaleOrgId = new FSaleOrgId();
-				fSaleOrgId.setFNumber("fSaleOrgId_"+i);
-				FStockOrgId fStockOrgId = new FStockOrgId();
-				fStockOrgId.setFNumber("fStockOrgId_"+i);
-				FCustomerID fCustomerID = new FCustomerID();
-				fCustomerID.setFNumber("fCustomerID_"+i);
-				
-				FSettleOrgID fSettleOrgID = new FSettleOrgID();
-				fSettleOrgID.setFNumber("fSettleOrgID_"+i);
-				FSettleCurrID fSettleCurrID = new FSettleCurrID();
-				fSettleCurrID.setFNumber("fSettleCurrID_"+i);
-				SubHeadEntity subHeadEntity = new SubHeadEntity();
-				subHeadEntity.setFSettleOrgID(fSettleOrgID);
-				subHeadEntity.setFSettleCurrID(fSettleCurrID);
-				
-				model.setFOutStockTrace(fOutStockTraces);
-				model.setFBillTypeID(fBillTypeID);
-				model.setFSaleOrgId(fSaleOrgId);
-				model.setFStockOrgId(fStockOrgId);
-				model.setFCustomerID(fCustomerID);
-				model.setSubHeadEntity(subHeadEntity);
-				model.setFDate(new Date());
-				// 表明細
-				List<FEntity> fEntitys = new ArrayList<FEntity>();
-				for(int j=0; j<10; j++)
-				{
-					FUnitID fUnitID = new FUnitID();
-					fUnitID.setFNumber("fUnitID_"+j);
-					FOwnerID fOwnerID = new FOwnerID();
-					fOwnerID.setFNumber("fOwnerID_"+j);
-					FEntity fEntity = new FEntity();
-					fEntity.setFUnitID(fUnitID);
-					fEntity.setFOwnerID(fOwnerID);
-					fEntitys.add(fEntity);
-				}
-				//
-				model.setFEntity(fEntitys);
-				root.setModel(model);
-			}
-			sContent = com.alibaba.fastjson.JSONArray.toJSONString(root, new com.alibaba.fastjson.serializer.PascalNameFilter());
-			System.out.println(sContent);
-			InvokeHelper.Save(sFormId, sContent);
+			Test.save(sFormId, sContent);
+//			Test.batchSave(sFormId, sContent);
 
 		}
 	}
+	
 }
