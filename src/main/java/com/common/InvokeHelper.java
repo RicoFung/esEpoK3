@@ -12,11 +12,14 @@ import java.util.UUID;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.api.service.sal.OutStockService;
 
 public class InvokeHelper
 {
+	static Logger log = LoggerFactory.getLogger(InvokeHelper.class);
 	// TODO Auto-generated method stub
 	// K3 Cloud WebSite URL Example "http://192.168.19.113/K3Cloud/"
 
@@ -105,19 +108,19 @@ public class InvokeHelper
 		}
 		BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 		String line;
-		System.out.println(" ============================= ");
-		System.out.println(" Contents of post request ");
-		System.out.println(" ============================= ");
+		if(log.isInfoEnabled()) log.info(" ============================= ");
+		if(log.isInfoEnabled()) log.info(" Contents of post request ");
+		if(log.isInfoEnabled()) log.info(" ============================= ");
 		while ((line = reader.readLine()) != null)
 		{
 			String sResult = new String(line.getBytes(), "utf-8");
-			System.out.println(sResult);
+			if(log.isInfoEnabled()) log.info(sResult);
 			bResult = line.contains("\"LoginResultType\":1");
 
 		}
-		System.out.println(" ============================= ");
-		System.out.println(" Contents of post request ends ");
-		System.out.println(" ============================= ");
+		if(log.isInfoEnabled()) log.info(" ============================= ");
+		if(log.isInfoEnabled()) log.info(" Contents of post request ends ");
+		if(log.isInfoEnabled()) log.info(" ============================= ");
 		reader.close();
 		connection.disconnect();
 		return bResult;
@@ -159,17 +162,20 @@ public class InvokeHelper
 		HttpURLConnection connectionInvoke = initUrlConn(sUrl, jParas);
 		BufferedReader reader = new BufferedReader(new InputStreamReader(connectionInvoke.getInputStream()));
 		String line;
-		System.out.println(" ============================= ");
-		System.out.println(" Contents of post request ");
-		System.out.println(" ============================= ");
+		if(log.isInfoEnabled()) log.info(" ============================= ");
+		if(log.isInfoEnabled()) log.info(" Contents of post request ");
+		if(log.isInfoEnabled()) log.info(" ============================= ");
+		if(log.isInfoEnabled()) log.info(formId);
+		if(log.isInfoEnabled()) log.info(sUrl);
+		if(log.isInfoEnabled()) log.info(">>> " + content);
 		while ((line = reader.readLine()) != null)
 		{
 			sResult = new String(line.getBytes(), "utf-8");
-			System.out.println(sResult);
+			if(log.isInfoEnabled()) log.info("<<< " + sResult);
 		}
-		System.out.println(" ============================= ");
-		System.out.println(" Contents of post request ends ");
-		System.out.println(" ============================= ");
+		if(log.isInfoEnabled()) log.info(" ============================= ");
+		if(log.isInfoEnabled()) log.info(" Contents of post request ends ");
+		if(log.isInfoEnabled()) log.info(" ============================= ");
 		reader.close();
 		connectionInvoke.disconnect();
 
@@ -211,17 +217,20 @@ public class InvokeHelper
 		HttpURLConnection connectionInvoke = initUrlConn(sUrl, jParas);
 		BufferedReader reader = new BufferedReader(new InputStreamReader(connectionInvoke.getInputStream()));
 		String line;
-		System.out.println(" ============================= ");
-		System.out.println(" Contents of post request ");
-		System.out.println(" ============================= ");
+		if(log.isInfoEnabled()) log.info(" ============================= ");
+		if(log.isInfoEnabled()) log.info(" Contents of post request ");
+		if(log.isInfoEnabled()) log.info(" ============================= ");
+		if(log.isInfoEnabled()) log.info(formId);
+		if(log.isInfoEnabled()) log.info(sUrl);
+		if(log.isInfoEnabled()) log.info(">>> " + content);
 		while ((line = reader.readLine()) != null)
 		{
 			String sResult = new String(line.getBytes(), "utf-8");
-			System.out.println(sResult);
+			if(log.isInfoEnabled()) log.info("<<< " + sResult);
 		}
-		System.out.println(" ============================= ");
-		System.out.println(" Contents of post request ends ");
-		System.out.println(" ============================= ");
+		if(log.isInfoEnabled()) log.info(" ============================= ");
+		if(log.isInfoEnabled()) log.info(" Contents of post request ends ");
+		if(log.isInfoEnabled()) log.info(" ============================= ");
 		reader.close();
 		connectionInvoke.disconnect();
 	}

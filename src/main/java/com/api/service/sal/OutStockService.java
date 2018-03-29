@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.api.entity.json.sal.outstock.ApiSave;
 import com.api.entity.json.sal.outstock.FBillTypeID;
 import com.api.entity.json.sal.outstock.FCustomerID;
@@ -28,31 +30,17 @@ public class OutStockService
 {
 	static Logger log = LoggerFactory.getLogger(OutStockService.class);
 	
+	private JSONObject oResult;
+	private Boolean oResultIsSuccess;
+	private Integer oResultId;
+	private String oResultNumber;
+	private String oResultErrors;
+	
 	public void save() throws Exception
 	{
 		ApiSave root = new ApiSave();
 		// 根节点
 		root.setCreator("test");
-		// 表头
-		//-------------------- Model Begin --------------------//
-		Model model = new Model();
-		model.setFDocumentStatus("C");
-		// 单据类型
-		FBillTypeID fBillTypeID = new FBillTypeID();
-		fBillTypeID.setFNumber("XSCKD01_SYS");
-		model.setFBillTypeID(fBillTypeID);
-		// 销售组织
-		FSaleOrgId fSaleOrgId = new FSaleOrgId();
-		fSaleOrgId.setFNumber("100");
-		model.setFSaleOrgId(fSaleOrgId);
-		// 客户
-		FCustomerID fCustomerID = new FCustomerID();
-		fCustomerID.setFNumber("A001");
-		model.setFCustomerID(fCustomerID);
-		// 库存组织
-		FStockOrgId fStockOrgId = new FStockOrgId();
-		fStockOrgId.setFNumber("100");
-		model.setFStockOrgId(fStockOrgId);
 		
 		//-------------------- Model-SubHeadEntity Begin --------------------//
 		SubHeadEntity subHeadEntity = new SubHeadEntity();
@@ -64,8 +52,6 @@ public class OutStockService
 		FSettleOrgID fSettleOrgID = new FSettleOrgID();
 		fSettleOrgID.setFNumber("100");
 		subHeadEntity.setFSettleOrgID(fSettleOrgID);
-		// set to SubHeadEntity
-		model.setSubHeadEntity(subHeadEntity);
 		//-------------------- Model-SubHeadEntity End --------------------//
 		
 		// 表明細
@@ -95,15 +81,52 @@ public class OutStockService
 			// add to list
 			fEntityList.add(fEntity);
 		}
+		//-------------------- Model-FEntity End --------------------//
+		
+		// 表头
+		//-------------------- Model Begin --------------------//
+		Model model = new Model();
+		// 单据类型
+		FBillTypeID fBillTypeID = new FBillTypeID();
+		fBillTypeID.setFNumber("XSCKD01_SYS");
+		model.setFBillTypeID(fBillTypeID);
+		// 销售组织
+		FSaleOrgId fSaleOrgId = new FSaleOrgId();
+		fSaleOrgId.setFNumber("100");
+		model.setFSaleOrgId(fSaleOrgId);
+		// 客户
+		FCustomerID fCustomerID = new FCustomerID();
+		fCustomerID.setFNumber("A001");
+		model.setFCustomerID(fCustomerID);
+		// 库存组织
+		FStockOrgId fStockOrgId = new FStockOrgId();
+		fStockOrgId.setFNumber("100");
+		model.setFStockOrgId(fStockOrgId);
+		// set to SubHeadEntity
+		model.setSubHeadEntity(subHeadEntity);
 		// set to FEntity
 		model.setFEntity(fEntityList);
-		//-------------------- Model-FEntity End --------------------//
 		// set to Model
 		root.setModel(model);
 		//-------------------- Model End --------------------//
 		
+		// Api Call
 		String sContent = com.alibaba.fastjson.JSONArray.toJSONString(root, new com.alibaba.fastjson.serializer.PascalNameFilter());
-		if(log.isInfoEnabled()) log.info("销售出库单 SAVE >>> " + sContent);
-		InvokeHelper.Save("SAL_OUTSTOCK", sContent);
+		String sResult = InvokeHelper.Save("SAL_OUTSTOCK", sContent);
+		
+		// Api Result
+		oResult = JSON.parseObject(sResult).getJSONObject("Result");
+		oResultIsSuccess = oResult.getJSONObject("ResponseStatus").getBoolean("IsSuccess");
+		if (oResultIsSuccess)
+		{
+			oResultId = oResult.getInteger("Id");
+			oResultNumber = oResult.getString("Number");
+			// update 中间库单据状态
+		}
+		else
+		{
+			oResultErrors = oResult.getJSONObject("ResponseStatus").getJSONArray("Errors").toString();
+			// update 中间库单据状态和错误信息
+		}
 	}
 }

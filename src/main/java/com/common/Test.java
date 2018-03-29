@@ -30,25 +30,6 @@ public class Test
 		ApiSave root = new ApiSave();
 		// 根节点
 		root.setCreator("test");
-		// 表头
-		//-------------------- Model Begin --------------------//
-		Model model = new Model();
-		// 单据类型
-		FBillTypeID fBillTypeID = new FBillTypeID();
-		fBillTypeID.setFNumber("XSCKD01_SYS");
-		model.setFBillTypeID(fBillTypeID);
-		// 销售组织
-		FSaleOrgId fSaleOrgId = new FSaleOrgId();
-		fSaleOrgId.setFNumber("100");
-		model.setFSaleOrgId(fSaleOrgId);
-		// 客户
-		FCustomerID fCustomerID = new FCustomerID();
-		fCustomerID.setFNumber("A001");
-		model.setFCustomerID(fCustomerID);
-		// 库存组织
-		FStockOrgId fStockOrgId = new FStockOrgId();
-		fStockOrgId.setFNumber("100");
-		model.setFStockOrgId(fStockOrgId);
 		
 		//-------------------- Model-SubHeadEntity Begin --------------------//
 		SubHeadEntity subHeadEntity = new SubHeadEntity();
@@ -60,8 +41,6 @@ public class Test
 		FSettleOrgID fSettleOrgID = new FSettleOrgID();
 		fSettleOrgID.setFNumber("100");
 		subHeadEntity.setFSettleOrgID(fSettleOrgID);
-		// set to SubHeadEntity
-		model.setSubHeadEntity(subHeadEntity);
 		//-------------------- Model-SubHeadEntity End --------------------//
 		
 		// 表明細
@@ -91,13 +70,35 @@ public class Test
 			// add to list
 			fEntityList.add(fEntity);
 		}
+		//-------------------- Model-FEntity End --------------------//
+		
+		// 表头
+		//-------------------- Model Begin --------------------//
+		Model model = new Model();
+		// 单据类型
+		FBillTypeID fBillTypeID = new FBillTypeID();
+		fBillTypeID.setFNumber("XSCKD01_SYS");
+		model.setFBillTypeID(fBillTypeID);
+		// 销售组织
+		FSaleOrgId fSaleOrgId = new FSaleOrgId();
+		fSaleOrgId.setFNumber("100");
+		model.setFSaleOrgId(fSaleOrgId);
+		// 客户
+		FCustomerID fCustomerID = new FCustomerID();
+		fCustomerID.setFNumber("A001");
+		model.setFCustomerID(fCustomerID);
+		// 库存组织
+		FStockOrgId fStockOrgId = new FStockOrgId();
+		fStockOrgId.setFNumber("100");
+		model.setFStockOrgId(fStockOrgId);
+		// set to SubHeadEntity
+		model.setSubHeadEntity(subHeadEntity);
 		// set to FEntity
 		model.setFEntity(fEntityList);
-		//-------------------- Model-FEntity End --------------------//
 		// set to Model
 		root.setModel(model);
 		//-------------------- Model End --------------------//
-		
+		// 转换JSON字符串并调用接口
 		sContent = com.alibaba.fastjson.JSONArray.toJSONString(root, new com.alibaba.fastjson.serializer.PascalNameFilter());
 		System.out.println(sContent);
 		InvokeHelper.Save(sFormId, sContent);
