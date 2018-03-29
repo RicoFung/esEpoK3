@@ -1,4 +1,4 @@
-package com.api.entity.json.sal.outstock;
+package com.api.entity.json.sal.returnstock;
 
 import java.util.List;
 

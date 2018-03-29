@@ -1,16 +1,11 @@
-/**
-  * Copyright 2018 bejson.com 
-  */
 package com.api.entity.json.sal.outstock;
 
-import java.util.Date;
 import java.util.List;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
 public class Model
 {
-
 	@JSONField(ordinal=1)
 	private String FID;
 	@JSONField(ordinal=2)

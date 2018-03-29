@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.api.service.sal.OutStockService;
+import com.api.service.sal.ReturnStockService;
 
 public class InvokeHelper
 {
@@ -277,8 +278,10 @@ public class InvokeHelper
 //			String sContent = "";
 //			Test.save(sFormId, sContent);
 			
-			OutStockService outStockService = new OutStockService();
-			outStockService.save();
+//			OutStockService outStockService = new OutStockService();
+//			outStockService.save();
+			ReturnStockService returnStockService = new ReturnStockService();
+			returnStockService.save();
 
 		}
 	}
