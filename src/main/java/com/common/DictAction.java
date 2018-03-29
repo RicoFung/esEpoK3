@@ -14,20 +14,5 @@ import chok.devwork.BaseController;
 @RequestMapping("/dict")
 public class DictAction extends BaseController<Object>
 {
-	@RequestMapping("/queryTmppSyncFashionpos0a")
-	public void queryTmppSyncFashionpos0a()
-	{
-		List<Object> list = Dict.queryTmppSyncFashionpos0a(req.getParameterValueMap(false, true));
-		printJson(list);
-	}
-
-	@RequestMapping("/queryTmppSyncFashionpos0aPage")
-	public void queryTmppSyncFashionpos0aPage()
-	{
-		Map<String, Object> m = req.getParameterValueMap(false, true);
-		result.put("total", Factory.getTmppSyncFashionpos0aService().getCount(m));
-		result.put("rows", Factory.getTmppSyncFashionpos0aService().query(req.getDynamicSortParameterValueMap(m)));
-		printJson(result.getData());
-	}
 
 }

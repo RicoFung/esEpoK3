@@ -5,30 +5,15 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.api.entity.k3.FBillTypeID;
-import com.api.entity.k3.FCustomerID;
-import com.api.entity.k3.FEntity;
-import com.api.entity.k3.FOutStockTrace;
-import com.api.entity.k3.FOwnerID;
-import com.api.entity.k3.FSaleOrgId;
-import com.api.entity.k3.FSettleCurrID;
-import com.api.entity.k3.FSettleOrgID;
-import com.api.entity.k3.FStockOrgId;
-import com.api.entity.k3.FUnitID;
-import com.api.entity.k3.ApiBatchSave;
-import com.api.entity.k3.ApiSave;
-import com.api.entity.k3.Model;
-import com.api.entity.k3.SubHeadEntity;
+import com.api.service.sal.OutStockService;
 
 public class InvokeHelper
 {
@@ -279,10 +264,12 @@ public class InvokeHelper
 //			String sContent = "{\"CreateOrgId\":\"0\",\"Number\":\"001110\",\"Id\":\"\"}";
 //			InvokeHelper.View(sFormId, sContent);
 			
-			String sFormId = "SAL_OUTSTOCK";// 保存
-			String sContent = "";
-			Test.save(sFormId, sContent);
-//			Test.batchSave(sFormId, sContent);
+//			String sFormId = "SAL_OUTSTOCK";// 保存
+//			String sContent = "";
+//			Test.save(sFormId, sContent);
+			
+			OutStockService outStockService = new OutStockService();
+			outStockService.save();
 
 		}
 	}

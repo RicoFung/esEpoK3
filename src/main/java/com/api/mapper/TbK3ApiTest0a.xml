@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">   
+
+
+<mapper namespace="com.api.entity.TbK3ApiTest0a">
+      <!-- 自动生成id策略 -->
+    <insert id="add" parameterType="com.api.entity.TbK3ApiTest0a">  
+       	INSERT INTO TB_K3_API_TEST_0A 
+       	( TC_ROWID, TC_JSON) 
+       	VALUES
+       	( #{tcRowid}, #{tcJson})
+    </insert>  
+	
+	<delete id="del" parameterType="com.api.entity.TbK3ApiTest0a">
+		DELETE FROM TB_K3_API_TEST_0A 
+		 WHERE TC_ROWID = #{tcRowid}  
+	</delete>
+	
+	<update id="upd" parameterType="com.api.entity.TbK3ApiTest0a">
+		UPDATE TB_K3_API_TEST_0A SET
+	           TC_JSON = #{tcJson} 
+         WHERE TC_ROWID = #{tcRowid}  
+	</update>
+  	
+	<resultMap type="com.api.entity.TbK3ApiTest0a" id="result">
+        <result property="tcRowid" column="TC_ROWID"/>
+        <result property="tcJson" column="TC_JSON" javaType = "java.lang.String"  jdbcType="CLOB" typeHandler="org.apache.ibatis.type.ClobTypeHandler"/>
+	</resultMap>
+  	
+	<sql id="columns">
+		t.TC_ROWID, t.TC_JSON 
+	</sql>
+	
+	<sql id="order">
+		<choose>
+			<when test="@chok.devwork.Ognl@isNotEmpty(sort)">
+				ORDER BY tt.<include refid="orderParse1"/> ${order}
+			</when>
+			<when test="@chok.devwork.Ognl@isNotEmpty(multiSort) and @chok.devwork.Ognl@isEmpty(sort)">
+				ORDER BY <foreach collection="multiSort" index="index" item="item" separator=",">tt.<include refid="orderParse2" /> ${item.sortOrder}</foreach>  
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</sql>
+	<sql id="orderParse1">
+		<if test="sort == 'tcRowid'">TC_ROWID</if>
+		<if test="sort == 'tcJson'">TC_JSON</if>
+	</sql>
+	<sql id="orderParse2">
+		<if test="item.sortName == 'tcRowid'">TC_ROWID</if>
+		<if test="item.sortName == 'tcJson'">TC_JSON</if>
+	</sql>
+	
+	<sql id="dynamicWhere">
+		<where>	      				
+	       <if test="@chok.devwork.Ognl@isNotEmpty(tcJson)"> AND t.TC_JSON LIKE CONCAT('%',#{tcJson},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(search)"> AND (t.TC_JSON LIKE CONCAT('%',#{search},'%'))</if>	
+		</where>
+	</sql>	
+	
+	<select id="get" resultMap="result">
+		SELECT <include refid="columns"/> 
+		  FROM TB_K3_API_TEST_0A t 
+		 WHERE TC_ROWID = #{tcRowid}  	  
+	</select>
+	
+	<select id="query" resultType="list" resultMap="result">
+		<choose>
+			<!-- 翻页 -->
+			<when test="@chok.devwork.Ognl@isNotEmpty(offset) and @chok.devwork.Ognl@isNotEmpty(limit)">
+				SELECT * FROM (SELECT row_.*, ROWNUM rownum_ FROM(
+					SELECT tt.* FROM 
+					(
+						SELECT <include refid="columns"/> FROM TB_K3_API_TEST_0A t
+						<include refid="dynamicWhere" />
+					) tt
+					<include refid="order" />
+	            ) row_ WHERE rownum &lt;= #{offset,javaType=String,jdbcType=NUMERIC}+#{limit,javaType=String,jdbcType=NUMERIC} ) 
+	            WHERE rownum_ &gt; #{offset,javaType=String,jdbcType=NUMERIC}
+			</when>
+			<!-- 非翻页 -->
+			<otherwise>
+				SELECT tt.* FROM 
+				(
+					SELECT <include refid="columns"/> FROM TB_K3_API_TEST_0A t
+					<include refid="dynamicWhere" />
+				) tt
+				<include refid="order" />
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="getCount" resultType="int">
+		SELECT COUNT(1) FROM TB_K3_API_TEST_0A t
+		<include refid="dynamicWhere" />
+	</select>
+</mapper>  

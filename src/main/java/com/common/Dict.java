@@ -12,23 +12,6 @@ import chok.devwork.springboot.BaseService;
 public class Dict 
 {
 	/**
-	 * 获取TmppSyncFashionpos0a集合
-	 * @param params
-	 * @return List<Object>
-	 */
-	public static List<Object> queryTmppSyncFashionpos0a(Map<String, Object> params)
-	{
-		return queryTmppSyncFashionpos0a(params, null);
-	}
-	public static List<Object> queryTmppSyncFashionpos0a(Map<String, Object> params, String type)
-	{
-		if("json".equals(type))
-			return getJsons(params, Factory.getTmppSyncFashionpos0aService());
-		else
-			return getList(params, Factory.getTmppSyncFashionpos0aService());
-	}
-	
-	/**
 	 * 获取集合(通用)
 	 * @param params
 	 * @param service

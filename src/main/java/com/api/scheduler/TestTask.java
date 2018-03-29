@@ -1,10 +1,6 @@
 package com.api.scheduler;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
-import com.api.service.TmppSyncFashionpos0aService;
 
 @Component
 public class TestTask
