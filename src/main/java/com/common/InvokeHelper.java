@@ -15,7 +15,7 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.api.service.sal.OutStockService;
+import com.api.service.sal.OrderService;
 import com.api.service.sal.ReturnStockService;
 
 public class InvokeHelper
@@ -280,8 +280,10 @@ public class InvokeHelper
 			
 //			OutStockService outStockService = new OutStockService();
 //			outStockService.save();
-			ReturnStockService returnStockService = new ReturnStockService();
-			returnStockService.save();
+//			ReturnStockService returnStockService = new ReturnStockService();
+//			returnStockService.save();
+			OrderService orderService = new OrderService();
+			orderService.save();
 
 		}
 	}
