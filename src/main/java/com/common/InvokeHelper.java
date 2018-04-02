@@ -15,7 +15,7 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.api.service.stk.MiscellaneousService;
+import com.api.service.stk.MisdeliveryService;
 
 public class InvokeHelper
 {
@@ -265,26 +265,21 @@ public class InvokeHelper
 
 		if (InvokeHelper.Login("5aa628adc9fabb", "Administrator", "888888", 2052)) // 正式帐套ID: 56de443c350f9f
 		{// 登录成功
-			// String sFormId = "PUR_Requisition";//采购申请单查看
-			// String sContent =
-			// "{\"CreateOrgId\":\"0\",\"Number\":\"PR201701130012\",\"Id\":\"\"}";
-
-//			String sFormId = "BD_Empinfo";// 员工查看
-//			String sContent = "{\"CreateOrgId\":\"0\",\"Number\":\"001110\",\"Id\":\"\"}";
-//			InvokeHelper.View(sFormId, sContent);
-			
-//			String sFormId = "SAL_OUTSTOCK";// 保存
-//			String sContent = "";
-//			Test.save(sFormId, sContent);
-			
+			// 销售出库单
 //			OutStockService outStockService = new OutStockService();
 //			outStockService.save();
+			// 销售退库单
 //			ReturnStockService returnStockService = new ReturnStockService();
 //			returnStockService.save();
+			// 销售订单 （预售单）
 //			OrderService orderService = new OrderService();
 //			orderService.save();
-			MiscellaneousService miscellaneousService = new MiscellaneousService();
-			miscellaneousService.save();
+			// 其他入库单
+//			MiscellaneousService miscellaneousService = new MiscellaneousService();
+//			miscellaneousService.save();
+			// 其他出库单
+			MisdeliveryService misdeliveryService = new MisdeliveryService();
+			misdeliveryService.save();
 
 		}
 	}
