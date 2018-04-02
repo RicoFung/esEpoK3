@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.api.entity.json.sal.order.ApiSave;
 import com.api.entity.json.sal.order.FBillTypeID;
@@ -114,7 +115,7 @@ public class OrderService
 		//------------------------------------------------------------------------------------------------------//
 		// Api Call
 		//------------------------------------------------------------------------------------------------------//
-		String sContent = com.alibaba.fastjson.JSONArray.toJSONString(root, new com.alibaba.fastjson.serializer.PascalNameFilter());
+		String sContent = JSONArray.toJSONString(root, new com.alibaba.fastjson.serializer.PascalNameFilter());
 		String sResult = InvokeHelper.Save("SAL_SaleOrder", sContent);
 
 		//------------------------------------------------------------------------------------------------------//

@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.api.entity.json.sal.returnstock.ApiSave;
 import com.api.entity.json.sal.returnstock.FBillTypeID;
@@ -39,10 +40,10 @@ public class ReturnStockService
 	public void save() throws Exception
 	{
 		ApiSave root = new ApiSave();
-		// 根节点
-		root.setCreator("test");
-		
-		//-------------------- Model-SubHeadEntity Begin --------------------//
+
+		//------------------------------------------------------------------------------------------------------//
+		// Model-SubHeadEntity
+		//------------------------------------------------------------------------------------------------------//
 		SubHeadEntity subHeadEntity = new SubHeadEntity();
 		// 结算币别
 		FSettleCurrId fSettleCurrID = new FSettleCurrId();
@@ -54,10 +55,10 @@ public class ReturnStockService
 		subHeadEntity.setFSettleOrgId(fSettleOrgID);
 		// 汇率
 		subHeadEntity.setFExchangeRate("1");
-		//-------------------- Model-SubHeadEntity End --------------------//
 		
-		// 表明細
-		//-------------------- Model-FEntity Begin --------------------//
+		//------------------------------------------------------------------------------------------------------//
+		// Model-FEntity
+		//------------------------------------------------------------------------------------------------------//
 		List<FEntity> fEntityList = new ArrayList<FEntity>();
 		for(int j=0; j<5; j++)
 		{
@@ -83,10 +84,10 @@ public class ReturnStockService
 			// add to list
 			fEntityList.add(fEntity);
 		}
-		//-------------------- Model-FEntity End --------------------//
 		
-		// 表头
-		//-------------------- Model Begin --------------------//
+		//------------------------------------------------------------------------------------------------------//
+		// Model
+		//------------------------------------------------------------------------------------------------------//
 		Model model = new Model();
 		// 单据类型
 		FBillTypeID fBillTypeID = new FBillTypeID();
@@ -108,15 +109,22 @@ public class ReturnStockService
 		model.setSubHeadEntity(subHeadEntity);
 		// set to FEntity
 		model.setFEntity(fEntityList);
-		// set to Model
+		
+		//------------------------------------------------------------------------------------------------------//
+		// Root Set
+		//------------------------------------------------------------------------------------------------------//
 		root.setModel(model);
-		//-------------------- Model End --------------------//
-		
+		root.setCreator("test");
+
+		//------------------------------------------------------------------------------------------------------//
 		// Api Call
-		String sContent = com.alibaba.fastjson.JSONArray.toJSONString(root, new com.alibaba.fastjson.serializer.PascalNameFilter());
+		//------------------------------------------------------------------------------------------------------//
+		String sContent = JSONArray.toJSONString(root, new com.alibaba.fastjson.serializer.PascalNameFilter());
 		String sResult = InvokeHelper.Save("SAL_RETURNSTOCK", sContent);
-		
+
+		//------------------------------------------------------------------------------------------------------//
 		// Api Result
+		//------------------------------------------------------------------------------------------------------//
 		oResult = JSON.parseObject(sResult).getJSONObject("Result");
 		oResultIsSuccess = oResult.getJSONObject("ResponseStatus").getBoolean("IsSuccess");
 		if (oResultIsSuccess)
