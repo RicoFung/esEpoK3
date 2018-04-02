@@ -87,7 +87,6 @@ public class InvokeHelper
 	}
 
 	// Login
-
 	public static boolean Login(String dbId, String user, String pwd, Integer lang) throws Exception
 	{
 		boolean bResult = false;
@@ -130,6 +129,15 @@ public class InvokeHelper
 		reader.close();
 		connection.disconnect();
 		return bResult;
+	}
+	
+	// isLogin
+	public static boolean isLogin() throws NumberFormatException, Exception
+	{
+		return InvokeHelper.Login(PropertiesUtil.getValue("config/", "k3.dbId"), 
+								  PropertiesUtil.getValue("config/", "k3.user"), 
+								  PropertiesUtil.getValue("config/", "k3.pwd"), 
+								  Integer.valueOf(PropertiesUtil.getValue("config/", "k3.lang")));
 	}
 
 	// Save
@@ -268,7 +276,7 @@ public class InvokeHelper
 
 	public static void main(String[] args) throws Exception
 	{
-		if (InvokeHelper.Login(PropertiesUtil.getValue("config/", "k3.dbId"), PropertiesUtil.getValue("config/", "k3.user"), PropertiesUtil.getValue("config/", "k3.pwd"), Integer.valueOf(PropertiesUtil.getValue("config/", "k3.lang")))) // 正式帐套ID: 56de443c350f9f
+		if(InvokeHelper.isLogin())
 		{// 登录成功
 			// 销售出库单
 			OutStockService outStockService = new OutStockService();

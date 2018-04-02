@@ -35,11 +35,11 @@ public class SyncAction extends BaseController<Object>
 	public void batchSaveOutStock()
 	{
 		if(log.isInfoEnabled()) log.info("//------------------------------------------------------------------------------------------------------//");
-		if(log.isInfoEnabled()) log.info("// Manually同步：销售出库单");
+		if(log.isInfoEnabled()) log.info("// Manually批量同步：销售出库单");
 		if(log.isInfoEnabled()) log.info("//------------------------------------------------------------------------------------------------------//");
 		try
 		{
-			if (InvokeHelper.Login(PropertiesUtil.getValue("config/", "k3.dbId"), PropertiesUtil.getValue("config/", "k3.user"), PropertiesUtil.getValue("config/", "k3.pwd"), Integer.valueOf(PropertiesUtil.getValue("config/", "k3.lang")))) // 正式帐套ID: 56de443c350f9f
+			if(InvokeHelper.isLogin())
 			outStockService.batchSave();
 		}
 		catch (Exception e)
@@ -52,11 +52,11 @@ public class SyncAction extends BaseController<Object>
 	public void batchSaveReturnStock()
 	{
 		if(log.isInfoEnabled()) log.info("//------------------------------------------------------------------------------------------------------//");
-		if(log.isInfoEnabled()) log.info("// Manually同步：销售退货单");
+		if(log.isInfoEnabled()) log.info("// Manually批量同步：销售退货单");
 		if(log.isInfoEnabled()) log.info("//------------------------------------------------------------------------------------------------------//");
 		try
 		{
-			if (InvokeHelper.Login(PropertiesUtil.getValue("config/", "k3.dbId"), PropertiesUtil.getValue("config/", "k3.user"), PropertiesUtil.getValue("config/", "k3.pwd"), Integer.valueOf(PropertiesUtil.getValue("config/", "k3.lang")))) // 正式帐套ID: 56de443c350f9f
+			if(InvokeHelper.isLogin())
 			returnStockService.batchSave();
 		}
 		catch (Exception e)
@@ -69,11 +69,11 @@ public class SyncAction extends BaseController<Object>
 	public void batchSaveOrder()
 	{
 		if(log.isInfoEnabled()) log.info("//------------------------------------------------------------------------------------------------------//");
-		if(log.isInfoEnabled()) log.info("// Manually同步：销售订单（预售单）");
+		if(log.isInfoEnabled()) log.info("// Manually批量同步：销售订单（预售单）");
 		if(log.isInfoEnabled()) log.info("//------------------------------------------------------------------------------------------------------//");
 		try
 		{
-			if (InvokeHelper.Login(PropertiesUtil.getValue("config/", "k3.dbId"), PropertiesUtil.getValue("config/", "k3.user"), PropertiesUtil.getValue("config/", "k3.pwd"), Integer.valueOf(PropertiesUtil.getValue("config/", "k3.lang")))) // 正式帐套ID: 56de443c350f9f
+			if(InvokeHelper.isLogin())
 			orderService.batchSave();
 		}
 		catch (Exception e)
@@ -86,11 +86,11 @@ public class SyncAction extends BaseController<Object>
 	public void batchSaveMiscellaneous()
 	{
 		if(log.isInfoEnabled()) log.info("//------------------------------------------------------------------------------------------------------//");
-		if(log.isInfoEnabled()) log.info("// Manually同步：其他入库单");
+		if(log.isInfoEnabled()) log.info("// Manually批量同步：其他入库单");
 		if(log.isInfoEnabled()) log.info("//------------------------------------------------------------------------------------------------------//");
 		try
 		{
-			if (InvokeHelper.Login(PropertiesUtil.getValue("config/", "k3.dbId"), PropertiesUtil.getValue("config/", "k3.user"), PropertiesUtil.getValue("config/", "k3.pwd"), Integer.valueOf(PropertiesUtil.getValue("config/", "k3.lang")))) // 正式帐套ID: 56de443c350f9f
+			if(InvokeHelper.isLogin())
 			miscellaneousService.batchSave();
 		}
 		catch (Exception e)
@@ -103,11 +103,11 @@ public class SyncAction extends BaseController<Object>
 	public void batchSaveMisdelivery()
 	{
 		if(log.isInfoEnabled()) log.info("//------------------------------------------------------------------------------------------------------//");
-		if(log.isInfoEnabled()) log.info("// Manually同步：其他出库单");
+		if(log.isInfoEnabled()) log.info("// Manually批量同步：其他出库单");
 		if(log.isInfoEnabled()) log.info("//------------------------------------------------------------------------------------------------------//");
 		try
 		{
-			if (InvokeHelper.Login(PropertiesUtil.getValue("config/", "k3.dbId"), PropertiesUtil.getValue("config/", "k3.user"), PropertiesUtil.getValue("config/", "k3.pwd"), Integer.valueOf(PropertiesUtil.getValue("config/", "k3.lang")))) // 正式帐套ID: 56de443c350f9f
+			if(InvokeHelper.isLogin())
 			misdeliveryService.batchSave();
 		}
 		catch (Exception e)
