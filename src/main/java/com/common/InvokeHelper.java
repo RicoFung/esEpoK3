@@ -15,7 +15,13 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.api.service.sal.OrderService;
+import com.api.service.sal.OutStockService;
+import com.api.service.sal.ReturnStockService;
+import com.api.service.stk.MiscellaneousService;
 import com.api.service.stk.MisdeliveryService;
+
+import chok.util.PropertiesUtil;
 
 public class InvokeHelper
 {
@@ -82,7 +88,7 @@ public class InvokeHelper
 
 	// Login
 
-	public static boolean Login(String dbId, String user, String pwd, int lang) throws Exception
+	public static boolean Login(String dbId, String user, String pwd, Integer lang) throws Exception
 	{
 		boolean bResult = false;
 		String sUrl = "Kingdee.BOS.WebApi.ServicesStub.AuthService.ValidateUser.common.kdsvc";
@@ -262,24 +268,27 @@ public class InvokeHelper
 
 	public static void main(String[] args) throws Exception
 	{
-
-		if (InvokeHelper.Login("5aa628adc9fabb", "Administrator", "888888", 2052)) // 正式帐套ID: 56de443c350f9f
+		if (InvokeHelper.Login(PropertiesUtil.getValue("config/", "k3.dbId"), PropertiesUtil.getValue("config/", "k3.user"), PropertiesUtil.getValue("config/", "k3.pwd"), Integer.valueOf(PropertiesUtil.getValue("config/", "k3.lang")))) // 正式帐套ID: 56de443c350f9f
 		{// 登录成功
 			// 销售出库单
-//			OutStockService outStockService = new OutStockService();
-//			outStockService.save();
+			OutStockService outStockService = new OutStockService();
+			outStockService.batchSave();
 			// 销售退库单
 //			ReturnStockService returnStockService = new ReturnStockService();
+//			returnStockService.batchSave();
 //			returnStockService.save();
 			// 销售订单 （预售单）
 //			OrderService orderService = new OrderService();
+//			orderService.batchSave();
 //			orderService.save();
 			// 其他入库单
 //			MiscellaneousService miscellaneousService = new MiscellaneousService();
+//			miscellaneousService.batchSave();
 //			miscellaneousService.save();
 			// 其他出库单
-			MisdeliveryService misdeliveryService = new MisdeliveryService();
-			misdeliveryService.save();
+//			MisdeliveryService misdeliveryService = new MisdeliveryService();
+//			misdeliveryService.batchSave();
+//			misdeliveryService.save();
 
 		}
 	}
