@@ -22,8 +22,6 @@ import com.api.entity.json.stk.miscellaneous.FUnitID;
 import com.api.entity.json.stk.miscellaneous.Model;
 import com.common.InvokeHelper;
 
-import chok.util.TimeUtil;
-
 @Service
 public class MiscellaneousService
 {
@@ -77,8 +75,6 @@ public class MiscellaneousService
 		FBillTypeID fBillTypeID = new FBillTypeID();
 		fBillTypeID.setFNumber("XSCKD01_SYS");
 		model.setFBillTypeID(fBillTypeID);
-		
-		model.setFDate(TimeUtil.getCurrentDate());
 		// 供应商与部门至少录入一个
 		// 供应商
 		FSUPPLIERID fSUPPLIERID = new FSUPPLIERID();
@@ -169,8 +165,6 @@ public class MiscellaneousService
 			FBillTypeID fBillTypeID = new FBillTypeID();
 			fBillTypeID.setFNumber("XSCKD01_SYS");
 			model.setFBillTypeID(fBillTypeID);
-			
-			model.setFDate(TimeUtil.getCurrentDate());
 			// 供应商与部门至少录入一个
 			// 供应商
 			FSUPPLIERID fSUPPLIERID = new FSUPPLIERID();
