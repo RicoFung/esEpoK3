@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">   
+
+
+<mapper namespace="com.api.entity.TbK3SalOutstock">
+      <!-- 自动生成id策略 -->
+    <insert id="add" parameterType="com.api.entity.TbK3SalOutstock">  
+       	insert into tb_k3_sal_outstock 
+       	( fid, fbilltypeid, fbillno, fdate, fcustomerid, fstockorgid, fdeliverydeptid, fstockergroupid, fstockerid, freceiverid, fsettleid, fpayerid, fsaleorgid, fsaledeptid, fsalesgroupid, fsalesmanid, fdeliverybill, ftakedeliverybill, fcarrierid, fcarriageno, fdocumentstatus, fnote, fcreatorid, fcreatedate, fmodifierid, fmodifydate, fapproverid, fapprovedate, fcancelstatus, fcancellerid, fcanceldate, fownertypeid, fownerid, fheadlocid, fheadlocaddress, fheadlocationid, fbusinesstype, freceiveaddress, fcreditcheckresult, fobjecttypeid, ftransferbiztype, fcorrespondorgid, freccontactid, fisinterlegalperson, fplanrecaddress, fistotalserviceorcost, tc_define_rowid, tc_erp_code, tc_erp_add_time, tc_sync_status, tc_sync_msg, tc_sync_save_time, tc_sync_submit_time, tc_sync_audit_time) 
+       	values
+       	( #{fid}, #{fbilltypeid}, #{fbillno}, #{fdate}, #{fcustomerid}, #{fstockorgid}, #{fdeliverydeptid}, #{fstockergroupid}, #{fstockerid}, #{freceiverid}, #{fsettleid}, #{fpayerid}, #{fsaleorgid}, #{fsaledeptid}, #{fsalesgroupid}, #{fsalesmanid}, #{fdeliverybill}, #{ftakedeliverybill}, #{fcarrierid}, #{fcarriageno}, #{fdocumentstatus}, #{fnote}, #{fcreatorid}, #{fcreatedate}, #{fmodifierid}, #{fmodifydate}, #{fapproverid}, #{fapprovedate}, #{fcancelstatus}, #{fcancellerid}, #{fcanceldate}, #{fownertypeid}, #{fownerid}, #{fheadlocid}, #{fheadlocaddress}, #{fheadlocationid}, #{fbusinesstype}, #{freceiveaddress}, #{fcreditcheckresult}, #{fobjecttypeid}, #{ftransferbiztype}, #{fcorrespondorgid}, #{freccontactid}, #{fisinterlegalperson}, #{fplanrecaddress}, #{fistotalserviceorcost}, #{tcDefineRowid}, #{tcErpCode}, #{tcErpAddTime}, #{tcSyncStatus}, #{tcSyncMsg}, #{tcSyncSaveTime}, #{tcSyncSubmitTime}, #{tcSyncAuditTime})
+    </insert>  
+	
+	<delete id="del" parameterType="com.api.entity.TbK3SalOutstock">
+		delete from tb_k3_sal_outstock 
+		 where tc_define_rowid = #{tcDefineRowid}  
+	</delete>
+	
+	<update id="upd" parameterType="com.api.entity.TbK3SalOutstock">
+		update tb_k3_sal_outstock set
+	           fid = #{fid}, 
+	           fbillno = #{fbillno}, 
+	           fdate = #{fdate}, 
+	           fcustomerid = #{fcustomerid}, 
+	           fstockorgid = #{fstockorgid}, 
+	           fdeliverydeptid = #{fdeliverydeptid}, 
+	           fstockergroupid = #{fstockergroupid}, 
+	           fstockerid = #{fstockerid}, 
+	           freceiverid = #{freceiverid}, 
+	           fsettleid = #{fsettleid}, 
+	           fpayerid = #{fpayerid}, 
+	           fsaleorgid = #{fsaleorgid}, 
+	           fsaledeptid = #{fsaledeptid}, 
+	           fsalesgroupid = #{fsalesgroupid}, 
+	           fsalesmanid = #{fsalesmanid}, 
+	           fdeliverybill = #{fdeliverybill}, 
+	           ftakedeliverybill = #{ftakedeliverybill}, 
+	           fcarrierid = #{fcarrierid}, 
+	           fcarriageno = #{fcarriageno}, 
+	           fdocumentstatus = #{fdocumentstatus}, 
+	           fnote = #{fnote}, 
+	           fcreatorid = #{fcreatorid}, 
+	           fcreatedate = #{fcreatedate}, 
+	           fmodifierid = #{fmodifierid}, 
+	           fmodifydate = #{fmodifydate}, 
+	           fapproverid = #{fapproverid}, 
+	           fapprovedate = #{fapprovedate}, 
+	           fcancelstatus = #{fcancelstatus}, 
+	           fcancellerid = #{fcancellerid}, 
+	           fcanceldate = #{fcanceldate}, 
+	           fownertypeid = #{fownertypeid}, 
+	           fownerid = #{fownerid}, 
+	           fheadlocid = #{fheadlocid}, 
+	           fheadlocaddress = #{fheadlocaddress}, 
+	           fheadlocationid = #{fheadlocationid}, 
+	           fbusinesstype = #{fbusinesstype}, 
+	           freceiveaddress = #{freceiveaddress}, 
+	           fcreditcheckresult = #{fcreditcheckresult}, 
+	           fobjecttypeid = #{fobjecttypeid}, 
+	           ftransferbiztype = #{ftransferbiztype}, 
+	           fcorrespondorgid = #{fcorrespondorgid}, 
+	           freccontactid = #{freccontactid}, 
+	           fisinterlegalperson = #{fisinterlegalperson}, 
+	           fplanrecaddress = #{fplanrecaddress}, 
+	           fistotalserviceorcost = #{fistotalserviceorcost}, 
+	           tc_erp_code = #{tcErpCode}, 
+	           tc_erp_add_time = to_date(#{tcErpAddTime}, 'yyyy-mm-dd hh24:mi:ss'), 
+	           tc_sync_status = #{tcSyncStatus}, 
+	           tc_sync_msg = #{tcSyncMsg}, 
+	           tc_sync_save_time = to_date(#{tcSyncSaveTime}, 'yyyy-mm-dd hh24:mi:ss'), 
+	           tc_sync_submit_time = to_date(#{tcSyncSubmitTime}, 'yyyy-mm-dd hh24:mi:ss'),  
+	           tc_sync_audit_time = to_date(#{tcSyncAuditTime}, 'yyyy-mm-dd hh24:mi:ss')
+         where tc_define_rowid = #{tcDefineRowid}  
+	</update>
+  	
+	<resultMap type="com.api.entity.TbK3SalOutstock" id="result">
+        <id property="tcDefineRowid" column="TC_DEFINE_ROWID"/>
+        <result property="fid" column="FID"/>
+        <result property="fbilltypeid" column="FBILLTYPEID"/>
+        <result property="fbillno" column="FBILLNO"/>
+        <result property="fdate" column="FDATE"/>
+        <result property="fcustomerid" column="FCUSTOMERID"/>
+        <result property="fstockorgid" column="FSTOCKORGID"/>
+        <result property="fdeliverydeptid" column="FDELIVERYDEPTID"/>
+        <result property="fstockergroupid" column="FSTOCKERGROUPID"/>
+        <result property="fstockerid" column="FSTOCKERID"/>
+        <result property="freceiverid" column="FRECEIVERID"/>
+        <result property="fsettleid" column="FSETTLEID"/>
+        <result property="fpayerid" column="FPAYERID"/>
+        <result property="fsaleorgid" column="FSALEORGID"/>
+        <result property="fsaledeptid" column="FSALEDEPTID"/>
+        <result property="fsalesgroupid" column="FSALESGROUPID"/>
+        <result property="fsalesmanid" column="FSALESMANID"/>
+        <result property="fdeliverybill" column="FDELIVERYBILL"/>
+        <result property="ftakedeliverybill" column="FTAKEDELIVERYBILL"/>
+        <result property="fcarrierid" column="FCARRIERID"/>
+        <result property="fcarriageno" column="FCARRIAGENO"/>
+        <result property="fdocumentstatus" column="FDOCUMENTSTATUS"/>
+        <result property="fnote" column="FNOTE"/>
+        <result property="fcreatorid" column="FCREATORID"/>
+        <result property="fcreatedate" column="FCREATEDATE"/>
+        <result property="fmodifierid" column="FMODIFIERID"/>
+        <result property="fmodifydate" column="FMODIFYDATE"/>
+        <result property="fapproverid" column="FAPPROVERID"/>
+        <result property="fapprovedate" column="FAPPROVEDATE"/>
+        <result property="fcancelstatus" column="FCANCELSTATUS"/>
+        <result property="fcancellerid" column="FCANCELLERID"/>
+        <result property="fcanceldate" column="FCANCELDATE"/>
+        <result property="fownertypeid" column="FOWNERTYPEID"/>
+        <result property="fownerid" column="FOWNERID"/>
+        <result property="fheadlocid" column="FHEADLOCID"/>
+        <result property="fheadlocaddress" column="FHEADLOCADDRESS"/>
+        <result property="fheadlocationid" column="FHEADLOCATIONID"/>
+        <result property="fbusinesstype" column="FBUSINESSTYPE"/>
+        <result property="freceiveaddress" column="FRECEIVEADDRESS"/>
+        <result property="fcreditcheckresult" column="FCREDITCHECKRESULT"/>
+        <result property="fobjecttypeid" column="FOBJECTTYPEID"/>
+        <result property="ftransferbiztype" column="FTRANSFERBIZTYPE"/>
+        <result property="fcorrespondorgid" column="FCORRESPONDORGID"/>
+        <result property="freccontactid" column="FRECCONTACTID"/>
+        <result property="fisinterlegalperson" column="FISINTERLEGALPERSON"/>
+        <result property="fplanrecaddress" column="FPLANRECADDRESS"/>
+        <result property="fistotalserviceorcost" column="FISTOTALSERVICEORCOST"/>
+        <result property="tcErpCode" column="TC_ERP_CODE"/>
+        <result property="tcErpAddTime" column="TC_ERP_ADD_TIME"/>
+        <result property="tcSyncStatus" column="TC_SYNC_STATUS"/>
+        <result property="tcSyncMsg" column="TC_SYNC_MSG"/>
+        <result property="tcSyncSaveTime" column="TC_SYNC_SAVE_TIME"/>
+        <result property="tcSyncSubmitTime" column="TC_SYNC_SUBMIT_TIME"/>
+        <result property="tcSyncAuditTime" column="TC_SYNC_AUDIT_TIME"/>
+	</resultMap>
+	
+	<resultMap type="com.api.entity.TbK3SalOutstock" id="resultCascade" extends="result">
+        <collection property="tbK3SalOutstockentrys" column="T1_TC_DEFINE_ROWID"  ofType="com.api.entity.TbK3SalOutstockentry" resultMap="com.api.entity.TbK3SalOutstockentry.result">
+        	<result property="fid" column="T1_FID"/>
+        	<result property="fnote" column="T1_FNOTE"/>
+	        <result property="fownertypeid" column="T1_FOWNERTYPEID"/>
+	        <result property="fownerid" column="T1_FOWNERID"/>
+        	<result property="tcDefineRowid" column="T1_TC_DEFINE_ROWID"/>
+         </collection>
+	</resultMap>
+  	
+	<sql id="columns">
+		t.fid, t.fbilltypeid, t.fbillno, t.fdate, t.fcustomerid, t.fstockorgid, t.fdeliverydeptid, t.fstockergroupid, t.fstockerid, t.freceiverid, t.fsettleid, t.fpayerid, t.fsaleorgid, t.fsaledeptid, t.fsalesgroupid, t.fsalesmanid, t.fdeliverybill, t.ftakedeliverybill, t.fcarrierid, t.fcarriageno, t.fdocumentstatus, t.fnote, t.fcreatorid, t.fcreatedate, t.fmodifierid, t.fmodifydate, t.fapproverid, t.fapprovedate, t.fcancelstatus, t.fcancellerid, t.fcanceldate, t.fownertypeid, t.fownerid, t.fheadlocid, t.fheadlocaddress, t.fheadlocationid, t.fbusinesstype, t.freceiveaddress, t.fcreditcheckresult, t.fobjecttypeid, t.ftransferbiztype, t.fcorrespondorgid, t.freccontactid, t.fisinterlegalperson, t.fplanrecaddress, t.fistotalserviceorcost, t.tc_define_rowid, t.tc_erp_code, to_char(t.tc_erp_add_time, 'yyyy-mm-dd hh24:mi:ss') tc_erp_add_time, t.tc_sync_status, t.tc_sync_msg, to_char(t.tc_sync_save_time, 'yyyy-mm-dd hh24:mi:ss') tc_sync_save_time, to_char(t.tc_sync_submit_time, 'yyyy-mm-dd hh24:mi:ss') tc_sync_submit_time, to_char(t.tc_sync_audit_time, 'yyyy-mm-dd hh24:mi:ss') tc_sync_audit_time
+	</sql>
+  	
+	<sql id="columns1">
+		t1.fentryid, t1.fid as t1_fid, t1.fcustmatname, t1.fcustmatid, t1.fseq, t1.fmaterialid, t1.funitid, t1.fauxpropid, t1.fmustqty, t1.frealqty, t1.fstockid, t1.fstocklocid, t1.fstockstatusid, t1.flot, t1.flot_text, t1.fgrossweight, t1.fnetweight, t1.fbaseunitid, t1.fbaseunitqty, t1.fauxunitid, t1.fauxunitqty, t1.fextauxunitid, t1.fextauxunitqty, t1.fbomid, t1.fnote as t1_fnote, t1.fstockflag, t1.fownertypeid as t1_fownertypeid, t1.fownerid as t1_fownerid, t1.fkeepertypeid, t1.fkeeperid, t1.fproducedate, t1.fexpirydate, t1.fbasemustqty, t1.farrivalstatus, t1.farrivaldate, t1.farrivalconfirmor, t1.frepairqty, t1.frefuseqty, t1.fwantretqty, t1.factqty, t1.fisrepair, t1.fvalidatestatus, t1.fvalidatedate, t1.fvalidateconfirmor, t1.fbflowid, t1.fmtono, t1.fprojectno, t1.frecnote, t1.freturnnote, t1.fsnunitid, t1.fsnqty, t1.foutcontrol, t1.tc_define_rowid as t1_tc_define_rowid
+	</sql>
+
+	<sql id="order">
+		<choose>
+			<when test="@chok.devwork.Ognl@isNotEmpty(sort)">
+				order by tt.<include refid="orderParse1"/> ${order}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</sql>
+	<sql id="orderParse1">
+		<if test="sort == 'tcDefineRowid'">tc_define_rowid</if>
+		<if test="sort == 'tcErpCode'">tc_erp_code</if>
+		<if test="sort == 'tcErpAddTime'">tc_erp_add_time</if>
+		<if test="sort == 'tcSyncStatus'">tc_sync_status</if>
+		<if test="sort == 'tcSyncMsg'">tc_sync_msg</if>
+		<if test="sort == 'tcSyncSaveTime'">tc_sync_save_time</if>
+		<if test="sort == 'tcSyncSubmitTime'">tc_sync_submit_time</if>
+		<if test="sort == 'tcSyncAuditTime'">tc_sync_audit_time</if>
+	</sql>
+	
+	<sql id="dynamicWhere">
+		<where>	      				
+	       <if test="@chok.devwork.Ognl@isNotEmpty(tcDefineRowid)"> and t.tc_define_rowid = #{tcDefineRowid}</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(tcErpCode)"> and t.tc_erp_code like concat('%',#{tcErpCode},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(tcErpAddTime)"> and t.tc_erp_add_time like concat('%',#{tcErpAddTime},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(tcSyncStatus)">
+				<choose>
+					<when test="tcSyncStatus='IS_NULL'"> and t.tc_sync_status is null</when>
+					<otherwise> and t.tc_sync_status = #{tcSyncStatus}</otherwise>
+				</choose>
+	       </if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(tcSyncSaveTime)"> and t.tc_sync_save_time like concat('%',#{tcSyncSaveTime},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(tcSyncSubmitTime)"> and t.tc_sync_submit_time like concat('%',#{tcSyncSubmitTime},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(tcSyncAuditTime)"> and t.tc_sync_audit_time like concat('%',#{tcSyncAuditTime},'%')</if>
+		</where>
+	</sql>	
+	
+	<select id="get" resultMap="result">
+		select <include refid="columns"/> 
+		  from tb_k3_sal_outstock t 
+		 where tc_define_rowid = #{tcDefineRowid}  	  
+	</select>
+	
+	<select id="query" resultType="list" resultMap="result">
+		<choose>
+			<!-- 翻页 -->
+			<when test="@chok.devwork.Ognl@isNotEmpty(offset) and @chok.devwork.Ognl@isNotEmpty(limit)">
+				select * from (select row_.*, rownum rownum_ from(
+					select tt.* from 
+					(
+						select <include refid="columns"/> from tb_k3_sal_outstock t
+						<include refid="dynamicWhere" />
+					) tt
+					<include refid="order" />
+	            ) row_ where rownum &lt;= #{offset,javaType=String,jdbcType=NUMERIC}+#{limit,javaType=String,jdbcType=NUMERIC} ) 
+	            where rownum_ &gt; #{offset,javaType=String,jdbcType=NUMERIC}
+			</when>
+			<!-- 非翻页 -->
+			<otherwise>
+				select tt.* from 
+				(
+					select <include refid="columns"/> from tb_k3_sal_outstock t
+					<include refid="dynamicWhere" />
+				) tt
+				<include refid="order" />
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="queryPendingPage" resultType="list" resultMap="resultCascade">
+		select <include refid="columns"/>, <include refid="columns1"/> from 
+		(
+			select * from (select row_.*, rownum rownum_ from
+			(
+				select tt.* from 
+				(
+					select t.* from tb_k3_sal_outstock t
+					<include refid="dynamicWhere" />
+				) tt
+			<include refid="order" />
+	        ) row_ where rownum &lt;= #{offset,javaType=String,jdbcType=NUMERIC}+#{limit,javaType=String,jdbcType=NUMERIC} ) 
+	        where rownum_ &gt; #{offset,javaType=String,jdbcType=NUMERIC}
+	    ) t
+	    left join tb_k3_sal_outstockentry t1 on t.tc_define_rowid = t1.tc_define_rowid
+	</select>
+
+	<select id="getCount" resultType="int">
+		select count(1) from tb_k3_sal_outstock t
+		<include refid="dynamicWhere" />
+	</select>
+</mapper>  

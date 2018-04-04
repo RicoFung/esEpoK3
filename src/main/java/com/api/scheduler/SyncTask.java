@@ -13,9 +13,7 @@ import com.api.service.stk.MiscellaneousService;
 import com.api.service.stk.MisdeliveryService;
 import com.common.InvokeHelper;
 
-import chok.util.PropertiesUtil;
-
-@Component
+//@Component
 public class SyncTask
 {
 	static Logger log = LoggerFactory.getLogger(SyncTask.class);

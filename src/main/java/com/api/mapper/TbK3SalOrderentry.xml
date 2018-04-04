@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">   
+
+
+<mapper namespace="com.api.entity.TbK3SalOrderentry">
+      <!-- 自动生成id策略 -->
+    <insert id="add" parameterType="com.api.entity.TbK3SalOrderentry" useGeneratedKeys="true" keyProperty="id">  
+       	insert into tb_k3_sal_orderentry 
+       	( fentryid, fid, fseq, fmapid, fmapname, fmaterialid, fauxpropid, fbomid, funitid, fqty, fbaseunitid, fbaseunitqty, fnote, fmrpfreezestatus, ffreezedate, ffreezerid, fmrpterminatestatus, fterminaterid, fterminatestatus, fterminatedate, fmrpclosestatus, flot, fchangeflag, fstockorgid, fstockid, flockqty, flockflag, fownertypeid, fownerid, flot_text, fproducedate, fexpirydate, fexpunit, fexpperiod, freturntype, fbflowid, fpriority, fmtono, freservetype, fplandeliverydate, fdeliverystatus, foldqty, fpromotionmatchtype, fsupplyorgid, fnetorderentryid, fstockunitid, fstockqty, fstockbaseqty, fleftqty, fdeliverydate, fsettleorgids, foutlmtunit, tc_define_rowid) 
+       	values
+       	( #{fentryid}, #{fid}, #{fseq}, #{fmapid}, #{fmapname}, #{fmaterialid}, #{fauxpropid}, #{fbomid}, #{funitid}, #{fqty}, #{fbaseunitid}, #{fbaseunitqty}, #{fnote}, #{fmrpfreezestatus}, #{ffreezedate}, #{ffreezerid}, #{fmrpterminatestatus}, #{fterminaterid}, #{fterminatestatus}, #{fterminatedate}, #{fmrpclosestatus}, #{flot}, #{fchangeflag}, #{fstockorgid}, #{fstockid}, #{flockqty}, #{flockflag}, #{fownertypeid}, #{fownerid}, #{flotText}, #{fproducedate}, #{fexpirydate}, #{fexpunit}, #{fexpperiod}, #{freturntype}, #{fbflowid}, #{fpriority}, #{fmtono}, #{freservetype}, #{fplandeliverydate}, #{fdeliverystatus}, #{foldqty}, #{fpromotionmatchtype}, #{fsupplyorgid}, #{fnetorderentryid}, #{fstockunitid}, #{fstockqty}, #{fstockbaseqty}, #{fleftqty}, #{fdeliverydate}, #{fsettleorgids}, #{foutlmtunit}, #{tcDefineRowid})
+    </insert>  
+	
+	<delete id="del" parameterType="com.api.entity.TbK3SalOrderentry">
+		delete from tb_k3_sal_orderentry 
+	</delete>
+	
+	<update id="upd" parameterType="com.api.entity.TbK3SalOrderentry">
+		update tb_k3_sal_orderentry set
+	           fentryid = #{fentryid}, 
+	           fid = #{fid}, 
+	           fseq = #{fseq}, 
+	           fmapid = #{fmapid}, 
+	           fmapname = #{fmapname}, 
+	           fmaterialid = #{fmaterialid}, 
+	           fauxpropid = #{fauxpropid}, 
+	           fbomid = #{fbomid}, 
+	           funitid = #{funitid}, 
+	           fqty = #{fqty}, 
+	           fbaseunitid = #{fbaseunitid}, 
+	           fbaseunitqty = #{fbaseunitqty}, 
+	           fnote = #{fnote}, 
+	           fmrpfreezestatus = #{fmrpfreezestatus}, 
+	           ffreezedate = #{ffreezedate}, 
+	           ffreezerid = #{ffreezerid}, 
+	           fmrpterminatestatus = #{fmrpterminatestatus}, 
+	           fterminaterid = #{fterminaterid}, 
+	           fterminatestatus = #{fterminatestatus}, 
+	           fterminatedate = #{fterminatedate}, 
+	           fmrpclosestatus = #{fmrpclosestatus}, 
+	           flot = #{flot}, 
+	           fchangeflag = #{fchangeflag}, 
+	           fstockorgid = #{fstockorgid}, 
+	           fstockid = #{fstockid}, 
+	           flockqty = #{flockqty}, 
+	           flockflag = #{flockflag}, 
+	           fownertypeid = #{fownertypeid}, 
+	           fownerid = #{fownerid}, 
+	           flot_text = #{flotText}, 
+	           fproducedate = #{fproducedate}, 
+	           fexpirydate = #{fexpirydate}, 
+	           fexpunit = #{fexpunit}, 
+	           fexpperiod = #{fexpperiod}, 
+	           freturntype = #{freturntype}, 
+	           fbflowid = #{fbflowid}, 
+	           fpriority = #{fpriority}, 
+	           fmtono = #{fmtono}, 
+	           freservetype = #{freservetype}, 
+	           fplandeliverydate = #{fplandeliverydate}, 
+	           fdeliverystatus = #{fdeliverystatus}, 
+	           foldqty = #{foldqty}, 
+	           fpromotionmatchtype = #{fpromotionmatchtype}, 
+	           fsupplyorgid = #{fsupplyorgid}, 
+	           fnetorderentryid = #{fnetorderentryid}, 
+	           fstockunitid = #{fstockunitid}, 
+	           fstockqty = #{fstockqty}, 
+	           fstockbaseqty = #{fstockbaseqty}, 
+	           fleftqty = #{fleftqty}, 
+	           fdeliverydate = #{fdeliverydate}, 
+	           fsettleorgids = #{fsettleorgids}, 
+	           foutlmtunit = #{foutlmtunit}, 
+	           tc_define_rowid = #{tcDefineRowid} 
+	</update>
+  	
+	<resultMap type="com.api.entity.TbK3SalOrderentry" id="result">
+        <result property="fentryid" column="FENTRYID"/>
+        <result property="fid" column="FID"/>
+        <result property="fseq" column="FSEQ"/>
+        <result property="fmapid" column="FMAPID"/>
+        <result property="fmapname" column="FMAPNAME"/>
+        <result property="fmaterialid" column="FMATERIALID"/>
+        <result property="fauxpropid" column="FAUXPROPID"/>
+        <result property="fbomid" column="FBOMID"/>
+        <result property="funitid" column="FUNITID"/>
+        <result property="fqty" column="FQTY"/>
+        <result property="fbaseunitid" column="FBASEUNITID"/>
+        <result property="fbaseunitqty" column="FBASEUNITQTY"/>
+        <result property="fnote" column="FNOTE"/>
+        <result property="fmrpfreezestatus" column="FMRPFREEZESTATUS"/>
+        <result property="ffreezedate" column="FFREEZEDATE"/>
+        <result property="ffreezerid" column="FFREEZERID"/>
+        <result property="fmrpterminatestatus" column="FMRPTERMINATESTATUS"/>
+        <result property="fterminaterid" column="FTERMINATERID"/>
+        <result property="fterminatestatus" column="FTERMINATESTATUS"/>
+        <result property="fterminatedate" column="FTERMINATEDATE"/>
+        <result property="fmrpclosestatus" column="FMRPCLOSESTATUS"/>
+        <result property="flot" column="FLOT"/>
+        <result property="fchangeflag" column="FCHANGEFLAG"/>
+        <result property="fstockorgid" column="FSTOCKORGID"/>
+        <result property="fstockid" column="FSTOCKID"/>
+        <result property="flockqty" column="FLOCKQTY"/>
+        <result property="flockflag" column="FLOCKFLAG"/>
+        <result property="fownertypeid" column="FOWNERTYPEID"/>
+        <result property="fownerid" column="FOWNERID"/>
+        <result property="flotText" column="FLOT_TEXT"/>
+        <result property="fproducedate" column="FPRODUCEDATE"/>
+        <result property="fexpirydate" column="FEXPIRYDATE"/>
+        <result property="fexpunit" column="FEXPUNIT"/>
+        <result property="fexpperiod" column="FEXPPERIOD"/>
+        <result property="freturntype" column="FRETURNTYPE"/>
+        <result property="fbflowid" column="FBFLOWID"/>
+        <result property="fpriority" column="FPRIORITY"/>
+        <result property="fmtono" column="FMTONO"/>
+        <result property="freservetype" column="FRESERVETYPE"/>
+        <result property="fplandeliverydate" column="FPLANDELIVERYDATE"/>
+        <result property="fdeliverystatus" column="FDELIVERYSTATUS"/>
+        <result property="foldqty" column="FOLDQTY"/>
+        <result property="fpromotionmatchtype" column="FPROMOTIONMATCHTYPE"/>
+        <result property="fsupplyorgid" column="FSUPPLYORGID"/>
+        <result property="fnetorderentryid" column="FNETORDERENTRYID"/>
+        <result property="fstockunitid" column="FSTOCKUNITID"/>
+        <result property="fstockqty" column="FSTOCKQTY"/>
+        <result property="fstockbaseqty" column="FSTOCKBASEQTY"/>
+        <result property="fleftqty" column="FLEFTQTY"/>
+        <result property="fdeliverydate" column="FDELIVERYDATE"/>
+        <result property="fsettleorgids" column="FSETTLEORGIDS"/>
+        <result property="foutlmtunit" column="FOUTLMTUNIT"/>
+        <result property="tcDefineRowid" column="TC_DEFINE_ROWID"/>
+	</resultMap>
+  	
+	<sql id="columns">
+		t.fentryid, t.fid, t.fseq, t.fmapid, t.fmapname, t.fmaterialid, t.fauxpropid, t.fbomid, t.funitid, t.fqty, t.fbaseunitid, t.fbaseunitqty, t.fnote, t.fmrpfreezestatus, t.ffreezedate, t.ffreezerid, t.fmrpterminatestatus, t.fterminaterid, t.fterminatestatus, t.fterminatedate, t.fmrpclosestatus, t.flot, t.fchangeflag, t.fstockorgid, t.fstockid, t.flockqty, t.flockflag, t.fownertypeid, t.fownerid, t.flot_text, t.fproducedate, t.fexpirydate, t.fexpunit, t.fexpperiod, t.freturntype, t.fbflowid, t.fpriority, t.fmtono, t.freservetype, t.fplandeliverydate, t.fdeliverystatus, t.foldqty, t.fpromotionmatchtype, t.fsupplyorgid, t.fnetorderentryid, t.fstockunitid, t.fstockqty, t.fstockbaseqty, t.fleftqty, t.fdeliverydate, t.fsettleorgids, t.foutlmtunit, t.tc_define_rowid 
+	</sql>
+	
+	<sql id="order">
+		<choose>
+			<when test="@chok.devwork.Ognl@isNotEmpty(sort)">
+				order by tt.<include refid="orderParse1"/> ${order}
+			</when>
+			<when test="@chok.devwork.Ognl@isNotEmpty(multiSort) and @chok.devwork.Ognl@isEmpty(sort)">
+				order by <foreach collection="multiSort" index="index" item="item" separator=",">tt.<include refid="orderParse2" /> ${item.sortOrder}</foreach>  
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</sql>
+	<sql id="orderParse1">
+		<if test="sort == 'fentryid'">fentryid</if>
+		<if test="sort == 'fid'">fid</if>
+		<if test="sort == 'fseq'">fseq</if>
+		<if test="sort == 'fmapid'">fmapid</if>
+		<if test="sort == 'fmapname'">fmapname</if>
+		<if test="sort == 'fmaterialid'">fmaterialid</if>
+		<if test="sort == 'fauxpropid'">fauxpropid</if>
+		<if test="sort == 'fbomid'">fbomid</if>
+		<if test="sort == 'funitid'">funitid</if>
+		<if test="sort == 'fqty'">fqty</if>
+		<if test="sort == 'fbaseunitid'">fbaseunitid</if>
+		<if test="sort == 'fbaseunitqty'">fbaseunitqty</if>
+		<if test="sort == 'fnote'">fnote</if>
+		<if test="sort == 'fmrpfreezestatus'">fmrpfreezestatus</if>
+		<if test="sort == 'ffreezedate'">ffreezedate</if>
+		<if test="sort == 'ffreezerid'">ffreezerid</if>
+		<if test="sort == 'fmrpterminatestatus'">fmrpterminatestatus</if>
+		<if test="sort == 'fterminaterid'">fterminaterid</if>
+		<if test="sort == 'fterminatestatus'">fterminatestatus</if>
+		<if test="sort == 'fterminatedate'">fterminatedate</if>
+		<if test="sort == 'fmrpclosestatus'">fmrpclosestatus</if>
+		<if test="sort == 'flot'">flot</if>
+		<if test="sort == 'fchangeflag'">fchangeflag</if>
+		<if test="sort == 'fstockorgid'">fstockorgid</if>
+		<if test="sort == 'fstockid'">fstockid</if>
+		<if test="sort == 'flockqty'">flockqty</if>
+		<if test="sort == 'flockflag'">flockflag</if>
+		<if test="sort == 'fownertypeid'">fownertypeid</if>
+		<if test="sort == 'fownerid'">fownerid</if>
+		<if test="sort == 'flotText'">flot_text</if>
+		<if test="sort == 'fproducedate'">fproducedate</if>
+		<if test="sort == 'fexpirydate'">fexpirydate</if>
+		<if test="sort == 'fexpunit'">fexpunit</if>
+		<if test="sort == 'fexpperiod'">fexpperiod</if>
+		<if test="sort == 'freturntype'">freturntype</if>
+		<if test="sort == 'fbflowid'">fbflowid</if>
+		<if test="sort == 'fpriority'">fpriority</if>
+		<if test="sort == 'fmtono'">fmtono</if>
+		<if test="sort == 'freservetype'">freservetype</if>
+		<if test="sort == 'fplandeliverydate'">fplandeliverydate</if>
+		<if test="sort == 'fdeliverystatus'">fdeliverystatus</if>
+		<if test="sort == 'foldqty'">foldqty</if>
+		<if test="sort == 'fpromotionmatchtype'">fpromotionmatchtype</if>
+		<if test="sort == 'fsupplyorgid'">fsupplyorgid</if>
+		<if test="sort == 'fnetorderentryid'">fnetorderentryid</if>
+		<if test="sort == 'fstockunitid'">fstockunitid</if>
+		<if test="sort == 'fstockqty'">fstockqty</if>
+		<if test="sort == 'fstockbaseqty'">fstockbaseqty</if>
+		<if test="sort == 'fleftqty'">fleftqty</if>
+		<if test="sort == 'fdeliverydate'">fdeliverydate</if>
+		<if test="sort == 'fsettleorgids'">fsettleorgids</if>
+		<if test="sort == 'foutlmtunit'">foutlmtunit</if>
+		<if test="sort == 'tcDefineRowid'">tc_define_rowid</if>
+	</sql>
+	<sql id="orderParse2">
+		<if test="item.sortName == 'fentryid'">fentryid</if>
+		<if test="item.sortName == 'fid'">fid</if>
+		<if test="item.sortName == 'fseq'">fseq</if>
+		<if test="item.sortName == 'fmapid'">fmapid</if>
+		<if test="item.sortName == 'fmapname'">fmapname</if>
+		<if test="item.sortName == 'fmaterialid'">fmaterialid</if>
+		<if test="item.sortName == 'fauxpropid'">fauxpropid</if>
+		<if test="item.sortName == 'fbomid'">fbomid</if>
+		<if test="item.sortName == 'funitid'">funitid</if>
+		<if test="item.sortName == 'fqty'">fqty</if>
+		<if test="item.sortName == 'fbaseunitid'">fbaseunitid</if>
+		<if test="item.sortName == 'fbaseunitqty'">fbaseunitqty</if>
+		<if test="item.sortName == 'fnote'">fnote</if>
+		<if test="item.sortName == 'fmrpfreezestatus'">fmrpfreezestatus</if>
+		<if test="item.sortName == 'ffreezedate'">ffreezedate</if>
+		<if test="item.sortName == 'ffreezerid'">ffreezerid</if>
+		<if test="item.sortName == 'fmrpterminatestatus'">fmrpterminatestatus</if>
+		<if test="item.sortName == 'fterminaterid'">fterminaterid</if>
+		<if test="item.sortName == 'fterminatestatus'">fterminatestatus</if>
+		<if test="item.sortName == 'fterminatedate'">fterminatedate</if>
+		<if test="item.sortName == 'fmrpclosestatus'">fmrpclosestatus</if>
+		<if test="item.sortName == 'flot'">flot</if>
+		<if test="item.sortName == 'fchangeflag'">fchangeflag</if>
+		<if test="item.sortName == 'fstockorgid'">fstockorgid</if>
+		<if test="item.sortName == 'fstockid'">fstockid</if>
+		<if test="item.sortName == 'flockqty'">flockqty</if>
+		<if test="item.sortName == 'flockflag'">flockflag</if>
+		<if test="item.sortName == 'fownertypeid'">fownertypeid</if>
+		<if test="item.sortName == 'fownerid'">fownerid</if>
+		<if test="item.sortName == 'flotText'">flot_text</if>
+		<if test="item.sortName == 'fproducedate'">fproducedate</if>
+		<if test="item.sortName == 'fexpirydate'">fexpirydate</if>
+		<if test="item.sortName == 'fexpunit'">fexpunit</if>
+		<if test="item.sortName == 'fexpperiod'">fexpperiod</if>
+		<if test="item.sortName == 'freturntype'">freturntype</if>
+		<if test="item.sortName == 'fbflowid'">fbflowid</if>
+		<if test="item.sortName == 'fpriority'">fpriority</if>
+		<if test="item.sortName == 'fmtono'">fmtono</if>
+		<if test="item.sortName == 'freservetype'">freservetype</if>
+		<if test="item.sortName == 'fplandeliverydate'">fplandeliverydate</if>
+		<if test="item.sortName == 'fdeliverystatus'">fdeliverystatus</if>
+		<if test="item.sortName == 'foldqty'">foldqty</if>
+		<if test="item.sortName == 'fpromotionmatchtype'">fpromotionmatchtype</if>
+		<if test="item.sortName == 'fsupplyorgid'">fsupplyorgid</if>
+		<if test="item.sortName == 'fnetorderentryid'">fnetorderentryid</if>
+		<if test="item.sortName == 'fstockunitid'">fstockunitid</if>
+		<if test="item.sortName == 'fstockqty'">fstockqty</if>
+		<if test="item.sortName == 'fstockbaseqty'">fstockbaseqty</if>
+		<if test="item.sortName == 'fleftqty'">fleftqty</if>
+		<if test="item.sortName == 'fdeliverydate'">fdeliverydate</if>
+		<if test="item.sortName == 'fsettleorgids'">fsettleorgids</if>
+		<if test="item.sortName == 'foutlmtunit'">foutlmtunit</if>
+		<if test="item.sortName == 'tcDefineRowid'">tc_define_rowid</if>
+	</sql>
+	
+	<sql id="dynamicWhere">
+		<where>	      				
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fentryid)"> and t.fentryid like concat('%',#{fentryid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fid)"> and t.fid like concat('%',#{fid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fseq)"> and t.fseq like concat('%',#{fseq},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fmapid)"> and t.fmapid like concat('%',#{fmapid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fmapname)"> and t.fmapname like concat('%',#{fmapname},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fmaterialid)"> and t.fmaterialid like concat('%',#{fmaterialid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fauxpropid)"> and t.fauxpropid like concat('%',#{fauxpropid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fbomid)"> and t.fbomid like concat('%',#{fbomid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(funitid)"> and t.funitid like concat('%',#{funitid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fqty)"> and t.fqty like concat('%',#{fqty},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fbaseunitid)"> and t.fbaseunitid like concat('%',#{fbaseunitid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fbaseunitqty)"> and t.fbaseunitqty like concat('%',#{fbaseunitqty},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fnote)"> and t.fnote like concat('%',#{fnote},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fmrpfreezestatus)"> and t.fmrpfreezestatus like concat('%',#{fmrpfreezestatus},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(ffreezedate)"> and t.ffreezedate like concat('%',#{ffreezedate},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(ffreezerid)"> and t.ffreezerid like concat('%',#{ffreezerid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fmrpterminatestatus)"> and t.fmrpterminatestatus like concat('%',#{fmrpterminatestatus},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fterminaterid)"> and t.fterminaterid like concat('%',#{fterminaterid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fterminatestatus)"> and t.fterminatestatus like concat('%',#{fterminatestatus},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fterminatedate)"> and t.fterminatedate like concat('%',#{fterminatedate},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fmrpclosestatus)"> and t.fmrpclosestatus like concat('%',#{fmrpclosestatus},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(flot)"> and t.flot like concat('%',#{flot},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fchangeflag)"> and t.fchangeflag like concat('%',#{fchangeflag},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fstockorgid)"> and t.fstockorgid like concat('%',#{fstockorgid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fstockid)"> and t.fstockid like concat('%',#{fstockid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(flockqty)"> and t.flockqty like concat('%',#{flockqty},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(flockflag)"> and t.flockflag like concat('%',#{flockflag},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fownertypeid)"> and t.fownertypeid like concat('%',#{fownertypeid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fownerid)"> and t.fownerid like concat('%',#{fownerid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(flotText)"> and t.flot_text like concat('%',#{flotText},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fproducedate)"> and t.fproducedate like concat('%',#{fproducedate},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fexpirydate)"> and t.fexpirydate like concat('%',#{fexpirydate},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fexpunit)"> and t.fexpunit like concat('%',#{fexpunit},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fexpperiod)"> and t.fexpperiod like concat('%',#{fexpperiod},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(freturntype)"> and t.freturntype like concat('%',#{freturntype},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fbflowid)"> and t.fbflowid like concat('%',#{fbflowid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fpriority)"> and t.fpriority like concat('%',#{fpriority},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fmtono)"> and t.fmtono like concat('%',#{fmtono},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(freservetype)"> and t.freservetype like concat('%',#{freservetype},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fplandeliverydate)"> and t.fplandeliverydate like concat('%',#{fplandeliverydate},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fdeliverystatus)"> and t.fdeliverystatus like concat('%',#{fdeliverystatus},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(foldqty)"> and t.foldqty like concat('%',#{foldqty},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fpromotionmatchtype)"> and t.fpromotionmatchtype like concat('%',#{fpromotionmatchtype},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fsupplyorgid)"> and t.fsupplyorgid like concat('%',#{fsupplyorgid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fnetorderentryid)"> and t.fnetorderentryid like concat('%',#{fnetorderentryid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fstockunitid)"> and t.fstockunitid like concat('%',#{fstockunitid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fstockqty)"> and t.fstockqty like concat('%',#{fstockqty},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fstockbaseqty)"> and t.fstockbaseqty like concat('%',#{fstockbaseqty},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fleftqty)"> and t.fleftqty like concat('%',#{fleftqty},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fdeliverydate)"> and t.fdeliverydate like concat('%',#{fdeliverydate},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fsettleorgids)"> and t.fsettleorgids like concat('%',#{fsettleorgids},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(foutlmtunit)"> and t.foutlmtunit like concat('%',#{foutlmtunit},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(tcDefineRowid)"> and t.tc_define_rowid like concat('%',#{tcDefineRowid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(search)"> and (t.fentryid like concat('%',#{search},'%') or t.fid like concat('%',#{search},'%') or t.fseq like concat('%',#{search},'%') or t.fmapid like concat('%',#{search},'%') or t.fmapname like concat('%',#{search},'%') or t.fmaterialid like concat('%',#{search},'%') or t.fauxpropid like concat('%',#{search},'%') or t.fbomid like concat('%',#{search},'%') or t.funitid like concat('%',#{search},'%') or t.fqty like concat('%',#{search},'%') or t.fbaseunitid like concat('%',#{search},'%') or t.fbaseunitqty like concat('%',#{search},'%') or t.fnote like concat('%',#{search},'%') or t.fmrpfreezestatus like concat('%',#{search},'%') or t.ffreezedate like concat('%',#{search},'%') or t.ffreezerid like concat('%',#{search},'%') or t.fmrpterminatestatus like concat('%',#{search},'%') or t.fterminaterid like concat('%',#{search},'%') or t.fterminatestatus like concat('%',#{search},'%') or t.fterminatedate like concat('%',#{search},'%') or t.fmrpclosestatus like concat('%',#{search},'%') or t.flot like concat('%',#{search},'%') or t.fchangeflag like concat('%',#{search},'%') or t.fstockorgid like concat('%',#{search},'%') or t.fstockid like concat('%',#{search},'%') or t.flockqty like concat('%',#{search},'%') or t.flockflag like concat('%',#{search},'%') or t.fownertypeid like concat('%',#{search},'%') or t.fownerid like concat('%',#{search},'%') or t.flot_text like concat('%',#{search},'%') or t.fproducedate like concat('%',#{search},'%') or t.fexpirydate like concat('%',#{search},'%') or t.fexpunit like concat('%',#{search},'%') or t.fexpperiod like concat('%',#{search},'%') or t.freturntype like concat('%',#{search},'%') or t.fbflowid like concat('%',#{search},'%') or t.fpriority like concat('%',#{search},'%') or t.fmtono like concat('%',#{search},'%') or t.freservetype like concat('%',#{search},'%') or t.fplandeliverydate like concat('%',#{search},'%') or t.fdeliverystatus like concat('%',#{search},'%') or t.foldqty like concat('%',#{search},'%') or t.fpromotionmatchtype like concat('%',#{search},'%') or t.fsupplyorgid like concat('%',#{search},'%') or t.fnetorderentryid like concat('%',#{search},'%') or t.fstockunitid like concat('%',#{search},'%') or t.fstockqty like concat('%',#{search},'%') or t.fstockbaseqty like concat('%',#{search},'%') or t.fleftqty like concat('%',#{search},'%') or t.fdeliverydate like concat('%',#{search},'%') or t.fsettleorgids like concat('%',#{search},'%') or t.foutlmtunit like concat('%',#{search},'%') or t.tc_define_rowid like concat('%',#{search},'%'))</if>	
+		</where>
+	</sql>	
+	
+	<select id="get" resultMap="result">
+		select <include refid="columns"/> 
+		  from tb_k3_sal_orderentry t 
+	</select>
+	
+	<select id="query" resultType="list" resultMap="result">
+		<choose>
+			<!-- 翻页 -->
+			<when test="@chok.devwork.Ognl@isNotEmpty(offset) and @chok.devwork.Ognl@isNotEmpty(limit)">
+				select * from (select row_.*, rownum rownum_ from(
+					select tt.* from 
+					(
+						select <include refid="columns"/> from tb_k3_sal_orderentry t
+						<include refid="dynamicWhere" />
+					) tt
+					<include refid="order" />
+	            ) row_ where rownum &lt;= #{offset,javaType=String,jdbcType=NUMERIC}+#{limit,javaType=String,jdbcType=NUMERIC} ) 
+	            where rownum_ &gt; #{offset,javaType=String,jdbcType=NUMERIC}
+			</when>
+			<!-- 非翻页 -->
+			<otherwise>
+				select tt.* from 
+				(
+					select <include refid="columns"/> from tb_k3_sal_orderentry t
+					<include refid="dynamicWhere" />
+				) tt
+				<include refid="order" />
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="getCount" resultType="int">
+		select count(1) from tb_k3_sal_orderentry t
+		<include refid="dynamicWhere" />
+	</select>
+</mapper>  

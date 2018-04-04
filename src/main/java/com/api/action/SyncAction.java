@@ -1,19 +1,21 @@
 package com.api.action;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.api.service.TbK3SalOutstockService;
 import com.api.service.sal.OrderService;
-import com.api.service.sal.OutStockService;
 import com.api.service.sal.ReturnStockService;
 import com.api.service.stk.MiscellaneousService;
 import com.api.service.stk.MisdeliveryService;
 import com.common.InvokeHelper;
 
 import chok.devwork.BaseController;
-import chok.util.PropertiesUtil;
 
 @Scope("prototype")
 @Controller
@@ -21,7 +23,7 @@ import chok.util.PropertiesUtil;
 public class SyncAction extends BaseController<Object>
 {
 	@Autowired
-	private OutStockService outStockService; // 销售出库单
+	private TbK3SalOutstockService outStockService; // 销售出库单
 	@Autowired
 	private ReturnStockService returnStockService; // 销售退货单
 	@Autowired
@@ -40,7 +42,14 @@ public class SyncAction extends BaseController<Object>
 		try
 		{
 			if(InvokeHelper.isLogin())
-			outStockService.batchSave();
+			{
+				Map<String, String> param = new HashMap<String, String>();
+				param.put("offset", "0");
+				param.put("limit", "2");
+				param.put("sort", "tcErpAddTime");
+				param.put("tcSyncStatus", "IS_NULL");
+				outStockService.batchSave(param);
+			}
 		}
 		catch (Exception e)
 		{

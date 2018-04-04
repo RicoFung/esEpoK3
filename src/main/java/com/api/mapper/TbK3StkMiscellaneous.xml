@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">   
+
+
+<mapper namespace="com.api.entity.TbK3StkMiscellaneous">
+      <!-- 自动生成id策略 -->
+    <insert id="add" parameterType="com.api.entity.TbK3StkMiscellaneous" useGeneratedKeys="true" keyProperty="id">  
+       	insert into tb_k3_stk_miscellaneous 
+       	( fid, fbilltypeid, fbillno, fstockorgid, fstockdirect, fsupplierid, facceptance, fdeptid, fcurrencyid, fbasecurrid, fexchangetypeid, fexchangerate, fdate, fnote, fstockerid, fstockergroupid, fdocumentstatus, fcreatorid, fcreatedate, fmodifierid, fmodifydate, fapproverid, fapprovedate, fcancelstatus, fcancellerid, fcanceldate, fownertypeid, fownerid, fobjecttypeid, ftransferbiztype, tc_define_rowid, tc_erp_code, tc_erp_add_time, tc_sync_status, tc_sync_msg, tc_sync_save_time, tc_sync_submit_time, tc_sync_audit_time) 
+       	values
+       	( #{fid}, #{fbilltypeid}, #{fbillno}, #{fstockorgid}, #{fstockdirect}, #{fsupplierid}, #{facceptance}, #{fdeptid}, #{fcurrencyid}, #{fbasecurrid}, #{fexchangetypeid}, #{fexchangerate}, #{fdate}, #{fnote}, #{fstockerid}, #{fstockergroupid}, #{fdocumentstatus}, #{fcreatorid}, #{fcreatedate}, #{fmodifierid}, #{fmodifydate}, #{fapproverid}, #{fapprovedate}, #{fcancelstatus}, #{fcancellerid}, #{fcanceldate}, #{fownertypeid}, #{fownerid}, #{fobjecttypeid}, #{ftransferbiztype}, #{tcDefineRowid}, #{tcErpCode}, #{tcErpAddTime}, #{tcSyncStatus}, #{tcSyncMsg}, #{tcSyncSaveTime}, #{tcSyncSubmitTime}, #{tcSyncAuditTime})
+    </insert>  
+	
+	<delete id="del" parameterType="com.api.entity.TbK3StkMiscellaneous">
+		delete from tb_k3_stk_miscellaneous 
+		 where tc_define_rowid = #{tcDefineRowid}  
+	</delete>
+	
+	<update id="upd" parameterType="com.api.entity.TbK3StkMiscellaneous">
+		update tb_k3_stk_miscellaneous set
+	           fid = #{fid}, 
+	           fbilltypeid = #{fbilltypeid}, 
+	           fbillno = #{fbillno}, 
+	           fstockorgid = #{fstockorgid}, 
+	           fstockdirect = #{fstockdirect}, 
+	           fsupplierid = #{fsupplierid}, 
+	           facceptance = #{facceptance}, 
+	           fdeptid = #{fdeptid}, 
+	           fcurrencyid = #{fcurrencyid}, 
+	           fbasecurrid = #{fbasecurrid}, 
+	           fexchangetypeid = #{fexchangetypeid}, 
+	           fexchangerate = #{fexchangerate}, 
+	           fdate = #{fdate}, 
+	           fnote = #{fnote}, 
+	           fstockerid = #{fstockerid}, 
+	           fstockergroupid = #{fstockergroupid}, 
+	           fdocumentstatus = #{fdocumentstatus}, 
+	           fcreatorid = #{fcreatorid}, 
+	           fcreatedate = #{fcreatedate}, 
+	           fmodifierid = #{fmodifierid}, 
+	           fmodifydate = #{fmodifydate}, 
+	           fapproverid = #{fapproverid}, 
+	           fapprovedate = #{fapprovedate}, 
+	           fcancelstatus = #{fcancelstatus}, 
+	           fcancellerid = #{fcancellerid}, 
+	           fcanceldate = #{fcanceldate}, 
+	           fownertypeid = #{fownertypeid}, 
+	           fownerid = #{fownerid}, 
+	           fobjecttypeid = #{fobjecttypeid}, 
+	           ftransferbiztype = #{ftransferbiztype}, 
+	           tc_erp_code = #{tcErpCode}, 
+	           tc_erp_add_time = #{tcErpAddTime}, 
+	           tc_sync_status = #{tcSyncStatus}, 
+	           tc_sync_msg = #{tcSyncMsg}, 
+	           tc_sync_save_time = #{tcSyncSaveTime}, 
+	           tc_sync_submit_time = #{tcSyncSubmitTime}, 
+	           tc_sync_audit_time = #{tcSyncAuditTime} 
+         where tc_define_rowid = #{tcDefineRowid}  
+	</update>
+  	
+	<resultMap type="com.api.entity.TbK3StkMiscellaneous" id="result">
+        <result property="fid" column="FID"/>
+        <result property="fbilltypeid" column="FBILLTYPEID"/>
+        <result property="fbillno" column="FBILLNO"/>
+        <result property="fstockorgid" column="FSTOCKORGID"/>
+        <result property="fstockdirect" column="FSTOCKDIRECT"/>
+        <result property="fsupplierid" column="FSUPPLIERID"/>
+        <result property="facceptance" column="FACCEPTANCE"/>
+        <result property="fdeptid" column="FDEPTID"/>
+        <result property="fcurrencyid" column="FCURRENCYID"/>
+        <result property="fbasecurrid" column="FBASECURRID"/>
+        <result property="fexchangetypeid" column="FEXCHANGETYPEID"/>
+        <result property="fexchangerate" column="FEXCHANGERATE"/>
+        <result property="fdate" column="FDATE"/>
+        <result property="fnote" column="FNOTE"/>
+        <result property="fstockerid" column="FSTOCKERID"/>
+        <result property="fstockergroupid" column="FSTOCKERGROUPID"/>
+        <result property="fdocumentstatus" column="FDOCUMENTSTATUS"/>
+        <result property="fcreatorid" column="FCREATORID"/>
+        <result property="fcreatedate" column="FCREATEDATE"/>
+        <result property="fmodifierid" column="FMODIFIERID"/>
+        <result property="fmodifydate" column="FMODIFYDATE"/>
+        <result property="fapproverid" column="FAPPROVERID"/>
+        <result property="fapprovedate" column="FAPPROVEDATE"/>
+        <result property="fcancelstatus" column="FCANCELSTATUS"/>
+        <result property="fcancellerid" column="FCANCELLERID"/>
+        <result property="fcanceldate" column="FCANCELDATE"/>
+        <result property="fownertypeid" column="FOWNERTYPEID"/>
+        <result property="fownerid" column="FOWNERID"/>
+        <result property="fobjecttypeid" column="FOBJECTTYPEID"/>
+        <result property="ftransferbiztype" column="FTRANSFERBIZTYPE"/>
+        <result property="tcDefineRowid" column="TC_DEFINE_ROWID"/>
+        <result property="tcErpCode" column="TC_ERP_CODE"/>
+        <result property="tcErpAddTime" column="TC_ERP_ADD_TIME"/>
+        <result property="tcSyncStatus" column="TC_SYNC_STATUS"/>
+        <result property="tcSyncMsg" column="TC_SYNC_MSG"/>
+        <result property="tcSyncSaveTime" column="TC_SYNC_SAVE_TIME"/>
+        <result property="tcSyncSubmitTime" column="TC_SYNC_SUBMIT_TIME"/>
+        <result property="tcSyncAuditTime" column="TC_SYNC_AUDIT_TIME"/>
+	</resultMap>
+  	
+	<sql id="columns">
+		t.fid, t.fbilltypeid, t.fbillno, t.fstockorgid, t.fstockdirect, t.fsupplierid, t.facceptance, t.fdeptid, t.fcurrencyid, t.fbasecurrid, t.fexchangetypeid, t.fexchangerate, t.fdate, t.fnote, t.fstockerid, t.fstockergroupid, t.fdocumentstatus, t.fcreatorid, t.fcreatedate, t.fmodifierid, t.fmodifydate, t.fapproverid, t.fapprovedate, t.fcancelstatus, t.fcancellerid, t.fcanceldate, t.fownertypeid, t.fownerid, t.fobjecttypeid, t.ftransferbiztype, t.tc_define_rowid, t.tc_erp_code, t.tc_erp_add_time, t.tc_sync_status, t.tc_sync_msg, t.tc_sync_save_time, t.tc_sync_submit_time, t.tc_sync_audit_time 
+	</sql>
+	
+	<sql id="order">
+		<choose>
+			<when test="@chok.devwork.Ognl@isNotEmpty(sort)">
+				order by tt.<include refid="orderParse1"/> ${order}
+			</when>
+			<when test="@chok.devwork.Ognl@isNotEmpty(multiSort) and @chok.devwork.Ognl@isEmpty(sort)">
+				order by <foreach collection="multiSort" index="index" item="item" separator=",">tt.<include refid="orderParse2" /> ${item.sortOrder}</foreach>  
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</sql>
+	<sql id="orderParse1">
+		<if test="sort == 'fid'">fid</if>
+		<if test="sort == 'fbilltypeid'">fbilltypeid</if>
+		<if test="sort == 'fbillno'">fbillno</if>
+		<if test="sort == 'fstockorgid'">fstockorgid</if>
+		<if test="sort == 'fstockdirect'">fstockdirect</if>
+		<if test="sort == 'fsupplierid'">fsupplierid</if>
+		<if test="sort == 'facceptance'">facceptance</if>
+		<if test="sort == 'fdeptid'">fdeptid</if>
+		<if test="sort == 'fcurrencyid'">fcurrencyid</if>
+		<if test="sort == 'fbasecurrid'">fbasecurrid</if>
+		<if test="sort == 'fexchangetypeid'">fexchangetypeid</if>
+		<if test="sort == 'fexchangerate'">fexchangerate</if>
+		<if test="sort == 'fdate'">fdate</if>
+		<if test="sort == 'fnote'">fnote</if>
+		<if test="sort == 'fstockerid'">fstockerid</if>
+		<if test="sort == 'fstockergroupid'">fstockergroupid</if>
+		<if test="sort == 'fdocumentstatus'">fdocumentstatus</if>
+		<if test="sort == 'fcreatorid'">fcreatorid</if>
+		<if test="sort == 'fcreatedate'">fcreatedate</if>
+		<if test="sort == 'fmodifierid'">fmodifierid</if>
+		<if test="sort == 'fmodifydate'">fmodifydate</if>
+		<if test="sort == 'fapproverid'">fapproverid</if>
+		<if test="sort == 'fapprovedate'">fapprovedate</if>
+		<if test="sort == 'fcancelstatus'">fcancelstatus</if>
+		<if test="sort == 'fcancellerid'">fcancellerid</if>
+		<if test="sort == 'fcanceldate'">fcanceldate</if>
+		<if test="sort == 'fownertypeid'">fownertypeid</if>
+		<if test="sort == 'fownerid'">fownerid</if>
+		<if test="sort == 'fobjecttypeid'">fobjecttypeid</if>
+		<if test="sort == 'ftransferbiztype'">ftransferbiztype</if>
+		<if test="sort == 'tcDefineRowid'">tc_define_rowid</if>
+		<if test="sort == 'tcErpCode'">tc_erp_code</if>
+		<if test="sort == 'tcErpAddTime'">tc_erp_add_time</if>
+		<if test="sort == 'tcSyncStatus'">tc_sync_status</if>
+		<if test="sort == 'tcSyncMsg'">tc_sync_msg</if>
+		<if test="sort == 'tcSyncSaveTime'">tc_sync_save_time</if>
+		<if test="sort == 'tcSyncSubmitTime'">tc_sync_submit_time</if>
+		<if test="sort == 'tcSyncAuditTime'">tc_sync_audit_time</if>
+	</sql>
+	<sql id="orderParse2">
+		<if test="item.sortName == 'fid'">fid</if>
+		<if test="item.sortName == 'fbilltypeid'">fbilltypeid</if>
+		<if test="item.sortName == 'fbillno'">fbillno</if>
+		<if test="item.sortName == 'fstockorgid'">fstockorgid</if>
+		<if test="item.sortName == 'fstockdirect'">fstockdirect</if>
+		<if test="item.sortName == 'fsupplierid'">fsupplierid</if>
+		<if test="item.sortName == 'facceptance'">facceptance</if>
+		<if test="item.sortName == 'fdeptid'">fdeptid</if>
+		<if test="item.sortName == 'fcurrencyid'">fcurrencyid</if>
+		<if test="item.sortName == 'fbasecurrid'">fbasecurrid</if>
+		<if test="item.sortName == 'fexchangetypeid'">fexchangetypeid</if>
+		<if test="item.sortName == 'fexchangerate'">fexchangerate</if>
+		<if test="item.sortName == 'fdate'">fdate</if>
+		<if test="item.sortName == 'fnote'">fnote</if>
+		<if test="item.sortName == 'fstockerid'">fstockerid</if>
+		<if test="item.sortName == 'fstockergroupid'">fstockergroupid</if>
+		<if test="item.sortName == 'fdocumentstatus'">fdocumentstatus</if>
+		<if test="item.sortName == 'fcreatorid'">fcreatorid</if>
+		<if test="item.sortName == 'fcreatedate'">fcreatedate</if>
+		<if test="item.sortName == 'fmodifierid'">fmodifierid</if>
+		<if test="item.sortName == 'fmodifydate'">fmodifydate</if>
+		<if test="item.sortName == 'fapproverid'">fapproverid</if>
+		<if test="item.sortName == 'fapprovedate'">fapprovedate</if>
+		<if test="item.sortName == 'fcancelstatus'">fcancelstatus</if>
+		<if test="item.sortName == 'fcancellerid'">fcancellerid</if>
+		<if test="item.sortName == 'fcanceldate'">fcanceldate</if>
+		<if test="item.sortName == 'fownertypeid'">fownertypeid</if>
+		<if test="item.sortName == 'fownerid'">fownerid</if>
+		<if test="item.sortName == 'fobjecttypeid'">fobjecttypeid</if>
+		<if test="item.sortName == 'ftransferbiztype'">ftransferbiztype</if>
+		<if test="item.sortName == 'tcDefineRowid'">tc_define_rowid</if>
+		<if test="item.sortName == 'tcErpCode'">tc_erp_code</if>
+		<if test="item.sortName == 'tcErpAddTime'">tc_erp_add_time</if>
+		<if test="item.sortName == 'tcSyncStatus'">tc_sync_status</if>
+		<if test="item.sortName == 'tcSyncMsg'">tc_sync_msg</if>
+		<if test="item.sortName == 'tcSyncSaveTime'">tc_sync_save_time</if>
+		<if test="item.sortName == 'tcSyncSubmitTime'">tc_sync_submit_time</if>
+		<if test="item.sortName == 'tcSyncAuditTime'">tc_sync_audit_time</if>
+	</sql>
+	
+	<sql id="dynamicWhere">
+		<where>	      				
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fid)"> and t.fid like concat('%',#{fid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fbilltypeid)"> and t.fbilltypeid like concat('%',#{fbilltypeid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fbillno)"> and t.fbillno like concat('%',#{fbillno},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fstockorgid)"> and t.fstockorgid like concat('%',#{fstockorgid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fstockdirect)"> and t.fstockdirect like concat('%',#{fstockdirect},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fsupplierid)"> and t.fsupplierid like concat('%',#{fsupplierid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(facceptance)"> and t.facceptance like concat('%',#{facceptance},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fdeptid)"> and t.fdeptid like concat('%',#{fdeptid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fcurrencyid)"> and t.fcurrencyid like concat('%',#{fcurrencyid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fbasecurrid)"> and t.fbasecurrid like concat('%',#{fbasecurrid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fexchangetypeid)"> and t.fexchangetypeid like concat('%',#{fexchangetypeid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fexchangerate)"> and t.fexchangerate like concat('%',#{fexchangerate},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fdate)"> and t.fdate like concat('%',#{fdate},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fnote)"> and t.fnote like concat('%',#{fnote},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fstockerid)"> and t.fstockerid like concat('%',#{fstockerid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fstockergroupid)"> and t.fstockergroupid like concat('%',#{fstockergroupid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fdocumentstatus)"> and t.fdocumentstatus like concat('%',#{fdocumentstatus},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fcreatorid)"> and t.fcreatorid like concat('%',#{fcreatorid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fcreatedate)"> and t.fcreatedate like concat('%',#{fcreatedate},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fmodifierid)"> and t.fmodifierid like concat('%',#{fmodifierid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fmodifydate)"> and t.fmodifydate like concat('%',#{fmodifydate},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fapproverid)"> and t.fapproverid like concat('%',#{fapproverid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fapprovedate)"> and t.fapprovedate like concat('%',#{fapprovedate},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fcancelstatus)"> and t.fcancelstatus like concat('%',#{fcancelstatus},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fcancellerid)"> and t.fcancellerid like concat('%',#{fcancellerid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fcanceldate)"> and t.fcanceldate like concat('%',#{fcanceldate},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fownertypeid)"> and t.fownertypeid like concat('%',#{fownertypeid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fownerid)"> and t.fownerid like concat('%',#{fownerid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(fobjecttypeid)"> and t.fobjecttypeid like concat('%',#{fobjecttypeid},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(ftransferbiztype)"> and t.ftransferbiztype like concat('%',#{ftransferbiztype},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(tcErpCode)"> and t.tc_erp_code like concat('%',#{tcErpCode},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(tcErpAddTime)"> and t.tc_erp_add_time like concat('%',#{tcErpAddTime},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(tcSyncStatus)"> and t.tc_sync_status like concat('%',#{tcSyncStatus},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(tcSyncMsg)"> and t.tc_sync_msg like concat('%',#{tcSyncMsg},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(tcSyncSaveTime)"> and t.tc_sync_save_time like concat('%',#{tcSyncSaveTime},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(tcSyncSubmitTime)"> and t.tc_sync_submit_time like concat('%',#{tcSyncSubmitTime},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(tcSyncAuditTime)"> and t.tc_sync_audit_time like concat('%',#{tcSyncAuditTime},'%')</if>
+	       <if test="@chok.devwork.Ognl@isNotEmpty(search)"> and (t.fid like concat('%',#{search},'%') or t.fbilltypeid like concat('%',#{search},'%') or t.fbillno like concat('%',#{search},'%') or t.fstockorgid like concat('%',#{search},'%') or t.fstockdirect like concat('%',#{search},'%') or t.fsupplierid like concat('%',#{search},'%') or t.facceptance like concat('%',#{search},'%') or t.fdeptid like concat('%',#{search},'%') or t.fcurrencyid like concat('%',#{search},'%') or t.fbasecurrid like concat('%',#{search},'%') or t.fexchangetypeid like concat('%',#{search},'%') or t.fexchangerate like concat('%',#{search},'%') or t.fdate like concat('%',#{search},'%') or t.fnote like concat('%',#{search},'%') or t.fstockerid like concat('%',#{search},'%') or t.fstockergroupid like concat('%',#{search},'%') or t.fdocumentstatus like concat('%',#{search},'%') or t.fcreatorid like concat('%',#{search},'%') or t.fcreatedate like concat('%',#{search},'%') or t.fmodifierid like concat('%',#{search},'%') or t.fmodifydate like concat('%',#{search},'%') or t.fapproverid like concat('%',#{search},'%') or t.fapprovedate like concat('%',#{search},'%') or t.fcancelstatus like concat('%',#{search},'%') or t.fcancellerid like concat('%',#{search},'%') or t.fcanceldate like concat('%',#{search},'%') or t.fownertypeid like concat('%',#{search},'%') or t.fownerid like concat('%',#{search},'%') or t.fobjecttypeid like concat('%',#{search},'%') or t.ftransferbiztype like concat('%',#{search},'%') or t.tc_erp_code like concat('%',#{search},'%') or t.tc_erp_add_time like concat('%',#{search},'%') or t.tc_sync_status like concat('%',#{search},'%') or t.tc_sync_msg like concat('%',#{search},'%') or t.tc_sync_save_time like concat('%',#{search},'%') or t.tc_sync_submit_time like concat('%',#{search},'%') or t.tc_sync_audit_time like concat('%',#{search},'%'))</if>	
+		</where>
+	</sql>	
+	
+	<select id="get" resultMap="result">
+		select <include refid="columns"/> 
+		  from tb_k3_stk_miscellaneous t 
+		 where tc_define_rowid = #{tcDefineRowid}  	  
+	</select>
+	
+	<select id="query" resultType="list" resultMap="result">
+		<choose>
+			<!-- 翻页 -->
+			<when test="@chok.devwork.Ognl@isNotEmpty(offset) and @chok.devwork.Ognl@isNotEmpty(limit)">
+				select * from (select row_.*, rownum rownum_ from(
+					select tt.* from 
+					(
+						select <include refid="columns"/> from tb_k3_stk_miscellaneous t
+						<include refid="dynamicWhere" />
+					) tt
+					<include refid="order" />
+	            ) row_ where rownum &lt;= #{offset,javaType=String,jdbcType=NUMERIC}+#{limit,javaType=String,jdbcType=NUMERIC} ) 
+	            where rownum_ &gt; #{offset,javaType=String,jdbcType=NUMERIC}
+			</when>
+			<!-- 非翻页 -->
+			<otherwise>
+				select tt.* from 
+				(
+					select <include refid="columns"/> from tb_k3_stk_miscellaneous t
+					<include refid="dynamicWhere" />
+				) tt
+				<include refid="order" />
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="getCount" resultType="int">
+		select count(1) from tb_k3_stk_miscellaneous t
+		<include refid="dynamicWhere" />
+	</select>
+</mapper>  
