@@ -110,6 +110,7 @@ public class DataSourceDefaultConfig
 		Properties prop = new Properties();
 		prop.setProperty("add*", "PROPAGATION_REQUIRED,-Exception");
 		prop.setProperty("save*", "PROPAGATION_REQUIRED,-Exception");
+		prop.setProperty("batchSave", "PROPAGATION_REQUIRED,-Exception");
 		prop.setProperty("del*", "PROPAGATION_REQUIRED,-Exception");
 		prop.setProperty("upd*", "PROPAGATION_REQUIRED,-Exception");
 		prop.setProperty("get*", "PROPAGATION_NEVER,readOnly");

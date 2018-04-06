@@ -29,4 +29,10 @@ public class TbK3SalOrderDao extends BaseDao<TbK3SalOrder,Long>
 	{
 		return TbK3SalOrder.class;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<TbK3SalOrder> queryPendingPage(Map<String, String> param)
+	{
+		return (List<TbK3SalOrder>) this.query("queryPendingPage", param);
+	}
 }
