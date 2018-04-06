@@ -6,7 +6,7 @@ package com.api.entity;
  * @version 1.0
  * @since 1.0
  * */
-public class TbK3StkMisdeliveryentry extends BaseK3Objectentry implements java.io.Serializable
+public class TbK3StkMisdeliveryentry extends BaseTbK3Objectentry implements java.io.Serializable
 {
     // 分录内码       db_column: FENTRYID 
 	private java.lang.String fentryid;

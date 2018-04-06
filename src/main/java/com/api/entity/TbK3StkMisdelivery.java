@@ -6,7 +6,7 @@ package com.api.entity;
  * @version 1.0
  * @since 1.0
  * */
-public class TbK3StkMisdelivery extends BaseK3Object implements java.io.Serializable
+public class TbK3StkMisdelivery extends BaseTbK3Object implements java.io.Serializable
 {
     // 单据内码       db_column: FID 
 	private java.lang.String fid;

@@ -6,7 +6,7 @@ package com.api.entity;
  * @version 1.0
  * @since 1.0
  * */
-public class TbK3SalOutstockentry extends BaseK3Objectentry implements java.io.Serializable
+public class TbK3SalOutstockentry extends BaseTbK3Objectentry implements java.io.Serializable
 {
 	// 分录内码       db_column: FENTRYID 
 	private java.lang.String fentryid;
@@ -113,15 +113,15 @@ public class TbK3SalOutstockentry extends BaseK3Objectentry implements java.io.S
     // 控制出库比例       db_column: FOUTCONTROL 
 	private java.lang.String foutcontrol;
 
-	public Long getTcRowid()
-	{
-		return tcRowid;
-	}
-
-	public void setTcRowid(Long tcRowid)
-	{
-		this.tcRowid = tcRowid;
-	}
+//	public Long getTcRowid()
+//	{
+//		return tcRowid;
+//	}
+//
+//	public void setTcRowid(Long tcRowid)
+//	{
+//		this.tcRowid = tcRowid;
+//	}
 
 	public void setFentryid(java.lang.String value) 
 	{

@@ -1,6 +1,6 @@
 package com.api.entity;
 
-public class BaseK3Objectentry implements java.io.Serializable
+public class BaseTbK3Objectentry implements java.io.Serializable
 {
 	// 自定义主键
 	protected Long tcRowid;

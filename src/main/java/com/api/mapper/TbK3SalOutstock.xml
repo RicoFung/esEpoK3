@@ -162,7 +162,6 @@
 		<if test="sort == 'tcErpCode'">tc_erp_code</if>
 		<if test="sort == 'tcErpAddTime'">tc_erp_add_time</if>
 		<if test="sort == 'tcSyncStatus'">tc_sync_status</if>
-		<if test="sort == 'tcSyncMsg'">tc_sync_msg</if>
 		<if test="sort == 'tcSyncSaveTime'">tc_sync_save_time</if>
 		<if test="sort == 'tcSyncSubmitTime'">tc_sync_submit_time</if>
 		<if test="sort == 'tcSyncAuditTime'">tc_sync_audit_time</if>

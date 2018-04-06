@@ -1,19 +1,17 @@
 package com.api.entity;
 
+import java.util.List;
+
 /**
  *
  * @author rico
  * @version 1.0
  * @since 1.0
  * */
-public class TbK3SalReturnstock extends BaseK3Object implements java.io.Serializable
+public class TbK3SalReturnstock extends BaseTbK3Object implements java.io.Serializable
 {
-    // 单据内码       db_column: FID 
-	private java.lang.String fid;
     // 单据类型       db_column: FBILLTYPEID 
 	private java.lang.String fbilltypeid;
-    // 单据编号       db_column: FBILLNO 
-	private java.lang.String fbillno;
     // 日期       db_column: FDATE 
 	private java.lang.String fdate;
     // 退货客户内码       db_column: FRETCUSTID 
@@ -92,16 +90,9 @@ public class TbK3SalReturnstock extends BaseK3Object implements java.io.Serializ
 	private java.lang.String freccontactid;
     // 是否跨法人       db_column: FISINTERLEGALPERSON 
 	private java.lang.String fisinterlegalperson;
+	// 明细
+	private List<TbK3SalReturnstockentry> tbK3SalReturnstockentrys;
 
-	public void setFid(java.lang.String value) 
-	{
-		this.fid = value;
-	}
-	
-	public java.lang.String getFid() 
-	{
-		return this.fid;
-	}
 	public void setFbilltypeid(java.lang.String value) 
 	{
 		this.fbilltypeid = value;
@@ -110,15 +101,6 @@ public class TbK3SalReturnstock extends BaseK3Object implements java.io.Serializ
 	public java.lang.String getFbilltypeid() 
 	{
 		return this.fbilltypeid;
-	}
-	public void setFbillno(java.lang.String value) 
-	{
-		this.fbillno = value;
-	}
-	
-	public java.lang.String getFbillno() 
-	{
-		return this.fbillno;
 	}
 	public void setFdate(java.lang.String value) 
 	{
@@ -129,6 +111,7 @@ public class TbK3SalReturnstock extends BaseK3Object implements java.io.Serializ
 	{
 		return this.fdate;
 	}
+	
 	public void setFretcustid(java.lang.String value) 
 	{
 		this.fretcustid = value;
@@ -138,6 +121,7 @@ public class TbK3SalReturnstock extends BaseK3Object implements java.io.Serializ
 	{
 		return this.fretcustid;
 	}
+	
 	public void setFreceivecustid(java.lang.String value) 
 	{
 		this.freceivecustid = value;
@@ -471,5 +455,16 @@ public class TbK3SalReturnstock extends BaseK3Object implements java.io.Serializ
 	{
 		return this.fisinterlegalperson;
 	}
+
+	public List<TbK3SalReturnstockentry> getTbK3SalReturnstockentrys()
+	{
+		return tbK3SalReturnstockentrys;
+	}
+
+	public void setTbK3SalReturnstockentrys(List<TbK3SalReturnstockentry> tbK3SalReturnstockentrys)
+	{
+		this.tbK3SalReturnstockentrys = tbK3SalReturnstockentrys;
+	}
+
 }
 

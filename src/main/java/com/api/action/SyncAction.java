@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.api.service.TbK3SalOutstockService;
+import com.api.service.TbK3SalReturnstockService;
 import com.api.service.sal.OrderService;
 import com.api.service.sal.ReturnStockService;
 import com.api.service.stk.MiscellaneousService;
@@ -25,7 +26,7 @@ public class SyncAction extends BaseController<Object>
 	@Autowired
 	private TbK3SalOutstockService outStockService; // 销售出库单
 	@Autowired
-	private ReturnStockService returnStockService; // 销售退货单
+	private TbK3SalReturnstockService returnStockService; // 销售退货单
 	@Autowired
 	private OrderService orderService; // 销售订单（预售单）
 	@Autowired
@@ -66,7 +67,14 @@ public class SyncAction extends BaseController<Object>
 		try
 		{
 			if(InvokeHelper.isLogin())
-			returnStockService.batchSave();
+			{
+				Map<String, String> param = new HashMap<String, String>();
+				param.put("offset", "0");
+				param.put("limit", "2");
+				param.put("sort", "tcDefineRowid");
+				param.put("tcSyncStatus", "IS_NULL");
+				returnStockService.batchSave(param);
+			}
 		}
 		catch (Exception e)
 		{

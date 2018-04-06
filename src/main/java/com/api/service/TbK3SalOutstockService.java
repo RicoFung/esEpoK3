@@ -1,7 +1,6 @@
  package com.api.service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,9 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import com.api.dao.TbK3SalOutstockDao;
 import com.api.entity.TbK3SalOutstock;
 import com.api.entity.TbK3SalOutstockentry;
@@ -30,28 +26,27 @@ import com.api.entity.json.sal.outstock.FStockOrgId;
 import com.api.entity.json.sal.outstock.FUnitID;
 import com.api.entity.json.sal.outstock.Model;
 import com.api.entity.json.sal.outstock.SubHeadEntity;
-import com.common.InvokeHelper;
 
 import chok.devwork.springboot.BaseDao;
-import chok.devwork.springboot.BaseService;
-import chok.util.TimeUtil;
 
 @Service
-public class TbK3SalOutstockService extends BaseService<TbK3SalOutstock,Long>
+public class TbK3SalOutstockService extends BaseTbK3Service<TbK3SalOutstock,Long>
 {
 	static Logger log = LoggerFactory.getLogger(TbK3SalOutstockService.class);
 	
 	private static String FORM_ID = "SAL_OUTSTOCK";
-	private JSONObject oResult;
-	private Boolean oResultIsSuccess;
-	private JSONArray oResultSuccessEntitys;
-	private JSONArray oResultErrors;
 	
 	@Autowired
 	private TbK3SalOutstockDao dao;
 
 	@Override
-	public BaseDao<TbK3SalOutstock,Long> getEntityDao() 
+	public BaseDao<TbK3SalOutstock, Long> getEntityDao() 
+	{
+		return dao;
+	}
+
+	@Override
+	public BaseDao<TbK3SalOutstock, Long> getTbK3EntityDao()
 	{
 		return dao;
 	}
@@ -151,67 +146,6 @@ public class TbK3SalOutstockService extends BaseService<TbK3SalOutstock,Long>
 		//------------------------------------------------------------------------------------------------------//		
 		// Api Call
 		//------------------------------------------------------------------------------------------------------//
-		callApi(root, tbK3SalOutstocks);
-	}
-	
-	/**
-	 * 调用Api
-	 * @param root
-	 * @param tbK3SalOutstocks
-	 * @throws Exception
-	 */
-	private void callApi(ApiBatchSave root, List<TbK3SalOutstock> tbK3SalOutstocks) throws Exception
-	{
-		//------------------------------------------------------------------------------------------------------//		
-		// Api Call
-		//------------------------------------------------------------------------------------------------------//
-		String sContent = JSONArray.toJSONString(root, new com.alibaba.fastjson.serializer.PascalNameFilter());
-		String sResult = InvokeHelper.BatchSave(FORM_ID, sContent);
-		//------------------------------------------------------------------------------------------------------//
-		// Api Result
-		//------------------------------------------------------------------------------------------------------//
-		oResult = JSON.parseObject(sResult).getJSONObject("Result");
-		oResultIsSuccess = oResult.getJSONObject("ResponseStatus").getBoolean("IsSuccess");
-		if (oResultIsSuccess)
-		{
-			// update 中间库单据状态
-			oResultSuccessEntitys = oResult.getJSONObject("ResponseStatus").getJSONArray("SuccessEntitys");
-			for (int i=0; i<oResultSuccessEntitys.size(); i++)
-			{
-				String oResultId = oResultSuccessEntitys.getJSONObject(i).getString("Id");
-				String oResultNumber = oResultSuccessEntitys.getJSONObject(i).getString("Number");
-				TbK3SalOutstock tbK3SalOutstock = tbK3SalOutstocks.get(i);
-				tbK3SalOutstock.setFid(oResultId);
-				tbK3SalOutstock.setFbillno(oResultNumber);
-				tbK3SalOutstock.setTcSyncStatus("SAVE_1");
-				tbK3SalOutstock.setTcSyncSaveTime(TimeUtil.getCurrentTime());
-				dao.upd(tbK3SalOutstock);
-			}
-		}
-		else
-		{
-			// JSON格式：
-			// "Errors":[{"FieldName":"FCustomerID","Message":"字段“客户”是必填项","DIndex":0},{"FieldName":"FCustomerID","Message":"字段“客户”是必填项","DIndex":1},{"FieldName":"FStockID","Message":"单据体实体【明细信息】第【1】行分录，【仓库】字段必录","DIndex":0},{"FieldName":"FStockID","Message":"单据体实体【明细信息】第【2】行分录，【仓库】字段必录","DIndex":0},{"FieldName":"FStockID","Message":"单据体实体【明细信息】第【3】行分录，【仓库】字段必录","DIndex":0},{"FieldName":"FStockID","Message":"单据体实体【明细信息】第【1】行分录，【仓库】字段必录","DIndex":1},{"FieldName":"FStockID","Message":"单据体实体【明细信息】第【2】行分录，【仓库】字段必录","DIndex":1},{"FieldName":"FStockID","Message":"单据体实体【明细信息】第【3】行分录，【仓库】字段必录","DIndex":1}]
-			oResultErrors = oResult.getJSONObject("ResponseStatus").getJSONArray("Errors");
-			// update 中间库单据状态和错误信息
-			// 收集错误数据
-			Map<Integer, TbK3SalOutstock> errorObjs = new HashMap<Integer, TbK3SalOutstock>();
-			for (int i=0; i<oResultErrors.size(); i++)
-			{
-				Integer oResultDIndex = oResultErrors.getJSONObject(i).getInteger("DIndex");
-				String oResultMessage = oResultErrors.getJSONObject(i).getString("Message");
-				
-				TbK3SalOutstock tbK3SalOutstock = tbK3SalOutstocks.get(oResultDIndex);
-				tbK3SalOutstock.setTcSyncMsg(tbK3SalOutstock.getTcSyncMsg()+"###"+oResultMessage);
-				tbK3SalOutstock.setTcSyncStatus("SAVE_0");
-				
-				if (errorObjs.containsKey(oResultDIndex))
-					errorObjs.replace(oResultDIndex, tbK3SalOutstock);
-				else
-					errorObjs.put(oResultDIndex, tbK3SalOutstock);
-			}
-			// 遍历更新同步状态
-			errorObjs.forEach((k,v)->{dao.upd(v);});
-		}
+		callApi(FORM_ID, root, tbK3SalOutstocks);
 	}
 }

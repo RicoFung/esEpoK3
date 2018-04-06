@@ -1,7 +1,11 @@
 package com.api.entity;
 
-public class BaseK3Object implements java.io.Serializable
+public class BaseTbK3Object implements java.io.Serializable
 {
+    // 单据内码       db_column: FID 
+	private java.lang.String fid;
+    // 单据编号       db_column: FBILLNO 
+	private java.lang.String fbillno;
     // 自定义主键       db_column: TC_DEFINE_ROWID 
 	protected java.lang.Long tcDefineRowid;
     // 内审POS 单号       db_column: TC_ERP_CODE 
@@ -19,6 +23,22 @@ public class BaseK3Object implements java.io.Serializable
     // 同步AUDIT时间       db_column: TC_SYNC_AUDIT_TIME 
 	protected java.lang.String tcSyncAuditTime;
 	
+	public java.lang.String getFid()
+	{
+		return fid;
+	}
+	public void setFid(java.lang.String fid)
+	{
+		this.fid = fid;
+	}
+	public java.lang.String getFbillno()
+	{
+		return fbillno;
+	}
+	public void setFbillno(java.lang.String fbillno)
+	{
+		this.fbillno = fbillno;
+	}
 	public java.lang.Long getTcDefineRowid()
 	{
 		return tcDefineRowid;
