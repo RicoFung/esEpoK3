@@ -111,7 +111,7 @@ public class TbK3SalOutstock implements java.io.Serializable
     // 同步状态（null待同步1同步成功0同步失败）       db_column: TC_SYNC_STATUS 
 	private java.lang.String tcSyncStatus;
     // 错误信息       db_column: TC_SYNC_MSG 
-	private java.lang.String tcSyncMsg;
+	private java.lang.String tcSyncMsg = "";
     // 同步SAVE时间       db_column: TC_SYNC_SAVE_TIME 
 	private java.lang.String tcSyncSaveTime;
     // 同步SUBMIT时间       db_column: TC_SYNC_SUBMIT_TIME 

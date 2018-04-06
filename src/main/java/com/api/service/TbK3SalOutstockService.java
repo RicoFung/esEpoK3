@@ -109,9 +109,9 @@ public class TbK3SalOutstockService extends BaseService<TbK3SalOutstock,Long>
 				fOwnerID.setFNumber(tbK3SalOutstockentry.getFownerid());
 				fEntity.setFOwnerID(fOwnerID);
 				// 仓库
-//				FStockID fStockID = new FStockID();
-//				fStockID.setFNumber(tbK3SalOutstockentry.getFstockid());
-//				fEntity.setFStockID(fStockID);
+				FStockID fStockID = new FStockID();
+				fStockID.setFNumber(tbK3SalOutstockentry.getFstockid());
+				fEntity.setFStockID(fStockID);
 				// add to list
 				fEntityList.add(fEntity);
 			}
@@ -128,9 +128,9 @@ public class TbK3SalOutstockService extends BaseService<TbK3SalOutstock,Long>
 			fSaleOrgId.setFNumber(tbK3SalOutstock.getFsaleorgid());
 			model.setFSaleOrgId(fSaleOrgId);
 			// 客户
-//			FCustomerID fCustomerID = new FCustomerID();
-//			fCustomerID.setFNumber(tbK3SalOutstock.getFcustomerid());
-//			model.setFCustomerID(fCustomerID);
+			FCustomerID fCustomerID = new FCustomerID();
+			fCustomerID.setFNumber(tbK3SalOutstock.getFcustomerid());
+			model.setFCustomerID(fCustomerID);
 			// 库存组织
 			FStockOrgId fStockOrgId = new FStockOrgId();
 			fStockOrgId.setFNumber(tbK3SalOutstock.getFstockorgid());
@@ -183,19 +183,35 @@ public class TbK3SalOutstockService extends BaseService<TbK3SalOutstock,Long>
 				TbK3SalOutstock tbK3SalOutstock = tbK3SalOutstocks.get(i);
 				tbK3SalOutstock.setFid(oResultId);
 				tbK3SalOutstock.setFbillno(oResultNumber);
-				tbK3SalOutstock.setTcSyncStatus("1");
+				tbK3SalOutstock.setTcSyncStatus("SAVE_1");
 				tbK3SalOutstock.setTcSyncSaveTime(TimeUtil.getCurrentTime());
 				dao.upd(tbK3SalOutstock);
 			}
 		}
 		else
 		{
+			// JSON格式：
+			// "Errors":[{"FieldName":"FCustomerID","Message":"字段“客户”是必填项","DIndex":0},{"FieldName":"FCustomerID","Message":"字段“客户”是必填项","DIndex":1},{"FieldName":"FStockID","Message":"单据体实体【明细信息】第【1】行分录，【仓库】字段必录","DIndex":0},{"FieldName":"FStockID","Message":"单据体实体【明细信息】第【2】行分录，【仓库】字段必录","DIndex":0},{"FieldName":"FStockID","Message":"单据体实体【明细信息】第【3】行分录，【仓库】字段必录","DIndex":0},{"FieldName":"FStockID","Message":"单据体实体【明细信息】第【1】行分录，【仓库】字段必录","DIndex":1},{"FieldName":"FStockID","Message":"单据体实体【明细信息】第【2】行分录，【仓库】字段必录","DIndex":1},{"FieldName":"FStockID","Message":"单据体实体【明细信息】第【3】行分录，【仓库】字段必录","DIndex":1}]
 			oResultErrors = oResult.getJSONObject("ResponseStatus").getJSONArray("Errors");
 			// update 中间库单据状态和错误信息
+			// 收集错误数据
+			Map<Integer, TbK3SalOutstock> errorObjs = new HashMap<Integer, TbK3SalOutstock>();
 			for (int i=0; i<oResultErrors.size(); i++)
 			{
 				Integer oResultDIndex = oResultErrors.getJSONObject(i).getInteger("DIndex");
+				String oResultMessage = oResultErrors.getJSONObject(i).getString("Message");
+				
+				TbK3SalOutstock tbK3SalOutstock = tbK3SalOutstocks.get(oResultDIndex);
+				tbK3SalOutstock.setTcSyncMsg(tbK3SalOutstock.getTcSyncMsg()+"###"+oResultMessage);
+				tbK3SalOutstock.setTcSyncStatus("SAVE_0");
+				
+				if (errorObjs.containsKey(oResultDIndex))
+					errorObjs.replace(oResultDIndex, tbK3SalOutstock);
+				else
+					errorObjs.put(oResultDIndex, tbK3SalOutstock);
 			}
+			// 遍历更新同步状态
+			errorObjs.forEach((k,v)->{dao.upd(v);});
 		}
 	}
 }

@@ -46,7 +46,7 @@ public class SyncAction extends BaseController<Object>
 				Map<String, String> param = new HashMap<String, String>();
 				param.put("offset", "0");
 				param.put("limit", "2");
-				param.put("sort", "tcErpAddTime");
+				param.put("sort", "tcDefineRowid");
 				param.put("tcSyncStatus", "IS_NULL");
 				outStockService.batchSave(param);
 			}
