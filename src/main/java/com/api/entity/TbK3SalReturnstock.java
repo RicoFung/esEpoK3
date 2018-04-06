@@ -6,7 +6,7 @@ package com.api.entity;
  * @version 1.0
  * @since 1.0
  * */
-public class TbK3SalReturnstock implements java.io.Serializable
+public class TbK3SalReturnstock extends BaseK3Object implements java.io.Serializable
 {
     // 单据内码       db_column: FID 
 	private java.lang.String fid;
@@ -92,130 +92,6 @@ public class TbK3SalReturnstock implements java.io.Serializable
 	private java.lang.String freccontactid;
     // 是否跨法人       db_column: FISINTERLEGALPERSON 
 	private java.lang.String fisinterlegalperson;
-    // 自定义主键       db_column: TC_DEFINE_ROWID 
-	private java.lang.Long tcDefineRowid;
-    // 内审POS 单号       db_column: TC_ERP_CODE 
-	private java.lang.String tcErpCode;
-    // 写入时间       db_column: TC_ERP_ADD_TIME 
-	private java.lang.String tcErpAddTime;
-    // 同步状态（null待同步1同步成功0同步失败）       db_column: TC_SYNC_STATUS 
-	private java.lang.String tcSyncStatus;
-    // 错误信息       db_column: TC_SYNC_MSG 
-	private java.lang.String tcSyncMsg;
-    // 同步SAVE时间       db_column: TC_SYNC_SAVE_TIME 
-	private java.lang.String tcSyncSaveTime;
-    // 同步SUBMIT时间       db_column: TC_SYNC_SUBMIT_TIME 
-	private java.lang.String tcSyncSubmitTime;
-    // 同步AUDIT时间       db_column: TC_SYNC_AUDIT_TIME 
-	private java.lang.String tcSyncAuditTime;
-
-	public TbK3SalReturnstock(){
-	}
-
-	public TbK3SalReturnstock(
-		java.lang.String fid,
-		java.lang.String fbilltypeid,
-		java.lang.String fbillno,
-		java.lang.String fdate,
-		java.lang.String fretcustid,
-		java.lang.String freceivecustid,
-		java.lang.String fsettlecustid,
-		java.lang.String fpaycustid,
-		java.lang.String fdeliveryno,
-		java.lang.String ftakedeliveryno,
-		java.lang.String fstockorgid,
-		java.lang.String fstockergroupid,
-		java.lang.String fstockdeptid,
-		java.lang.String fstockerid,
-		java.lang.String freturnreason,
-		java.lang.String fsaleorgid,
-		java.lang.String fsaledeptid,
-		java.lang.String fsalegroupid,
-		java.lang.String fsalesmanid,
-		java.lang.String fdocumentstatus,
-		java.lang.String fnote,
-		java.lang.String fcreatorid,
-		java.lang.String fcreatedate,
-		java.lang.String fmodifierid,
-		java.lang.String fmodifydate,
-		java.lang.String fapproverid,
-		java.lang.String fapprovedate,
-		java.lang.String fcancelstatus,
-		java.lang.String fcancellerid,
-		java.lang.String fcanceldate,
-		java.lang.String fownertypeid,
-		java.lang.String fownerid,
-		java.lang.String fbusinesstype,
-		java.lang.String fheadlocid,
-		java.lang.String fheadlocaddress,
-		java.lang.String freceiveaddress,
-		java.lang.String fcreditcheckresult,
-		java.lang.String fobjecttypeid,
-		java.lang.String ftransferbiztype,
-		java.lang.String fcorrespondorgid,
-		java.lang.String freccontactid,
-		java.lang.String fisinterlegalperson,
-		java.lang.Long tcDefineRowid,
-		java.lang.String tcErpCode,
-		java.lang.String tcErpAddTime,
-		java.lang.String tcSyncStatus,
-		java.lang.String tcSyncMsg,
-		java.lang.String tcSyncSaveTime,
-		java.lang.String tcSyncSubmitTime,
-		java.lang.String tcSyncAuditTime
-	)
-	{
-		this.fid = fid;
-		this.fbilltypeid = fbilltypeid;
-		this.fbillno = fbillno;
-		this.fdate = fdate;
-		this.fretcustid = fretcustid;
-		this.freceivecustid = freceivecustid;
-		this.fsettlecustid = fsettlecustid;
-		this.fpaycustid = fpaycustid;
-		this.fdeliveryno = fdeliveryno;
-		this.ftakedeliveryno = ftakedeliveryno;
-		this.fstockorgid = fstockorgid;
-		this.fstockergroupid = fstockergroupid;
-		this.fstockdeptid = fstockdeptid;
-		this.fstockerid = fstockerid;
-		this.freturnreason = freturnreason;
-		this.fsaleorgid = fsaleorgid;
-		this.fsaledeptid = fsaledeptid;
-		this.fsalegroupid = fsalegroupid;
-		this.fsalesmanid = fsalesmanid;
-		this.fdocumentstatus = fdocumentstatus;
-		this.fnote = fnote;
-		this.fcreatorid = fcreatorid;
-		this.fcreatedate = fcreatedate;
-		this.fmodifierid = fmodifierid;
-		this.fmodifydate = fmodifydate;
-		this.fapproverid = fapproverid;
-		this.fapprovedate = fapprovedate;
-		this.fcancelstatus = fcancelstatus;
-		this.fcancellerid = fcancellerid;
-		this.fcanceldate = fcanceldate;
-		this.fownertypeid = fownertypeid;
-		this.fownerid = fownerid;
-		this.fbusinesstype = fbusinesstype;
-		this.fheadlocid = fheadlocid;
-		this.fheadlocaddress = fheadlocaddress;
-		this.freceiveaddress = freceiveaddress;
-		this.fcreditcheckresult = fcreditcheckresult;
-		this.fobjecttypeid = fobjecttypeid;
-		this.ftransferbiztype = ftransferbiztype;
-		this.fcorrespondorgid = fcorrespondorgid;
-		this.freccontactid = freccontactid;
-		this.fisinterlegalperson = fisinterlegalperson;
-		this.tcDefineRowid = tcDefineRowid;
-		this.tcErpCode = tcErpCode;
-		this.tcErpAddTime = tcErpAddTime;
-		this.tcSyncStatus = tcSyncStatus;
-		this.tcSyncMsg = tcSyncMsg;
-		this.tcSyncSaveTime = tcSyncSaveTime;
-		this.tcSyncSubmitTime = tcSyncSubmitTime;
-		this.tcSyncAuditTime = tcSyncAuditTime;
-	}
 
 	public void setFid(java.lang.String value) 
 	{
@@ -594,78 +470,6 @@ public class TbK3SalReturnstock implements java.io.Serializable
 	public java.lang.String getFisinterlegalperson() 
 	{
 		return this.fisinterlegalperson;
-	}
-	public void setTcDefineRowid(java.lang.Long value) 
-	{
-		this.tcDefineRowid = value;
-	}
-	
-	public java.lang.Long getTcDefineRowid() 
-	{
-		return this.tcDefineRowid;
-	}
-	public void setTcErpCode(java.lang.String value) 
-	{
-		this.tcErpCode = value;
-	}
-	
-	public java.lang.String getTcErpCode() 
-	{
-		return this.tcErpCode;
-	}
-	public void setTcErpAddTime(java.lang.String value) 
-	{
-		this.tcErpAddTime = value;
-	}
-	
-	public java.lang.String getTcErpAddTime() 
-	{
-		return this.tcErpAddTime;
-	}
-	public void setTcSyncStatus(java.lang.String value) 
-	{
-		this.tcSyncStatus = value;
-	}
-	
-	public java.lang.String getTcSyncStatus() 
-	{
-		return this.tcSyncStatus;
-	}
-	public void setTcSyncMsg(java.lang.String value) 
-	{
-		this.tcSyncMsg = value;
-	}
-	
-	public java.lang.String getTcSyncMsg() 
-	{
-		return this.tcSyncMsg;
-	}
-	public void setTcSyncSaveTime(java.lang.String value) 
-	{
-		this.tcSyncSaveTime = value;
-	}
-	
-	public java.lang.String getTcSyncSaveTime() 
-	{
-		return this.tcSyncSaveTime;
-	}
-	public void setTcSyncSubmitTime(java.lang.String value) 
-	{
-		this.tcSyncSubmitTime = value;
-	}
-	
-	public java.lang.String getTcSyncSubmitTime() 
-	{
-		return this.tcSyncSubmitTime;
-	}
-	public void setTcSyncAuditTime(java.lang.String value) 
-	{
-		this.tcSyncAuditTime = value;
-	}
-	
-	public java.lang.String getTcSyncAuditTime() 
-	{
-		return this.tcSyncAuditTime;
 	}
 }
 

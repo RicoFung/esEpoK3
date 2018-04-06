@@ -6,7 +6,7 @@ package com.api.entity;
  * @version 1.0
  * @since 1.0
  * */
-public class TbK3SalOrderentry implements java.io.Serializable
+public class TbK3SalOrderentry extends BaseK3Objectentry implements java.io.Serializable
 {
     // 分录内码       db_column: FENTRYID 
 	private java.lang.String fentryid;
@@ -112,122 +112,6 @@ public class TbK3SalOrderentry implements java.io.Serializable
 	private java.lang.String fsettleorgids;
     // 超发控制单位类型       db_column: FOUTLMTUNIT 
 	private java.lang.String foutlmtunit;
-    // 自定义外键       db_column: TC_DEFINE_ROWID 
-	private java.lang.Long tcDefineRowid;
-
-	public TbK3SalOrderentry(){
-	}
-
-	public TbK3SalOrderentry(
-		java.lang.String fentryid,
-		java.lang.String fid,
-		java.lang.String fseq,
-		java.lang.String fmapid,
-		java.lang.String fmapname,
-		java.lang.String fmaterialid,
-		java.lang.String fauxpropid,
-		java.lang.String fbomid,
-		java.lang.String funitid,
-		java.lang.String fqty,
-		java.lang.String fbaseunitid,
-		java.lang.String fbaseunitqty,
-		java.lang.String fnote,
-		java.lang.String fmrpfreezestatus,
-		java.lang.String ffreezedate,
-		java.lang.String ffreezerid,
-		java.lang.String fmrpterminatestatus,
-		java.lang.String fterminaterid,
-		java.lang.String fterminatestatus,
-		java.lang.String fterminatedate,
-		java.lang.String fmrpclosestatus,
-		java.lang.String flot,
-		java.lang.String fchangeflag,
-		java.lang.String fstockorgid,
-		java.lang.String fstockid,
-		java.lang.String flockqty,
-		java.lang.String flockflag,
-		java.lang.String fownertypeid,
-		java.lang.String fownerid,
-		java.lang.String flotText,
-		java.lang.String fproducedate,
-		java.lang.String fexpirydate,
-		java.lang.String fexpunit,
-		java.lang.String fexpperiod,
-		java.lang.String freturntype,
-		java.lang.String fbflowid,
-		java.lang.String fpriority,
-		java.lang.String fmtono,
-		java.lang.String freservetype,
-		java.lang.String fplandeliverydate,
-		java.lang.String fdeliverystatus,
-		java.lang.String foldqty,
-		java.lang.String fpromotionmatchtype,
-		java.lang.String fsupplyorgid,
-		java.lang.String fnetorderentryid,
-		java.lang.String fstockunitid,
-		java.lang.String fstockqty,
-		java.lang.String fstockbaseqty,
-		java.lang.String fleftqty,
-		java.lang.String fdeliverydate,
-		java.lang.String fsettleorgids,
-		java.lang.String foutlmtunit,
-		java.lang.Long tcDefineRowid
-	)
-	{
-		this.fentryid = fentryid;
-		this.fid = fid;
-		this.fseq = fseq;
-		this.fmapid = fmapid;
-		this.fmapname = fmapname;
-		this.fmaterialid = fmaterialid;
-		this.fauxpropid = fauxpropid;
-		this.fbomid = fbomid;
-		this.funitid = funitid;
-		this.fqty = fqty;
-		this.fbaseunitid = fbaseunitid;
-		this.fbaseunitqty = fbaseunitqty;
-		this.fnote = fnote;
-		this.fmrpfreezestatus = fmrpfreezestatus;
-		this.ffreezedate = ffreezedate;
-		this.ffreezerid = ffreezerid;
-		this.fmrpterminatestatus = fmrpterminatestatus;
-		this.fterminaterid = fterminaterid;
-		this.fterminatestatus = fterminatestatus;
-		this.fterminatedate = fterminatedate;
-		this.fmrpclosestatus = fmrpclosestatus;
-		this.flot = flot;
-		this.fchangeflag = fchangeflag;
-		this.fstockorgid = fstockorgid;
-		this.fstockid = fstockid;
-		this.flockqty = flockqty;
-		this.flockflag = flockflag;
-		this.fownertypeid = fownertypeid;
-		this.fownerid = fownerid;
-		this.flotText = flotText;
-		this.fproducedate = fproducedate;
-		this.fexpirydate = fexpirydate;
-		this.fexpunit = fexpunit;
-		this.fexpperiod = fexpperiod;
-		this.freturntype = freturntype;
-		this.fbflowid = fbflowid;
-		this.fpriority = fpriority;
-		this.fmtono = fmtono;
-		this.freservetype = freservetype;
-		this.fplandeliverydate = fplandeliverydate;
-		this.fdeliverystatus = fdeliverystatus;
-		this.foldqty = foldqty;
-		this.fpromotionmatchtype = fpromotionmatchtype;
-		this.fsupplyorgid = fsupplyorgid;
-		this.fnetorderentryid = fnetorderentryid;
-		this.fstockunitid = fstockunitid;
-		this.fstockqty = fstockqty;
-		this.fstockbaseqty = fstockbaseqty;
-		this.fleftqty = fleftqty;
-		this.fdeliverydate = fdeliverydate;
-		this.fsettleorgids = fsettleorgids;
-		this.foutlmtunit = foutlmtunit;
-		this.tcDefineRowid = tcDefineRowid;
-	}
 
 	public void setFentryid(java.lang.String value) 
 	{
@@ -696,15 +580,6 @@ public class TbK3SalOrderentry implements java.io.Serializable
 	public java.lang.String getFoutlmtunit() 
 	{
 		return this.foutlmtunit;
-	}
-	public void setTcDefineRowid(java.lang.Long value) 
-	{
-		this.tcDefineRowid = value;
-	}
-	
-	public java.lang.Long getTcDefineRowid() 
-	{
-		return this.tcDefineRowid;
 	}
 }
 

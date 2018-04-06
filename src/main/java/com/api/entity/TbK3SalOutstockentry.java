@@ -6,10 +6,8 @@ package com.api.entity;
  * @version 1.0
  * @since 1.0
  * */
-public class TbK3SalOutstockentry implements java.io.Serializable
+public class TbK3SalOutstockentry extends BaseK3Objectentry implements java.io.Serializable
 {
-	// 主键
-	private Long tcRowid;
 	// 分录内码       db_column: FENTRYID 
 	private java.lang.String fentryid;
     // 单据内码       db_column: FID 
@@ -114,124 +112,6 @@ public class TbK3SalOutstockentry implements java.io.Serializable
 	private java.lang.String fsnqty;
     // 控制出库比例       db_column: FOUTCONTROL 
 	private java.lang.String foutcontrol;
-    // 自定义外键       db_column: TC_DEFINE_ROWID 
-	private java.lang.Long tcDefineRowid;
-
-	public TbK3SalOutstockentry(){
-	}
-
-	public TbK3SalOutstockentry(
-	    Long tcRowid,
-		java.lang.String fentryid,
-		java.lang.String fid,
-		java.lang.String fcustmatname,
-		java.lang.String fcustmatid,
-		java.lang.String fseq,
-		java.lang.String fmaterialid,
-		java.lang.String funitid,
-		java.lang.String fauxpropid,
-		java.lang.String fmustqty,
-		java.lang.String frealqty,
-		java.lang.String fstockid,
-		java.lang.String fstocklocid,
-		java.lang.String fstockstatusid,
-		java.lang.String flot,
-		java.lang.String flotText,
-		java.lang.String fgrossweight,
-		java.lang.String fnetweight,
-		java.lang.String fbaseunitid,
-		java.lang.String fbaseunitqty,
-		java.lang.String fauxunitid,
-		java.lang.String fauxunitqty,
-		java.lang.String fextauxunitid,
-		java.lang.String fextauxunitqty,
-		java.lang.String fbomid,
-		java.lang.String fnote,
-		java.lang.String fstockflag,
-		java.lang.String fownertypeid,
-		java.lang.String fownerid,
-		java.lang.String fkeepertypeid,
-		java.lang.String fkeeperid,
-		java.lang.String fproducedate,
-		java.lang.String fexpirydate,
-		java.lang.String fbasemustqty,
-		java.lang.String farrivalstatus,
-		java.lang.String farrivaldate,
-		java.lang.String farrivalconfirmor,
-		java.lang.String frepairqty,
-		java.lang.String frefuseqty,
-		java.lang.String fwantretqty,
-		java.lang.String factqty,
-		java.lang.String fisrepair,
-		java.lang.String fvalidatestatus,
-		java.lang.String fvalidatedate,
-		java.lang.String fvalidateconfirmor,
-		java.lang.String fbflowid,
-		java.lang.String fmtono,
-		java.lang.String fprojectno,
-		java.lang.String frecnote,
-		java.lang.String freturnnote,
-		java.lang.String fsnunitid,
-		java.lang.String fsnqty,
-		java.lang.String foutcontrol,
-		java.lang.Long tcDefineRowid
-	)
-	{
-		this.tcRowid = tcRowid;
-		this.fentryid = fentryid;
-		this.fid = fid;
-		this.fcustmatname = fcustmatname;
-		this.fcustmatid = fcustmatid;
-		this.fseq = fseq;
-		this.fmaterialid = fmaterialid;
-		this.funitid = funitid;
-		this.fauxpropid = fauxpropid;
-		this.fmustqty = fmustqty;
-		this.frealqty = frealqty;
-		this.fstockid = fstockid;
-		this.fstocklocid = fstocklocid;
-		this.fstockstatusid = fstockstatusid;
-		this.flot = flot;
-		this.flotText = flotText;
-		this.fgrossweight = fgrossweight;
-		this.fnetweight = fnetweight;
-		this.fbaseunitid = fbaseunitid;
-		this.fbaseunitqty = fbaseunitqty;
-		this.fauxunitid = fauxunitid;
-		this.fauxunitqty = fauxunitqty;
-		this.fextauxunitid = fextauxunitid;
-		this.fextauxunitqty = fextauxunitqty;
-		this.fbomid = fbomid;
-		this.fnote = fnote;
-		this.fstockflag = fstockflag;
-		this.fownertypeid = fownertypeid;
-		this.fownerid = fownerid;
-		this.fkeepertypeid = fkeepertypeid;
-		this.fkeeperid = fkeeperid;
-		this.fproducedate = fproducedate;
-		this.fexpirydate = fexpirydate;
-		this.fbasemustqty = fbasemustqty;
-		this.farrivalstatus = farrivalstatus;
-		this.farrivaldate = farrivaldate;
-		this.farrivalconfirmor = farrivalconfirmor;
-		this.frepairqty = frepairqty;
-		this.frefuseqty = frefuseqty;
-		this.fwantretqty = fwantretqty;
-		this.factqty = factqty;
-		this.fisrepair = fisrepair;
-		this.fvalidatestatus = fvalidatestatus;
-		this.fvalidatedate = fvalidatedate;
-		this.fvalidateconfirmor = fvalidateconfirmor;
-		this.fbflowid = fbflowid;
-		this.fmtono = fmtono;
-		this.fprojectno = fprojectno;
-		this.frecnote = frecnote;
-		this.freturnnote = freturnnote;
-		this.fsnunitid = fsnunitid;
-		this.fsnqty = fsnqty;
-		this.foutcontrol = foutcontrol;
-		this.tcDefineRowid = tcDefineRowid;
-	}
 
 	public Long getTcRowid()
 	{
@@ -711,15 +591,7 @@ public class TbK3SalOutstockentry implements java.io.Serializable
 	{
 		return this.foutcontrol;
 	}
-	public void setTcDefineRowid(java.lang.Long value) 
-	{
-		this.tcDefineRowid = value;
-	}
 	
-	public java.lang.Long getTcDefineRowid() 
-	{
-		return this.tcDefineRowid;
-	}
     @Override
 	public String toString()
 	{

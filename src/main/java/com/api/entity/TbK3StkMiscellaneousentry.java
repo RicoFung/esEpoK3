@@ -6,7 +6,7 @@ package com.api.entity;
  * @version 1.0
  * @since 1.0
  * */
-public class TbK3StkMiscellaneousentry implements java.io.Serializable
+public class TbK3StkMiscellaneousentry extends BaseK3Objectentry implements java.io.Serializable
 {
     // 分录内码       db_column: FENTRYID 
 	private java.lang.String fentryid;
@@ -82,92 +82,6 @@ public class TbK3StkMiscellaneousentry implements java.io.Serializable
 	private java.lang.String fsnqty;
     // 关联数量（辅单位）       db_column: FJOINSECQTY 
 	private java.lang.String fjoinsecqty;
-    // 自定义外键       db_column: TC_DEFINE_ROWID 
-	private java.lang.Long tcDefineRowid;
-
-	public TbK3StkMiscellaneousentry(){
-	}
-
-	public TbK3StkMiscellaneousentry(
-		java.lang.String fentryid,
-		java.lang.String fid,
-		java.lang.String fseq,
-		java.lang.String fmaterialid,
-		java.lang.String flot,
-		java.lang.String flotText,
-		java.lang.String fstockid,
-		java.lang.String fstocklocid,
-		java.lang.String funitid,
-		java.lang.String fqty,
-		java.lang.String fjoinqty,
-		java.lang.String fprice,
-		java.lang.String famount,
-		java.lang.String fbomid,
-		java.lang.String fauxpropid,
-		java.lang.String fproducedate,
-		java.lang.String fexpirydate,
-		java.lang.String fmtono,
-		java.lang.String fprojectno,
-		java.lang.String fstockstatusid,
-		java.lang.String fbaseunitid,
-		java.lang.String fbaseqty,
-		java.lang.String fjoinbaseqty,
-		java.lang.String fsecunitid,
-		java.lang.String fsecqty,
-		java.lang.String fextauxunitid,
-		java.lang.String fextauxunitqty,
-		java.lang.String fownertypeid,
-		java.lang.String fownerid,
-		java.lang.String fkeepertypeid,
-		java.lang.String fkeeperid,
-		java.lang.String fdismountcostrate,
-		java.lang.String fstockflag,
-		java.lang.String fnote,
-		java.lang.String fsnunitid,
-		java.lang.String fsnqty,
-		java.lang.String fjoinsecqty,
-		java.lang.Long tcDefineRowid
-	)
-	{
-		this.fentryid = fentryid;
-		this.fid = fid;
-		this.fseq = fseq;
-		this.fmaterialid = fmaterialid;
-		this.flot = flot;
-		this.flotText = flotText;
-		this.fstockid = fstockid;
-		this.fstocklocid = fstocklocid;
-		this.funitid = funitid;
-		this.fqty = fqty;
-		this.fjoinqty = fjoinqty;
-		this.fprice = fprice;
-		this.famount = famount;
-		this.fbomid = fbomid;
-		this.fauxpropid = fauxpropid;
-		this.fproducedate = fproducedate;
-		this.fexpirydate = fexpirydate;
-		this.fmtono = fmtono;
-		this.fprojectno = fprojectno;
-		this.fstockstatusid = fstockstatusid;
-		this.fbaseunitid = fbaseunitid;
-		this.fbaseqty = fbaseqty;
-		this.fjoinbaseqty = fjoinbaseqty;
-		this.fsecunitid = fsecunitid;
-		this.fsecqty = fsecqty;
-		this.fextauxunitid = fextauxunitid;
-		this.fextauxunitqty = fextauxunitqty;
-		this.fownertypeid = fownertypeid;
-		this.fownerid = fownerid;
-		this.fkeepertypeid = fkeepertypeid;
-		this.fkeeperid = fkeeperid;
-		this.fdismountcostrate = fdismountcostrate;
-		this.fstockflag = fstockflag;
-		this.fnote = fnote;
-		this.fsnunitid = fsnunitid;
-		this.fsnqty = fsnqty;
-		this.fjoinsecqty = fjoinsecqty;
-		this.tcDefineRowid = tcDefineRowid;
-	}
 
 	public void setFentryid(java.lang.String value) 
 	{
@@ -501,15 +415,6 @@ public class TbK3StkMiscellaneousentry implements java.io.Serializable
 	public java.lang.String getFjoinsecqty() 
 	{
 		return this.fjoinsecqty;
-	}
-	public void setTcDefineRowid(java.lang.Long value) 
-	{
-		this.tcDefineRowid = value;
-	}
-	
-	public java.lang.Long getTcDefineRowid() 
-	{
-		return this.tcDefineRowid;
 	}
 }
 

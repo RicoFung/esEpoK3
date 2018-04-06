@@ -6,7 +6,7 @@ package com.api.entity;
  * @version 1.0
  * @since 1.0
  * */
-public class TbK3SalReturnstockentry implements java.io.Serializable
+public class TbK3SalReturnstockentry extends BaseK3Objectentry implements java.io.Serializable
 {
     // 分录内码       db_column: FENTRYID 
 	private java.lang.String fentryid;
@@ -104,114 +104,6 @@ public class TbK3SalReturnstockentry implements java.io.Serializable
 	private java.lang.String fqualifytype;
     // 销售订单EntryId       db_column: FSOENTRYID 
 	private java.lang.String fsoentryid;
-    // 自定义外键       db_column: TC_DEFINE_ROWID 
-	private java.lang.Long tcDefineRowid;
-
-	public TbK3SalReturnstockentry(){
-	}
-
-	public TbK3SalReturnstockentry(
-		java.lang.String fentryid,
-		java.lang.String fid,
-		java.lang.String fseq,
-		java.lang.String fmaterialid,
-		java.lang.String funitid,
-		java.lang.String fauxpropid,
-		java.lang.String fmustqty,
-		java.lang.String frealqty,
-		java.lang.String fstockid,
-		java.lang.String fstocklocid,
-		java.lang.String fstockstatusid,
-		java.lang.String fdeliverydate,
-		java.lang.String fproducedate,
-		java.lang.String fexpunit,
-		java.lang.String fexpperiod,
-		java.lang.String fexpirydate,
-		java.lang.String flot,
-		java.lang.String flotText,
-		java.lang.String fsupplierlot,
-		java.lang.String fbaseunitid,
-		java.lang.String fbaseunitqty,
-		java.lang.String fauxunitid,
-		java.lang.String fauxunitqty,
-		java.lang.String fextauxunitid,
-		java.lang.String fextauxunitqty,
-		java.lang.String fbomid,
-		java.lang.String fnote,
-		java.lang.String forderno,
-		java.lang.String forderseq,
-		java.lang.String fstockflag,
-		java.lang.String fownertypeid,
-		java.lang.String fownerid,
-		java.lang.String fkeepertypeid,
-		java.lang.String fkeeperid,
-		java.lang.String fsrcbilltype,
-		java.lang.String fsrcbillno,
-		java.lang.String fsrcbillseq,
-		java.lang.String freturntype,
-		java.lang.String fmapid,
-		java.lang.String fbflowid,
-		java.lang.String fmtono,
-		java.lang.String fprojectno,
-		java.lang.String fsnunitid,
-		java.lang.String fsnqty,
-		java.lang.String frefuseflag,
-		java.lang.String fisconsumesum,
-		java.lang.String fqualifytype,
-		java.lang.String fsoentryid,
-		java.lang.Long tcDefineRowid
-	)
-	{
-		this.fentryid = fentryid;
-		this.fid = fid;
-		this.fseq = fseq;
-		this.fmaterialid = fmaterialid;
-		this.funitid = funitid;
-		this.fauxpropid = fauxpropid;
-		this.fmustqty = fmustqty;
-		this.frealqty = frealqty;
-		this.fstockid = fstockid;
-		this.fstocklocid = fstocklocid;
-		this.fstockstatusid = fstockstatusid;
-		this.fdeliverydate = fdeliverydate;
-		this.fproducedate = fproducedate;
-		this.fexpunit = fexpunit;
-		this.fexpperiod = fexpperiod;
-		this.fexpirydate = fexpirydate;
-		this.flot = flot;
-		this.flotText = flotText;
-		this.fsupplierlot = fsupplierlot;
-		this.fbaseunitid = fbaseunitid;
-		this.fbaseunitqty = fbaseunitqty;
-		this.fauxunitid = fauxunitid;
-		this.fauxunitqty = fauxunitqty;
-		this.fextauxunitid = fextauxunitid;
-		this.fextauxunitqty = fextauxunitqty;
-		this.fbomid = fbomid;
-		this.fnote = fnote;
-		this.forderno = forderno;
-		this.forderseq = forderseq;
-		this.fstockflag = fstockflag;
-		this.fownertypeid = fownertypeid;
-		this.fownerid = fownerid;
-		this.fkeepertypeid = fkeepertypeid;
-		this.fkeeperid = fkeeperid;
-		this.fsrcbilltype = fsrcbilltype;
-		this.fsrcbillno = fsrcbillno;
-		this.fsrcbillseq = fsrcbillseq;
-		this.freturntype = freturntype;
-		this.fmapid = fmapid;
-		this.fbflowid = fbflowid;
-		this.fmtono = fmtono;
-		this.fprojectno = fprojectno;
-		this.fsnunitid = fsnunitid;
-		this.fsnqty = fsnqty;
-		this.frefuseflag = frefuseflag;
-		this.fisconsumesum = fisconsumesum;
-		this.fqualifytype = fqualifytype;
-		this.fsoentryid = fsoentryid;
-		this.tcDefineRowid = tcDefineRowid;
-	}
 
 	public void setFentryid(java.lang.String value) 
 	{
@@ -644,15 +536,6 @@ public class TbK3SalReturnstockentry implements java.io.Serializable
 	public java.lang.String getFsoentryid() 
 	{
 		return this.fsoentryid;
-	}
-	public void setTcDefineRowid(java.lang.Long value) 
-	{
-		this.tcDefineRowid = value;
-	}
-	
-	public java.lang.Long getTcDefineRowid() 
-	{
-		return this.tcDefineRowid;
 	}
 }
 
