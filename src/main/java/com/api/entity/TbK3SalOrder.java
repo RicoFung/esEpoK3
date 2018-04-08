@@ -103,6 +103,10 @@ public class TbK3SalOrder extends BaseTbK3Object implements java.io.Serializable
 	private java.lang.String fisinit;
 	// 来自移动 db_column: FISMOBILE
 	private java.lang.String fismobile;
+	// 结算币别(扩展)
+	private java.lang.String Fsettlecurrid;
+	// 汇率(扩展)
+	private java.lang.String Fexchangerate;
 	// 明细
 	private List<TbK3SalOrderentry> entrys;
 
@@ -574,6 +578,26 @@ public class TbK3SalOrder extends BaseTbK3Object implements java.io.Serializable
 	public void setEntrys(List<TbK3SalOrderentry> entrys)
 	{
 		this.entrys = entrys;
+	}
+
+	public java.lang.String getFsettlecurrid()
+	{
+		return Fsettlecurrid;
+	}
+
+	public void setFsettlecurrid(java.lang.String fsettlecurrid)
+	{
+		Fsettlecurrid = fsettlecurrid;
+	}
+
+	public java.lang.String getFexchangerate()
+	{
+		return Fexchangerate;
+	}
+
+	public void setFexchangerate(java.lang.String fexchangerate)
+	{
+		Fexchangerate = fexchangerate;
 	}
 
 }

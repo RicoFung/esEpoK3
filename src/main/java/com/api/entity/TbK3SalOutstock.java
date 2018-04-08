@@ -98,6 +98,10 @@ public class TbK3SalOutstock extends BaseTbK3Object implements java.io.Serializa
 	private java.lang.String fplanrecaddress;
     // 整单服务或费用       db_column: FISTOTALSERVICEORCOST 
 	private java.lang.String fistotalserviceorcost;
+	// 结算币别(扩展)
+	private java.lang.String Fsettlecurrid;
+	// 结算组织(扩展)
+	private java.lang.String Fsettleorgid;
 	// 明细
 	private List<TbK3SalOutstockentry> entrys;
 
@@ -497,6 +501,26 @@ public class TbK3SalOutstock extends BaseTbK3Object implements java.io.Serializa
 	public java.lang.String getFistotalserviceorcost() 
 	{
 		return this.fistotalserviceorcost;
+	}
+
+	public java.lang.String getFsettlecurrid()
+	{
+		return Fsettlecurrid;
+	}
+
+	public void setFsettlecurrid(java.lang.String fsettlecurrid)
+	{
+		Fsettlecurrid = fsettlecurrid;
+	}
+
+	public java.lang.String getFsettleorgid()
+	{
+		return Fsettleorgid;
+	}
+
+	public void setFsettleorgid(java.lang.String fsettleorgid)
+	{
+		Fsettleorgid = fsettleorgid;
 	}
 
 	public List<TbK3SalOutstockentry> getEntrys()

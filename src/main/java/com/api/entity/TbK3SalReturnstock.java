@@ -90,6 +90,12 @@ public class TbK3SalReturnstock extends BaseTbK3Object implements java.io.Serial
 	private java.lang.String freccontactid;
     // 是否跨法人       db_column: FISINTERLEGALPERSON 
 	private java.lang.String fisinterlegalperson;
+	// 结算币别(扩展)
+	private java.lang.String Fsettlecurrid;
+	// 结算组织(扩展)
+	private java.lang.String Fsettleorgid;
+	// 汇率(扩展)
+	private java.lang.String Fexchangerate;
 	// 明细
 	private List<TbK3SalReturnstockentry> entrys;
 
@@ -454,6 +460,36 @@ public class TbK3SalReturnstock extends BaseTbK3Object implements java.io.Serial
 	public java.lang.String getFisinterlegalperson() 
 	{
 		return this.fisinterlegalperson;
+	}
+
+	public java.lang.String getFsettlecurrid()
+	{
+		return Fsettlecurrid;
+	}
+
+	public void setFsettlecurrid(java.lang.String fsettlecurrid)
+	{
+		Fsettlecurrid = fsettlecurrid;
+	}
+
+	public java.lang.String getFsettleorgid()
+	{
+		return Fsettleorgid;
+	}
+
+	public void setFsettleorgid(java.lang.String fsettleorgid)
+	{
+		Fsettleorgid = fsettleorgid;
+	}
+
+	public java.lang.String getFexchangerate()
+	{
+		return Fexchangerate;
+	}
+
+	public void setFexchangerate(java.lang.String fexchangerate)
+	{
+		Fexchangerate = fexchangerate;
 	}
 
 	public List<TbK3SalReturnstockentry> getEntrys()

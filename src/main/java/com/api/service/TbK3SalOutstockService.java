@@ -74,11 +74,11 @@ public class TbK3SalOutstockService extends BaseTbK3Service<TbK3SalOutstock,Long
 			SubHeadEntity subHeadEntity = new SubHeadEntity();
 			// 结算币别
 			FSettleCurrID fSettleCurrID = new FSettleCurrID();
-			fSettleCurrID.setFNumber("PRE001");
+			fSettleCurrID.setFNumber(data.getFsettlecurrid());
 			subHeadEntity.setFSettleCurrID(fSettleCurrID);
 			// 结算组织
 			FSettleOrgID fSettleOrgID = new FSettleOrgID();
-			fSettleOrgID.setFNumber("100");
+			fSettleOrgID.setFNumber(data.getFsettleorgid());
 			subHeadEntity.setFSettleOrgID(fSettleOrgID);
 			//------------------------------------------------------------------------------------------------------//
 			// JSON Model-FEntity []

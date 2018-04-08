@@ -6,9 +6,9 @@
       <!-- 自动生成id策略 -->
     <insert id="add" parameterType="com.api.entity.TbK3SalOutstock">  
        	insert into tb_k3_sal_outstock 
-       	( fid, fbilltypeid, fbillno, fdate, fcustomerid, fstockorgid, fdeliverydeptid, fstockergroupid, fstockerid, freceiverid, fsettleid, fpayerid, fsaleorgid, fsaledeptid, fsalesgroupid, fsalesmanid, fdeliverybill, ftakedeliverybill, fcarrierid, fcarriageno, fdocumentstatus, fnote, fcreatorid, fcreatedate, fmodifierid, fmodifydate, fapproverid, fapprovedate, fcancelstatus, fcancellerid, fcanceldate, fownertypeid, fownerid, fheadlocid, fheadlocaddress, fheadlocationid, fbusinesstype, freceiveaddress, fcreditcheckresult, fobjecttypeid, ftransferbiztype, fcorrespondorgid, freccontactid, fisinterlegalperson, fplanrecaddress, fistotalserviceorcost, tc_define_rowid, tc_erp_code, tc_erp_add_time, tc_sync_status, tc_sync_msg, tc_sync_save_time, tc_sync_submit_time, tc_sync_audit_time) 
+       	( fid, fbilltypeid, fbillno, fdate, fcustomerid, fstockorgid, fdeliverydeptid, fstockergroupid, fstockerid, freceiverid, fsettleid, fpayerid, fsaleorgid, fsaledeptid, fsalesgroupid, fsalesmanid, fdeliverybill, ftakedeliverybill, fcarrierid, fcarriageno, fdocumentstatus, fnote, fcreatorid, fcreatedate, fmodifierid, fmodifydate, fapproverid, fapprovedate, fcancelstatus, fcancellerid, fcanceldate, fownertypeid, fownerid, fheadlocid, fheadlocaddress, fheadlocationid, fbusinesstype, freceiveaddress, fcreditcheckresult, fobjecttypeid, ftransferbiztype, fcorrespondorgid, freccontactid, fisinterlegalperson, fplanrecaddress, fistotalserviceorcost, fsettlecurrid, fsettleorgid, tc_define_rowid, tc_erp_code, tc_erp_add_time, tc_sync_status, tc_sync_msg, tc_sync_save_time, tc_sync_submit_time, tc_sync_audit_time) 
        	values
-       	( #{fid}, #{fbilltypeid}, #{fbillno}, #{fdate}, #{fcustomerid}, #{fstockorgid}, #{fdeliverydeptid}, #{fstockergroupid}, #{fstockerid}, #{freceiverid}, #{fsettleid}, #{fpayerid}, #{fsaleorgid}, #{fsaledeptid}, #{fsalesgroupid}, #{fsalesmanid}, #{fdeliverybill}, #{ftakedeliverybill}, #{fcarrierid}, #{fcarriageno}, #{fdocumentstatus}, #{fnote}, #{fcreatorid}, #{fcreatedate}, #{fmodifierid}, #{fmodifydate}, #{fapproverid}, #{fapprovedate}, #{fcancelstatus}, #{fcancellerid}, #{fcanceldate}, #{fownertypeid}, #{fownerid}, #{fheadlocid}, #{fheadlocaddress}, #{fheadlocationid}, #{fbusinesstype}, #{freceiveaddress}, #{fcreditcheckresult}, #{fobjecttypeid}, #{ftransferbiztype}, #{fcorrespondorgid}, #{freccontactid}, #{fisinterlegalperson}, #{fplanrecaddress}, #{fistotalserviceorcost}, #{tcDefineRowid}, #{tcErpCode}, #{tcErpAddTime}, #{tcSyncStatus}, #{tcSyncMsg}, #{tcSyncSaveTime}, #{tcSyncSubmitTime}, #{tcSyncAuditTime})
+       	( #{fid}, #{fbilltypeid}, #{fbillno}, #{fdate}, #{fcustomerid}, #{fstockorgid}, #{fdeliverydeptid}, #{fstockergroupid}, #{fstockerid}, #{freceiverid}, #{fsettleid}, #{fpayerid}, #{fsaleorgid}, #{fsaledeptid}, #{fsalesgroupid}, #{fsalesmanid}, #{fdeliverybill}, #{ftakedeliverybill}, #{fcarrierid}, #{fcarriageno}, #{fdocumentstatus}, #{fnote}, #{fcreatorid}, #{fcreatedate}, #{fmodifierid}, #{fmodifydate}, #{fapproverid}, #{fapprovedate}, #{fcancelstatus}, #{fcancellerid}, #{fcanceldate}, #{fownertypeid}, #{fownerid}, #{fheadlocid}, #{fheadlocaddress}, #{fheadlocationid}, #{fbusinesstype}, #{freceiveaddress}, #{fcreditcheckresult}, #{fobjecttypeid}, #{ftransferbiztype}, #{fcorrespondorgid}, #{freccontactid}, #{fisinterlegalperson}, #{fplanrecaddress}, #{fistotalserviceorcost}, #{fsettlecurrid}, #{fsettleorgid}, #{tcDefineRowid}, #{tcErpCode}, #{tcErpAddTime}, #{tcSyncStatus}, #{tcSyncMsg}, #{tcSyncSaveTime}, #{tcSyncSubmitTime}, #{tcSyncAuditTime})
     </insert>  
 	
 	<delete id="del" parameterType="com.api.entity.TbK3SalOutstock">
@@ -63,6 +63,8 @@
 	           fisinterlegalperson = #{fisinterlegalperson}, 
 	           fplanrecaddress = #{fplanrecaddress}, 
 	           fistotalserviceorcost = #{fistotalserviceorcost}, 
+	           fsettlecurrid = #{fsettlecurrid},
+	           fsettleorgid = #{fsettleorgid},
 	           tc_erp_code = #{tcErpCode}, 
 	           tc_erp_add_time = to_date(#{tcErpAddTime}, 'yyyy-mm-dd hh24:mi:ss'), 
 	           tc_sync_status = #{tcSyncStatus}, 
@@ -121,6 +123,8 @@
         <result property="fisinterlegalperson" column="FISINTERLEGALPERSON"/>
         <result property="fplanrecaddress" column="FPLANRECADDRESS"/>
         <result property="fistotalserviceorcost" column="FISTOTALSERVICEORCOST"/>
+        <result property="fsettlecurrid" column="FSETTLECURRID"/>
+        <result property="fsettleorgid" column="FSETTLEORGID"/>
         <result property="tcErpCode" column="TC_ERP_CODE"/>
         <result property="tcErpAddTime" column="TC_ERP_ADD_TIME"/>
         <result property="tcSyncStatus" column="TC_SYNC_STATUS"/>
@@ -141,7 +145,7 @@
 	</resultMap>
   	
 	<sql id="columns">
-		t.fid, t.fbilltypeid, t.fbillno, t.fdate, t.fcustomerid, t.fstockorgid, t.fdeliverydeptid, t.fstockergroupid, t.fstockerid, t.freceiverid, t.fsettleid, t.fpayerid, t.fsaleorgid, t.fsaledeptid, t.fsalesgroupid, t.fsalesmanid, t.fdeliverybill, t.ftakedeliverybill, t.fcarrierid, t.fcarriageno, t.fdocumentstatus, t.fnote, t.fcreatorid, t.fcreatedate, t.fmodifierid, t.fmodifydate, t.fapproverid, t.fapprovedate, t.fcancelstatus, t.fcancellerid, t.fcanceldate, t.fownertypeid, t.fownerid, t.fheadlocid, t.fheadlocaddress, t.fheadlocationid, t.fbusinesstype, t.freceiveaddress, t.fcreditcheckresult, t.fobjecttypeid, t.ftransferbiztype, t.fcorrespondorgid, t.freccontactid, t.fisinterlegalperson, t.fplanrecaddress, t.fistotalserviceorcost, t.tc_define_rowid, t.tc_erp_code, to_char(t.tc_erp_add_time, 'yyyy-mm-dd hh24:mi:ss') tc_erp_add_time, t.tc_sync_status, t.tc_sync_msg, to_char(t.tc_sync_save_time, 'yyyy-mm-dd hh24:mi:ss') tc_sync_save_time, to_char(t.tc_sync_submit_time, 'yyyy-mm-dd hh24:mi:ss') tc_sync_submit_time, to_char(t.tc_sync_audit_time, 'yyyy-mm-dd hh24:mi:ss') tc_sync_audit_time
+		t.fid, t.fbilltypeid, t.fbillno, t.fdate, t.fcustomerid, t.fstockorgid, t.fdeliverydeptid, t.fstockergroupid, t.fstockerid, t.freceiverid, t.fsettleid, t.fpayerid, t.fsaleorgid, t.fsaledeptid, t.fsalesgroupid, t.fsalesmanid, t.fdeliverybill, t.ftakedeliverybill, t.fcarrierid, t.fcarriageno, t.fdocumentstatus, t.fnote, t.fcreatorid, t.fcreatedate, t.fmodifierid, t.fmodifydate, t.fapproverid, t.fapprovedate, t.fcancelstatus, t.fcancellerid, t.fcanceldate, t.fownertypeid, t.fownerid, t.fheadlocid, t.fheadlocaddress, t.fheadlocationid, t.fbusinesstype, t.freceiveaddress, t.fcreditcheckresult, t.fobjecttypeid, t.ftransferbiztype, t.fcorrespondorgid, t.freccontactid, t.fisinterlegalperson, t.fplanrecaddress, t.fistotalserviceorcost, fsettlecurrid, fsettleorgid, t.tc_define_rowid, t.tc_erp_code, to_char(t.tc_erp_add_time, 'yyyy-mm-dd hh24:mi:ss') tc_erp_add_time, t.tc_sync_status, t.tc_sync_msg, to_char(t.tc_sync_save_time, 'yyyy-mm-dd hh24:mi:ss') tc_sync_save_time, to_char(t.tc_sync_submit_time, 'yyyy-mm-dd hh24:mi:ss') tc_sync_submit_time, to_char(t.tc_sync_audit_time, 'yyyy-mm-dd hh24:mi:ss') tc_sync_audit_time
 	</sql>
   	
 	<sql id="columns1">

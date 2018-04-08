@@ -72,10 +72,10 @@ public class TbK3SalOrderService extends BaseTbK3Service<TbK3SalOrder,Long>
 			FSaleOrderFinance fSaleOrderFinance = new FSaleOrderFinance();
 			// 结算币别
 			FSettleCurrId fSettleCurrId = new FSettleCurrId();
-			fSettleCurrId.setFNumber("PRE001");
+			fSettleCurrId.setFNumber(data.getFsettlecurrid());
 			fSaleOrderFinance.setFSettleCurrId(fSettleCurrId);
 			// 汇率
-			fSaleOrderFinance.setFExchangeRate("1");
+			fSaleOrderFinance.setFExchangeRate(data.getFexchangerate());
 			//------------------------------------------------------------------------------------------------------//
 			// JSON Model-FEntity []
 			//------------------------------------------------------------------------------------------------------//

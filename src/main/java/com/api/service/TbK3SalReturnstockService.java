@@ -74,14 +74,14 @@ public class TbK3SalReturnstockService extends BaseTbK3Service<TbK3SalReturnstoc
 			SubHeadEntity subHeadEntity = new SubHeadEntity();
 			// 结算币别
 			FSettleCurrId fSettleCurrID = new FSettleCurrId();
-			fSettleCurrID.setFNumber("PRE001");
+			fSettleCurrID.setFNumber(data.getFsettlecurrid());
 			subHeadEntity.setFSettleCurrId(fSettleCurrID);
 			// 结算组织
 			FSettleOrgId fSettleOrgID = new FSettleOrgId();
-			fSettleOrgID.setFNumber("100");
+			fSettleOrgID.setFNumber(data.getFsettleorgid());
 			subHeadEntity.setFSettleOrgId(fSettleOrgID);
 			// 汇率
-			subHeadEntity.setFExchangeRate("1");
+			subHeadEntity.setFExchangeRate(data.getFexchangerate());
 			//------------------------------------------------------------------------------------------------------//
 			// JSON Model-FEntity []
 			//------------------------------------------------------------------------------------------------------//
