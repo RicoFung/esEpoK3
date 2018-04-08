@@ -58,7 +58,7 @@ public class TbK3SalOutstockService extends BaseTbK3Service<TbK3SalOutstock,Long
 	public void batchSave(Map<String, String> param) throws Exception
 	{
 		//------------------------------------------------------------------------------------------------------//
-		// 获取待同步数据，10条/次，排序 tc_erp_add_time
+		// 获取待同步数据
 		//------------------------------------------------------------------------------------------------------//
 		List<TbK3SalOutstock> tbK3SalOutstocks = dao.queryPendingPage(param);
 		//------------------------------------------------------------------------------------------------------//

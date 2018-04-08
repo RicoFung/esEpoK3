@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.api.service.TbK3SalOrderService;
 import com.api.service.TbK3SalOutstockService;
 import com.api.service.TbK3SalReturnstockService;
-import com.api.service.sal.OrderService;
-import com.api.service.sal.ReturnStockService;
-import com.api.service.stk.MiscellaneousService;
-import com.api.service.stk.MisdeliveryService;
+import com.api.service.TbK3StkMiscellaneousService;
+import com.api.service.TbK3StkMisdeliveryService;
 import com.common.InvokeHelper;
 
 import chok.devwork.BaseController;
@@ -31,9 +29,9 @@ public class SyncAction extends BaseController<Object>
 	@Autowired
 	private TbK3SalOrderService orderService; // 销售订单（预售单）
 	@Autowired
-	private MiscellaneousService miscellaneousService; // 其他入库单
+	private TbK3StkMiscellaneousService miscellaneousService; // 其他入库单
 	@Autowired
-	private MisdeliveryService misdeliveryService;// 其他出库单
+	private TbK3StkMisdeliveryService misdeliveryService;// 其他出库单
 	
 	@RequestMapping("/batchSaveOutStock")
 	public void batchSaveOutStock()
@@ -116,7 +114,14 @@ public class SyncAction extends BaseController<Object>
 		try
 		{
 			if(InvokeHelper.isLogin())
-			miscellaneousService.batchSave();
+			{
+				Map<String, String> param = new HashMap<String, String>();
+				param.put("offset", "0");
+				param.put("limit", "2");
+				param.put("sort", "tcDefineRowid");
+				param.put("tcSyncStatus", "IS_NULL");
+				miscellaneousService.batchSave(param);
+			}
 		}
 		catch (Exception e)
 		{
@@ -133,7 +138,14 @@ public class SyncAction extends BaseController<Object>
 		try
 		{
 			if(InvokeHelper.isLogin())
-			misdeliveryService.batchSave();
+			{
+				Map<String, String> param = new HashMap<String, String>();
+				param.put("offset", "0");
+				param.put("limit", "2");
+				param.put("sort", "tcDefineRowid");
+				param.put("tcSyncStatus", "IS_NULL");
+				misdeliveryService.batchSave(param);
+			}
 		}
 		catch (Exception e)
 		{

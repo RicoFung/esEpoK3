@@ -4,7 +4,7 @@
 
 <mapper namespace="com.api.entity.TbK3StkMisdeliveryentry">
       <!-- 自动生成id策略 -->
-    <insert id="add" parameterType="com.api.entity.TbK3StkMisdeliveryentry" useGeneratedKeys="true" keyProperty="id">  
+    <insert id="add" parameterType="com.api.entity.TbK3StkMisdeliveryentry">  
        	insert into tb_k3_stk_misdeliveryentry 
        	( fentryid, fid, fseq, fmaterialid, flot, flot_text, fstockid, fstocklocid, funitid, fqty, fprice, famount, fbomid, fauxpropid, fproducedate, fexpirydate, fmtono, fprojectno, fstockstatusid, fbaseunitid, fbaseqty, fsecunitid, fsecqty, fextauxunitid, fextauxunitqty, fownertypeid, fownerid, fkeepertypeid, fkeeperid, fstockflag, fjoinqty, fbasejoinqty, fnote, fsnunitid, fsnqty, fsecjoinqty, fisconsumesum, fcostitem, fdistribution, fproductgroupid, tc_define_rowid) 
        	values
@@ -61,6 +61,7 @@
 	</update>
   	
 	<resultMap type="com.api.entity.TbK3StkMisdeliveryentry" id="result">
+        <id property="tcRowid" column="TC_ROWID"/>
         <result property="fentryid" column="FENTRYID"/>
         <result property="fid" column="FID"/>
         <result property="fseq" column="FSEQ"/>

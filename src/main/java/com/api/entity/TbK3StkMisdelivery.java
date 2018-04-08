@@ -1,5 +1,7 @@
 package com.api.entity;
 
+import java.util.List;
+
 /**
  *
  * @author rico
@@ -68,6 +70,8 @@ public class TbK3StkMisdelivery extends BaseTbK3Object implements java.io.Serial
 	private java.lang.String ftransferbiztype;
     // 是否跨法人       db_column: FISINTERLEGALPERSON 
 	private java.lang.String fisinterlegalperson;
+	// 明細
+	private List<TbK3StkMisdeliveryentry> entrys;
 
 	public void setFid(java.lang.String value) 
 	{
@@ -339,5 +343,16 @@ public class TbK3StkMisdelivery extends BaseTbK3Object implements java.io.Serial
 	{
 		return this.fisinterlegalperson;
 	}
+
+	public List<TbK3StkMisdeliveryentry> getEntrys()
+	{
+		return entrys;
+	}
+
+	public void setEntrys(List<TbK3StkMisdeliveryentry> entrys)
+	{
+		this.entrys = entrys;
+	}
+	
 }
 

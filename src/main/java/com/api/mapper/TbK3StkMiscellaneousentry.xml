@@ -58,6 +58,7 @@
 	</update>
   	
 	<resultMap type="com.api.entity.TbK3StkMiscellaneousentry" id="result">
+        <id property="tcRowid" column="TC_ROWID"/>
         <result property="fentryid" column="FENTRYID"/>
         <result property="fid" column="FID"/>
         <result property="fseq" column="FSEQ"/>
