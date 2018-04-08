@@ -29,6 +29,7 @@ public abstract class BaseTbK3Service<T, PK> extends BaseService<T, PK>
 	 * @param tbK3Objs
 	 * @throws Exception
 	 */
+	@SuppressWarnings("unchecked")
 	protected void callApi(String formId, BaseApiBatchSave root, List<T> list) throws Exception
 	{
 		//------------------------------------------------------------------------------------------------------//		

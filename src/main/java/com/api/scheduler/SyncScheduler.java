@@ -1,32 +1,35 @@
 package com.api.scheduler;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 
-import com.api.service.sal.OrderService;
-import com.api.service.sal.OutStockService;
-import com.api.service.sal.ReturnStockService;
-import com.api.service.stk.MiscellaneousService;
-import com.api.service.stk.MisdeliveryService;
+import com.api.service.TbK3SalOrderService;
+import com.api.service.TbK3SalOutstockService;
+import com.api.service.TbK3SalReturnstockService;
+import com.api.service.TbK3StkMiscellaneousService;
+import com.api.service.TbK3StkMisdeliveryService;
 import com.common.InvokeHelper;
 
 //@Component
-public class SyncTask
+public class SyncScheduler
 {
-	static Logger log = LoggerFactory.getLogger(SyncTask.class);
+	static Logger log = LoggerFactory.getLogger(SyncScheduler.class);
+	
 	@Autowired
-	private OutStockService outStockService; // 销售出库单
+	private TbK3SalOutstockService outStockService; // 销售出库单
 	@Autowired
-	private ReturnStockService returnStockService; // 销售退货单
+	private TbK3SalReturnstockService returnStockService; // 销售退货单
 	@Autowired
-	private OrderService orderService; // 销售订单（预售单）
+	private TbK3SalOrderService orderService; // 销售订单（预售单）
 	@Autowired
-	private MiscellaneousService miscellaneousService; // 其他入库单
+	private TbK3StkMiscellaneousService miscellaneousService; // 其他入库单
 	@Autowired
-	private MisdeliveryService misdeliveryService;// 其他出库单
+	private TbK3StkMisdeliveryService misdeliveryService;// 其他出库单
 	
 	// 第一次延迟1秒执行，当执行完后2分钟再执行
   @Scheduled(initialDelay = 1000, fixedDelay = 60000*2)
@@ -35,7 +38,7 @@ public class SyncTask
 	/**
 	 * 销售出库单同步
 	 */
-	public void outStockTask()
+	public void batchSaveOutStock()
 	{
 		if(log.isInfoEnabled()) log.info("//------------------------------------------------------------------------------------------------------//");
 		if(log.isInfoEnabled()) log.info("// Auto批量同步：销售出库单");
@@ -43,7 +46,14 @@ public class SyncTask
 		try
 		{
 			if(InvokeHelper.isLogin())
-			outStockService.batchSave();
+			{
+				Map<String, String> param = new HashMap<String, String>();
+				param.put("offset", "0");
+				param.put("limit", "2");
+				param.put("sort", "tcDefineRowid");
+				param.put("tcSyncStatus", "IS_NULL");
+				outStockService.batchSave(param);
+			}
 		}
 		catch (Exception e)
 		{
@@ -58,7 +68,7 @@ public class SyncTask
 	/**
 	 * 销售退货单同步
 	 */
-	public void returnStockTask()
+	public void batchSaveReturnStock()
 	{
 		if(log.isInfoEnabled()) log.info("//------------------------------------------------------------------------------------------------------//");
 		if(log.isInfoEnabled()) log.info("// Auto批量同步：销售退货单");
@@ -66,7 +76,14 @@ public class SyncTask
 		try
 		{
 			if(InvokeHelper.isLogin())
-			returnStockService.batchSave();
+			{
+				Map<String, String> param = new HashMap<String, String>();
+				param.put("offset", "0");
+				param.put("limit", "2");
+				param.put("sort", "tcDefineRowid");
+				param.put("tcSyncStatus", "IS_NULL");
+				returnStockService.batchSave(param);
+			}
 		}
 		catch (Exception e)
 		{
@@ -81,7 +98,7 @@ public class SyncTask
 	/**
 	 * 销售订单（预售单）同步
 	 */
-	public void orderTask()
+	public void batchSaveOrder()
 	{
 		if(log.isInfoEnabled()) log.info("//------------------------------------------------------------------------------------------------------//");
 		if(log.isInfoEnabled()) log.info("// Auto批量同步：销售订单（预售单）");
@@ -89,7 +106,14 @@ public class SyncTask
 		try
 		{
 			if(InvokeHelper.isLogin())
-			orderService.batchSave();
+			{
+				Map<String, String> param = new HashMap<String, String>();
+				param.put("offset", "0");
+				param.put("limit", "2");
+				param.put("sort", "tcDefineRowid");
+				param.put("tcSyncStatus", "IS_NULL");
+				orderService.batchSave(param);
+			}
 		}
 		catch (Exception e)
 		{
@@ -104,7 +128,7 @@ public class SyncTask
 	/**
 	 * 其他入库单同步
 	 */
-	public void miscellaneousTask()
+	public void batchSaveMiscellaneous()
 	{
 		if(log.isInfoEnabled()) log.info("//------------------------------------------------------------------------------------------------------//");
 		if(log.isInfoEnabled()) log.info("// Auto批量同步：其他入库单");
@@ -112,7 +136,14 @@ public class SyncTask
 		try
 		{
 			if(InvokeHelper.isLogin())
-			miscellaneousService.batchSave();
+			{
+				Map<String, String> param = new HashMap<String, String>();
+				param.put("offset", "0");
+				param.put("limit", "2");
+				param.put("sort", "tcDefineRowid");
+				param.put("tcSyncStatus", "IS_NULL");
+				miscellaneousService.batchSave(param);
+			}
 		}
 		catch (Exception e)
 		{
@@ -127,7 +158,7 @@ public class SyncTask
 	/**
 	 * 其他出库单同步
 	 */
-	public void misdeliveryTask()
+	public void batchSaveMisdelivery()
 	{
 		if(log.isInfoEnabled()) log.info("//------------------------------------------------------------------------------------------------------//");
 		if(log.isInfoEnabled()) log.info("// Auto批量同步：其他出库单");
@@ -135,7 +166,14 @@ public class SyncTask
 		try
 		{
 			if(InvokeHelper.isLogin())
-			misdeliveryService.batchSave();
+			{
+				Map<String, String> param = new HashMap<String, String>();
+				param.put("offset", "0");
+				param.put("limit", "2");
+				param.put("sort", "tcDefineRowid");
+				param.put("tcSyncStatus", "IS_NULL");
+				misdeliveryService.batchSave(param);
+			}
 		}
 		catch (Exception e)
 		{

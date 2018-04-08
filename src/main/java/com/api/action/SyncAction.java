@@ -3,6 +3,8 @@ package com.api.action;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,8 @@ import chok.devwork.BaseController;
 @RequestMapping("/sync")
 public class SyncAction extends BaseController<Object>
 {
+	static Logger log = LoggerFactory.getLogger(SyncAction.class);
+	
 	@Autowired
 	private TbK3SalOutstockService outStockService; // 销售出库单
 	@Autowired
