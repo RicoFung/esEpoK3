@@ -91,7 +91,7 @@ public class TbK3SalReturnstock extends BaseTbK3Object implements java.io.Serial
     // 是否跨法人       db_column: FISINTERLEGALPERSON 
 	private java.lang.String fisinterlegalperson;
 	// 明细
-	private List<TbK3SalReturnstockentry> tbK3SalReturnstockentrys;
+	private List<TbK3SalReturnstockentry> entrys;
 
 	public void setFbilltypeid(java.lang.String value) 
 	{
@@ -456,14 +456,14 @@ public class TbK3SalReturnstock extends BaseTbK3Object implements java.io.Serial
 		return this.fisinterlegalperson;
 	}
 
-	public List<TbK3SalReturnstockentry> getTbK3SalReturnstockentrys()
+	public List<TbK3SalReturnstockentry> getEntrys()
 	{
-		return tbK3SalReturnstockentrys;
+		return entrys;
 	}
 
-	public void setTbK3SalReturnstockentrys(List<TbK3SalReturnstockentry> tbK3SalReturnstockentrys)
+	public void setEntrys(List<TbK3SalReturnstockentry> entrys)
 	{
-		this.tbK3SalReturnstockentrys = tbK3SalReturnstockentrys;
+		this.entrys = entrys;
 	}
 
 }

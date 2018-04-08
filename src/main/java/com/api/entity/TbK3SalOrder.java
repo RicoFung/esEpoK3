@@ -104,7 +104,7 @@ public class TbK3SalOrder extends BaseTbK3Object implements java.io.Serializable
 	// 来自移动 db_column: FISMOBILE
 	private java.lang.String fismobile;
 	// 明细
-	private List<TbK3SalOrderentry> tbK3SalOrderentrys;
+	private List<TbK3SalOrderentry> entrys;
 
 	public void setFbilltypeid(java.lang.String value)
 	{
@@ -566,14 +566,14 @@ public class TbK3SalOrder extends BaseTbK3Object implements java.io.Serializable
 		return this.fismobile;
 	}
 
-	public List<TbK3SalOrderentry> getTbK3SalOrderentrys()
+	public List<TbK3SalOrderentry> getEntrys()
 	{
-		return tbK3SalOrderentrys;
+		return entrys;
 	}
 
-	public void setTbK3SalOrderentrys(List<TbK3SalOrderentry> tbK3SalOrderentrys)
+	public void setEntrys(List<TbK3SalOrderentry> entrys)
 	{
-		this.tbK3SalOrderentrys = tbK3SalOrderentrys;
+		this.entrys = entrys;
 	}
 
 }

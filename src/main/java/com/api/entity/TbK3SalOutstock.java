@@ -99,7 +99,7 @@ public class TbK3SalOutstock extends BaseTbK3Object implements java.io.Serializa
     // 整单服务或费用       db_column: FISTOTALSERVICEORCOST 
 	private java.lang.String fistotalserviceorcost;
 	// 明细
-	private List<TbK3SalOutstockentry> tbK3SalOutstockentrys;
+	private List<TbK3SalOutstockentry> entrys;
 
 	public void setFbilltypeid(java.lang.String value) 
 	{
@@ -498,15 +498,15 @@ public class TbK3SalOutstock extends BaseTbK3Object implements java.io.Serializa
 	{
 		return this.fistotalserviceorcost;
 	}
-	
-	public void setTbK3SalOutstockentrys(List<TbK3SalOutstockentry> tbK3SalOutstockentrys)
+
+	public List<TbK3SalOutstockentry> getEntrys()
 	{
-		this.tbK3SalOutstockentrys = tbK3SalOutstockentrys;
+		return entrys;
 	}
 
-	public List<TbK3SalOutstockentry> getTbK3SalOutstockentrys()
+	public void setEntrys(List<TbK3SalOutstockentry> entrys)
 	{
-		return tbK3SalOutstockentrys;
+		this.entrys = entrys;
 	}
 
 	@Override

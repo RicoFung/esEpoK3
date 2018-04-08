@@ -60,16 +60,16 @@ public class TbK3SalReturnstockService extends BaseTbK3Service<TbK3SalReturnstoc
 		//------------------------------------------------------------------------------------------------------//
 		// 获取待同步数据
 		//------------------------------------------------------------------------------------------------------//
-		List<TbK3SalReturnstock> tbK3SalReturnstocks = dao.queryPendingPage(param);
+		List<TbK3SalReturnstock> datas = dao.queryPendingPage(param);
 		//------------------------------------------------------------------------------------------------------//
-		// Model-集合
+		// JSON Model []
 		//------------------------------------------------------------------------------------------------------//
-		List<Model> modelList = new ArrayList<Model>();
-		for (int i=0; i<tbK3SalReturnstocks.size(); i++)
+		List<Model> jsonModels = new ArrayList<Model>();
+		for (int i=0; i<datas.size(); i++)
 		{
-			TbK3SalReturnstock tbK3SalReturnstock = tbK3SalReturnstocks.get(i);
+			TbK3SalReturnstock data = datas.get(i);
 			//------------------------------------------------------------------------------------------------------//
-			// Model-SubHeadEntity
+			// JSON Model-SubHeadEntity
 			//------------------------------------------------------------------------------------------------------//
 			SubHeadEntity subHeadEntity = new SubHeadEntity();
 			// 结算币别
@@ -83,72 +83,71 @@ public class TbK3SalReturnstockService extends BaseTbK3Service<TbK3SalReturnstoc
 			// 汇率
 			subHeadEntity.setFExchangeRate("1");
 			//------------------------------------------------------------------------------------------------------//
-			// Model-FEntity
+			// JSON Model-FEntity []
 			//------------------------------------------------------------------------------------------------------//
-			List<FEntity> fEntityList = new ArrayList<FEntity>();
-			List<TbK3SalReturnstockentry> tbK3SalReturnstockentrys = tbK3SalReturnstock.getTbK3SalReturnstockentrys();
-			for (int j=0; j< tbK3SalReturnstockentrys.size(); j++)
+			List<FEntity> jsonFEntitys = new ArrayList<FEntity>();
+			List<TbK3SalReturnstockentry> entrys = data.getEntrys();
+			for (int j=0; j<entrys.size(); j++)
 			{
-				TbK3SalReturnstockentry tbK3SalReturnstockentry = tbK3SalReturnstockentrys.get(j);
-				FEntity fEntity = new FEntity();
-
+				FEntity jsonFEntity = new FEntity();
+				TbK3SalReturnstockentry entry = entrys.get(j);
 				// 物料编码
 				FMaterialId fMaterialID = new FMaterialId();
-				fMaterialID.setFNumber(tbK3SalReturnstockentry.getFmaterialid());
-				fEntity.setFMaterialId(fMaterialID);
+				fMaterialID.setFNumber(entry.getFmaterialid());
+				jsonFEntity.setFMaterialId(fMaterialID);
 				// 库存单位
 				FUnitID fUnitID = new FUnitID();
-				fUnitID.setFNumber(tbK3SalReturnstockentry.getFunitid());
-				fEntity.setFUnitID(fUnitID);
+				fUnitID.setFNumber(entry.getFunitid());
+				jsonFEntity.setFUnitID(fUnitID);
 				// 实发数量
-				fEntity.setFRealQty(tbK3SalReturnstockentry.getFrealqty());
+				jsonFEntity.setFRealQty(entry.getFrealqty());
 				// 货主
 				FOwnerId fOwnerID = new FOwnerId();
-				fOwnerID.setFNumber(tbK3SalReturnstockentry.getFownerid());
-				fEntity.setFOwnerId(fOwnerID);
+				fOwnerID.setFNumber(entry.getFownerid());
+				jsonFEntity.setFOwnerId(fOwnerID);
 				// 仓库
 				FStockId fStockID = new FStockId();
-				fStockID.setFNumber(tbK3SalReturnstockentry.getFstockid());
-				fEntity.setFStockId(fStockID);
+				fStockID.setFNumber(entry.getFstockid());
+				jsonFEntity.setFStockId(fStockID);
 				// add to list
-				fEntityList.add(fEntity);
+				jsonFEntitys.add(jsonFEntity);
 			}
 			//------------------------------------------------------------------------------------------------------//
-			// Model
+			// JSON Model
 			//------------------------------------------------------------------------------------------------------//
-			Model model = new Model();
+			Model jsonModel = new Model();
 			// 单据类型
 			FBillTypeID fBillTypeID = new FBillTypeID();
-			fBillTypeID.setFNumber(tbK3SalReturnstock.getFbilltypeid());
-			model.setFBillTypeID(fBillTypeID);
+			fBillTypeID.setFNumber(data.getFbilltypeid());
+			jsonModel.setFBillTypeID(fBillTypeID);
 			// 销售组织
 			FSaleOrgId fSaleOrgId = new FSaleOrgId();
-			fSaleOrgId.setFNumber(tbK3SalReturnstock.getFsaleorgid());
-			model.setFSaleOrgId(fSaleOrgId);
+			fSaleOrgId.setFNumber(data.getFsaleorgid());
+			jsonModel.setFSaleOrgId(fSaleOrgId);
 			// 退货客户
 			FRetcustId fRetcustId = new FRetcustId();
-			fRetcustId.setFNumber("A001");
-			model.setFRetcustId(fRetcustId);
+			fRetcustId.setFNumber(data.getFretcustid());
+			jsonModel.setFRetcustId(fRetcustId);
 			// 库存组织
 			FStockOrgId fStockOrgId = new FStockOrgId();
-			fStockOrgId.setFNumber(tbK3SalReturnstock.getFstockorgid());
-			model.setFStockOrgId(fStockOrgId);
+			fStockOrgId.setFNumber(data.getFstockorgid());
+			jsonModel.setFStockOrgId(fStockOrgId);
 			// set to SubHeadEntity
-			model.setSubHeadEntity(subHeadEntity);
+			jsonModel.setSubHeadEntity(subHeadEntity);
 			// set to FEntity
-			model.setFEntity(fEntityList);
+			jsonModel.setFEntity(jsonFEntitys);
 			// add to List
-			modelList.add(model);
+			jsonModels.add(jsonModel);
 		}
 		//------------------------------------------------------------------------------------------------------//
 		// Root Set
 		//------------------------------------------------------------------------------------------------------//
 		ApiBatchSave root = new ApiBatchSave();
-		root.setModel(modelList);
+		root.setModel(jsonModels);
 		root.setCreator("test");
 		//------------------------------------------------------------------------------------------------------//		
 		// Api Call
 		//------------------------------------------------------------------------------------------------------//
-		callApi(FORM_ID, root, tbK3SalReturnstocks);
+		callApi(FORM_ID, root, datas);
 	}
 }

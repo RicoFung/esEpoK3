@@ -124,7 +124,7 @@
 	</resultMap>
 	
 	<resultMap type="com.api.entity.TbK3SalReturnstock" id="resultCascade" extends="result">
-        <collection property="tbK3SalReturnstockentrys" column="T1_TC_DEFINE_ROWID"  ofType="com.api.entity.TbK3SalReturnstockentry" resultMap="com.api.entity.TbK3SalReturnstockentry.result">
+        <collection property="entrys" column="T1_TC_DEFINE_ROWID"  ofType="com.api.entity.TbK3SalReturnstockentry" resultMap="com.api.entity.TbK3SalReturnstockentry.result">
         	<result property="fid" column="T1_FID"/>
         	<result property="fnote" column="T1_FNOTE"/>
 	        <result property="fownertypeid" column="T1_FOWNERTYPEID"/>
