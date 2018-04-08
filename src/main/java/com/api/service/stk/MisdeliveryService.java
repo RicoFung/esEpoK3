@@ -73,7 +73,7 @@ public class MisdeliveryService
 		Model model = new Model();
 		// 单据类型
 		FBillTypeID fBillTypeID = new FBillTypeID();
-		fBillTypeID.setFNumber("XSCKD01_SYS");
+		fBillTypeID.setFNumber("QTCKD01_SYS");
 		model.setFBillTypeID(fBillTypeID);
 		// 客戶与部门至少录入一个
 		// 客戶
