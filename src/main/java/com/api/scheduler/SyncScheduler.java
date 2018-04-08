@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 import com.api.service.TbK3SalOrderService;
 import com.api.service.TbK3SalOutstockService;
@@ -15,7 +16,7 @@ import com.api.service.TbK3StkMiscellaneousService;
 import com.api.service.TbK3StkMisdeliveryService;
 import com.common.InvokeHelper;
 
-//@Component
+@Component
 public class SyncScheduler
 {
 	static Logger log = LoggerFactory.getLogger(SyncScheduler.class);

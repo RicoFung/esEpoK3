@@ -15,21 +15,13 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.api.service.sal.OrderService;
-import com.api.service.sal.OutStockService;
-import com.api.service.sal.ReturnStockService;
-import com.api.service.stk.MiscellaneousService;
-import com.api.service.stk.MisdeliveryService;
-
 import chok.util.PropertiesUtil;
 
 public class InvokeHelper
 {
 	static Logger log = LoggerFactory.getLogger(InvokeHelper.class);
-	// TODO Auto-generated method stub
-	// K3 Cloud WebSite URL Example "http://192.168.19.113/K3Cloud/"
 
-	public static String POST_K3CloudURL = "http://192.168.9.27/K3Cloud/";
+	public static String POST_K3CloudURL = PropertiesUtil.getValue("config/", "k3.url");
 	// Cookie 值
 	private static String CookieVal = null;
 	private static Map<String, String> map = new HashMap<String, String>();
@@ -279,8 +271,8 @@ public class InvokeHelper
 		if(InvokeHelper.isLogin())
 		{// 登录成功
 			// 销售出库单
-			OutStockService outStockService = new OutStockService();
-			outStockService.batchSave();
+//			OutStockService outStockService = new OutStockService();
+//			outStockService.batchSave();
 			// 销售退库单
 //			ReturnStockService returnStockService = new ReturnStockService();
 //			returnStockService.batchSave();
